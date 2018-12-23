@@ -1,0 +1,589 @@
+.page-notice {
+	background: #edf0fa;
+	height: 100%;
+}
+
+.page-notice .top-nav {
+	background: #dde5fd;
+	padding-left: 50px;
+}
+
+.page-notice .parentnav {
+	background: url(../img/single.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 288px;
+	height: 52px;
+}
+
+.page-notice .parentnav span {
+	padding: 0 30px;
+	font-size: 20px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+
+.page-notice .main-top {
+	background: url(../img/bg3-top.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	height: 80px;
+}
+
+.page-notice .main-content {
+	padding: 48px 200px 54px 45px;
+}
+
+
+.page-notice .main-title {
+	font-size: 33px;
+	color: #fff;
+	padding-left: 20px;
+	line-height: 80px;
+	height: 80px;
+	/* text-align: center; */
+}
+
+.page-notice .main-detail {
+	font-size: 18px;
+}
+
+
+/**领导机构中的表格样式**/
+.page-notice .l-data-operation {
+	height: 70px;
+	text-align: right;
+	padding-bottom: 30px;
+	overflow: hidden;
+}
+
+.page-notice .l-data .output {
+	/* float: right; */
+	width: 100%;
+	font-size: 28px;
+	/* width: 100px; */
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	padding-top: 30px;
+}
+
+.page-notice .l-data .output span {
+	width: 130px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	display: block;
+	background: #7E95DA;
+	color: #fff;
+	margin-right: 55px;
+	margin-left: 89%;
+	border-radius: 8px;
+
+}
+
+
+.page-notice .l-data-operation .l-do-wrap {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	/* display: inline-block; */
+	overflow: hidden;
+	margin-left: 79%;
+}
+
+.page-notice .l-do-wrap div {
+	float: left;
+	margin-right: 30px;
+}
+
+.page-notice .l-do-wrap span {
+	font-size: 14px;
+	color: #202426;
+	margin-left: 10px;
+}
+
+.page-notice .l-data table {
+	width: 99.8%;
+	overflow: hidden;
+	border-collapse: collapse;
+}
+
+.page-notice thead {
+	background: #f0f5ff;
+}
+
+.page-notice table,
+.page-notice table th,
+.page-notice table td {
+	text-align: center;
+	line-height: 54px;
+	height: 54px;
+	border: 3px #EAECFC solid;
+}
+
+.page-notice table td {
+	background: #fff;
+}
+
+.page-notice table td.ld-operation {
+	position: relative;
+}
+
+
+
+.page-notice .ld-select p {
+	width: 20px;
+	height: 20px;
+	margin: 0 auto;
+	background: url(../img/uncheck.png) no-repeat center center;
+	cursor: pointer;
+}
+
+.page-notice .ld-select p.checked {
+	width: 20px;
+	height: 20px;
+	margin: 0 auto;
+	background: url(../img/checked.png) no-repeat center center;
+	cursor: pointer;
+}
+
+
+
+.page-notice .main-bottom {
+	background: url(../img/bg4.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	height: 1400px;
+}
+
+
+
+.page-notice .main-bottom .search input {
+	/* width: 100%; */
+	border-radius: 8px;
+	height: 25px;
+	line-height: 32px;
+	border: 1px #e8e6e7 solid;
+	background: #e5effb url(../img/icon.png) 95% no-repeat;
+	padding-left: 10%;
+	background-size: 12px 12px;
+	border-radius: 13px;
+	float: left;
+	margin-right: 20px;
+}
+
+.page-notice .main-bottom .search .add {
+	display: block;
+	width: 70px;
+	line-height: 32px;
+	float: left;
+	text-align: center;
+}
+
+.page-notice .operate {
+	overflow: hidden;
+	padding-left: 45px;
+}
+
+/* .main-bottom .search  */
+.page-notice .modify {
+	display: block;
+	width: 70px;
+	float: left;
+	line-height: 32px;
+	/* text-align: center; */
+}
+
+/* .main-bottom .search  */
+.page-notice .delete {
+	display: block;
+	width: 70px;
+	float: left;
+	/* line-height: 32px; */
+	/* text-align: center; */
+}
+
+.page-notice .room .room-content {
+	position: relative;
+}
+
+.page-notice .room .room-content p {
+	background: url(../img/fbg.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 302px;
+	height: 273px;
+	float: left;
+	margin: 50px 29px;
+	position: relative;
+}
+
+.page-notice .room .room-content p span {
+	position: absolute;
+	bottom: 25px;
+	font-size: 20px;
+	color: #2f5bac;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.page-notice .room .people-framework {
+	padding-top: 20px;
+	margin-right: 60px;
+	overflow: hidden;
+}
+
+.page-notice .room .people-framework span {
+	display: block;
+	width: 105px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	background: #7e95da;
+	border-radius: 3px;
+	float: right;
+}
+
+.page-notice .room-content a {
+	position: absolute;
+	top: 174px;
+	left: 105px;
+	width: 100px;
+	height: 100px;
+}
+
+.page-notice .add i {
+	background: url(../img/add.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+}
+
+.page-notice .add em {
+	display: block;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+}
+
+.page-notice .edit i {
+	background: url(../img/edit.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+}
+
+.page-notice .modify em {
+	display: block;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+}
+
+.page-notice .delete i {
+	background: url(../img/delete.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+}
+
+.page-notice .delete em {
+	display: block;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+}
+
+/**分页*/
+.page-notice .page-wrap {
+	width: 100%;
+	/* margin: 20px auto 0 auto; */
+	float: right;
+}
+
+.page-notice #page {
+	padding: 15px 20px;
+	text-align: right;
+	color: #ccc;
+	clear: both;
+}
+
+.page-notice #page a {
+	display: inline-block;
+	color: #4c4c4c;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding: 3px 12px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	margin: 0 2px;
+	vertical-align: middle;
+	font-size: 14px;
+}
+
+.page-notice #page a:hover {
+	text-decoration: none;
+	color: #fff;
+	border: 1px solid #428bca;
+	background-color: #428bca;
+}
+
+.page-notice #page span.current {
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding: 3px 12px;
+	margin: 0 2px;
+	color: #fff;
+	background-color: #428bca;
+	border: 1px solid #428bca;
+	border-radius: 4px;
+	vertical-align: middle;
+}
+
+.page-notice #page span.disabled {
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding: 3px 12px;
+	margin: 0 2px;
+	color: #bfbfbf;
+	background: #f2f2f2;
+	border: 1px solid #bfbfbf;
+	border-radius: 4px;
+	vertical-align: middle;
+}
+
+.page-notice #page span.pagecount {
+	padding: 0 10px;
+	font-size: 14px;
+	color: #333;
+	margin-right: -30px;
+}
+
+.page-notice #page span.countYe {
+	color: #4c4c4c;
+	font-size: 14px;
+	margin-left: 30px;
+}
+
+.page-notice #page span.countYe input {
+	outline: none;
+	text-align: center;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	height: 25px;
+	padding: 3px 10px;
+	width: 25px;
+	margin: 0 5px;
+}
+
+.page-notice #page a.turndown {
+	padding: 3px 10px;
+}
+
+
+
+
+
+.page-notice .addpeople {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 99999;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+	left: 0;
+	font-size: 14px;
+}
+
+.page-notice .addpeople-content {
+	background: #fff;
+	width: 300px;
+	height: 400px;
+	margin: 0 auto;
+	margin-top: 120px;
+	padding: 50px;
+	font-size: 20px;
+}
+
+.page-notice .addpeople-content .number {
+	margin-bottom: 20px;
+}
+
+.page-notice .addpeople-content .number input {
+	border: #333 1px solid;
+}
+
+.page-notice .addpeople-content .name {
+	margin-bottom: 20px;
+}
+
+.page-notice .addpeople-content .name input {
+	border: #333 1px solid;
+}
+
+.page-notice .addpeople-content .sex {
+	margin-bottom: 20px;
+}
+
+.page-notice .addpeople-content .sex input {
+	border: #333 1px solid;
+}
+
+.page-notice .addpeople-content .job {
+	margin-bottom: 20px;
+}
+
+.page-notice .addpeople-content .job input {
+	border: #333 1px solid;
+}
+
+
+
+
+.page-notice .pop {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	z-index: 10;
+}
+
+.page-notice .pop-content {
+	top: 10%;
+	position: absolute;
+	width: 400px;
+	background: #ECEEF4;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	padding: 20px;
+	font-size: 18px;
+	border-radius: 8px;
+}
+
+.page-notice .pop-content .pop_li p {
+	margin: 20px 0;
+}
+
+.page-notice .pop-content input {
+	width: 100%;
+	height: 30px;
+}
+
+
+.page-notice .pop-content .accessory span {
+	display: block;
+	float: left;
+}
+
+.page-notice .pop-content .accessory i {
+	background: url(../img/upload.png) 0 0 no-repeat;
+	width: 94px;
+	height: 36px;
+	background-size: 100% 100%;
+	float: left;
+}
+
+.page-notice .pop-content .button {
+	width: 200px;
+	overflow: hidden;
+	margin-top: 20px;
+	margin: 0 auto;
+}
+
+.page-notice .pop-content .button .yes {
+	float: left;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	background: #5E87EB;
+	color: #fff;
+	text-align: center;
+}
+
+.page-notice .pop-content .button .notice_cancel {
+	float: left;
+	border: #268bc9 1px solid;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	color: #268bc9;
+	text-align: center;
+	margin-right: 30px;
+}
+
+
+.page-notice .add-photo-wrap {
+	position: relative;
+	width: 130px;
+	height: 40px;
+	margin-left: 96px;
+	margin-top: 14px;
+}
+
+.page-notice .asseory {
+	float: left;
+	margin-top: 20px;
+}
+
+.page-notice .add-photo-wrap .add-photo {
+	width: 90px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #fff;
+	border-radius: 3px;
+	text-align: center;
+	border: 1px solid #ddd;
+	cursor: pointer;
+	background: #f63;
+}
+
+.page-notice .add-photo i {
+	background: url(../img/hui.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 12px;
+	height: 12px;
+}
+
+
+.page-notice .add-photo-wrap>input {
+	position: absolute;
+    width: 130px;
+    height: 50px;
+    top: 1px;
+    left: 0px;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    border-radius: 8px;
+    z-index: 99;
+}
+
+.page-notice .accessory {
+	position: relative;
+	overflow: hidden;
+}
+
+.page-notice .ld-operation i {
+	background: url(../img/assery.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 30px;
+	height: 30px;
+	display: block;
+	position: absolute;
+	top: 11px;
+	left: 31px;
+
+}

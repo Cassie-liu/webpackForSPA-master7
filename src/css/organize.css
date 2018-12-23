@@ -1,0 +1,906 @@
+.page-organize {
+	background: #edf0fa;
+	height: 100%;
+}
+
+.page-organize .top-nav {
+	background: #dde5fd;
+	padding-left: 50px;
+}
+
+.page-organize .parentnav {
+	background: url(../img/single.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 288px;
+	height: 52px;
+}
+
+.page-organize .parentnav span {
+	padding: 0 35px;
+	font-size: 16px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+
+.page-organize .main-content {
+	padding: 48px 200px 54px 45px;
+}
+
+.page-organize .main-top {
+	background: url(../img/bg3.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	height: 112px;
+}
+
+.page-organize .main-title {
+	font-size: 22px;
+	color: #fff;
+	padding-left: 20px;
+	line-height: 50px;
+	height: 50px;
+	/* text-align: center; */
+}
+
+.page-organize .main-detail {
+	font-size: 18px;
+}
+
+.page-organize .org-btn,
+.page-organize .office-group-btn {
+	width: 105px;
+	height: 35px;
+	font-size: 16px;
+	line-height: 35px;
+	text-align: center;
+	background: #9abeef;
+	border-radius: 3px;
+	display: block;
+	float: left;
+	margin-top: 15px;
+	color: #fff;
+	margin-left: 20px;
+	cursor: pointer;
+}
+
+.page-organize .org-btn.active,
+.page-organize .office-group-btn.active {
+	background: #f7f9ff;
+	color: #4b90ff;
+	border: 1px solid #4b90ff;
+}
+
+.page-organize .leader-menu,
+.page-organize .office-menu,
+.page-organize .group-menu {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 105px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	background: #7e95da;
+	border-radius: 3px;
+	margin-top: -48px;
+	color: #fff;
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+.page-organize .l-export {
+	right: 135px;
+}
+
+.page-organize .main-bottom {
+	background: url(../img/bg4.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	height: 715px;
+}
+
+.page-organize .leader-cnt,
+.page-organize .office-cnt {
+	height: 100%;
+}
+
+.page-organize .l-organize,
+.page-organize .o-organize,
+.page-organize .staff-org {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+.page-organize .l-o-cnt,
+.page-organize .o-o-cnt,
+.page-organize .o-go-cnt {
+	width: 260px;
+	height: 520px;
+	margin-top: 64px;
+	display: inline-block;
+}
+
+/**领导机构中的组织图样式**/
+.page-organize .l-o-cnt .l-org-detail,
+.page-organize .o-o-cnt .o-org-detail,
+.page-organize .o-go-cnt .o-gorg-detail {
+	font-size: 20px;
+	color: #fff;
+	text-align: center;
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background: url(../img/box.png) no-repeat;
+	background-size: 100% 100%;
+	box-sizing: border-box;
+}
+
+.page-organize .l-o-cnt .l-org-detail div,
+.page-organize .o-o-cnt .o-org-detail div,
+.page-organize .o-go-cnt .o-gorg-detail div {
+	padding: 0 20px 0 10px;
+}
+
+/**领导机构中的表格样式**/
+.page-organize .l-data,
+.page-organize .o-data,
+.page-organize .staff-data {
+	height: 520px;
+	overflow-y: scroll;
+}
+
+.page-organize .l-data-operation,
+.page-organize .o-data-operation,
+.page-organize .g-data-operation {
+	height: 70px;
+	text-align: right;
+}
+
+.page-organize .l-do-wrap,
+.page-organize .o-do-wrap,
+.page-organize .g-do-wrap {
+	margin-top: 30px;
+	display: inline-block;
+}
+
+.page-organize .l-do-wrap span,
+.page-organize .o-do-wrap span,
+.page-organize .g-do-wrap span {
+	font-size: 14px;
+	color: #202426;
+}
+
+.page-organize .l-data table,
+.page-organize .o-data table,
+.page-organize .staff-data table {
+	width: 100%;
+	overflow: hidden;
+	border-collapse: collapse;
+}
+
+.page-organize thead {
+	background: #f0f5ff;
+}
+
+.page-organize table,
+.page-organize table th,
+.page-organize table td {
+	text-align: center;
+	line-height: 54px;
+	height: 54px;
+	color: #596f8c;
+	font-size: 18px;
+	border: 3px #eaecfc solid;
+}
+
+.page-organize .ld-select,
+.page-organize .od-select,
+.page-organize .gd-select {
+	width: 84px;
+}
+
+.page-organize .ld-no,
+.page-organize .od-no,
+.page-organize .gd-no {
+	width: 136px;
+}
+
+.page-organize .ld-name,
+.page-organize .od-name,
+.page-organize .gd-name {
+	width: 180px;
+}
+
+.page-organize .ld-sex,
+.page-organize .od-sex,
+.page-organize .gd-sex {
+	width: 136px;
+}
+
+.page-organize .ld-section,
+.page-organize .od-section,
+.page-organize .gd-section {
+	width: 177px;
+}
+
+.page-organize .ld-range,
+.page-organize .od-range,
+.page-organize .gd-range {
+	width: 185px;
+}
+
+.page-organize .ld-tel,
+.page-organize .od-tel,
+.page-organize .gd-tel {
+	width: 216px;
+}
+
+.page-organize .ld-job,
+.page-organize .od-job,
+.page-organize .gd-job {
+	width: 249px;
+}
+
+.page-organize .ld-operation,
+.page-organize .od-operation,
+.page-organize .gd-operation {
+	width: 260px;
+}
+
+.none {
+	display: none;
+}
+
+
+
+/***************************新增，修改删除按钮的样式******************************/
+
+.page-organize .l-data-operation .l-do-wrap {
+	padding-top: 0px;
+	padding-bottom: 30px;
+	overflow: hidden;
+}
+
+.page-organize .g-data-operation .g-do-wrap {
+	padding-top: 0px;
+	padding-bottom: 30px;
+	overflow: hidden;
+	margin-left: 75%;
+}
+
+.page-organize .l-do-wrap div,
+.page-organize .g-do-wrap div,
+.page-organize .o-do-wrap div {
+	float: left;
+	margin-right: 30px;
+	cursor: pointer;
+}
+
+.page-organize .l-do-wrap span,
+.page-organize .g-do-wrap span {
+	font-size: 14px;
+	color: #202426;
+	margin-left: 10px;
+}
+
+.page-organize .main-bottom .search .add {
+	display: block;
+	width: 70px;
+	line-height: 32px;
+	float: left;
+	text-align: center;
+}
+
+.page-organize .operate {
+	overflow: hidden;
+	padding-left: 45px;
+}
+
+.page-organize .od-select p,
+.page-organize .ld-select p {
+	width: 20px;
+	height: 20px;
+	margin: 0 auto;
+	background: url(../img/uncheck.png) no-repeat center center;
+	cursor: pointer;
+}
+
+.page-organize .od-select p.checked,
+.page-organize .ld-select p.checked {
+	width: 20px;
+	height: 20px;
+	margin: 0 auto;
+	background: url(../img/checked.png) no-repeat center center;
+	cursor: pointer;
+}
+
+
+.page-organize .gd-select p {
+	width: 20px;
+	height: 20px;
+	margin: 0 auto;
+	background: url(../img/uncheck.png) no-repeat center center;
+	cursor: pointer;
+}
+
+.page-organize .gd-select p.checked {
+	width: 20px;
+	height: 20px;
+	margin: 0 auto;
+	background: url(../img/checked.png) no-repeat center center;
+	cursor: pointer;
+}
+
+
+.page-organize .add i {
+	background: url(../img/add.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+}
+
+.page-organize .add em {
+	display: block;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+}
+
+.page-organize .edit i {
+	background: url(../img/edit.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+}
+
+.page-organize .delete i {
+	background: url(../img/delete.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+}
+
+.page-organize .delete em {
+	display: block;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+}
+
+
+.page-organize .lo-data-operation .o-do-wrap {
+	padding-top: 0px;
+	padding-bottom: 30px;
+	overflow: hidden;
+	margin-left: 75%;
+}
+
+.page-organize .o-do-wrap span {
+	font-size: 14px;
+	color: #202426;
+	margin-left: 10px;
+}
+
+/***************************办公室分割线******************************/
+
+.page-organize .o-person {
+	margin-top: 20px;
+}
+
+.page-organize .office-cnt {
+	position: relative;
+}
+
+.page-organize .o-group .o-group-item {
+	position: relative;
+	width: 300px;
+	height: 264px;
+	float: left;
+	margin: 50px 29px;
+}
+
+.page-organize .o-group .item {
+	width: 100%;
+	height: 100%;
+	background: url(../img/fbg.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+
+.page-organize .o-group .item a {
+	position: absolute;
+	top: 174px;
+	left: 105px;
+	width: 100px;
+	height: 100px;
+}
+
+.page-organize .o-group .item span {
+	position: absolute;
+	bottom: 25px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 20px;
+	color: #2f5bac;
+}
+
+.page-organize .o-group .item-operate {
+	position: absolute;
+	bottom: -20px;
+	left: 0;
+	width: 100%;
+	color: #2f5bac;
+	font-size: 16px;
+}
+
+.page-organize .o-group .item-edit {
+	float: left;
+	margin-left: 50px;
+	cursor: pointer;
+}
+
+.page-organize .o-group .item-dele {
+	float: right;
+	margin-right: 50px;
+	cursor: pointer;
+}
+
+.page-organize .o-export,
+.page-organize .o-back {
+	right: 135px;
+}
+
+/***************************办公室组*************************************/
+
+.page-organize .generation {
+	height: 100%;
+}
+
+.page-organize .group-cnt {
+	position: relative;
+	height: 100%;
+}
+
+.page-organize .general-cnt {
+	padding: 46px 42px 0;
+}
+
+.page-organize .general-wrap {
+	position: relative;
+	background: #e4e7f0;
+	padding: 0 94px;
+	height: 444px;
+	overflow: hidden;
+}
+
+.page-organize .general-wrap .cnt,
+.page-organize .general-wrap .no-cnt {
+	width: 100%;
+	height: 100%;
+}
+
+
+.page-organize .group-subpage .general-wrap .no-cnt {
+	background: url(../img/lose.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 100%;
+	height: 195px;
+	position: absolute;
+	top: 101px;
+	left: 0;
+}
+
+
+
+.page-organize .general-wrap .no-cnt {
+	text-align: center;
+	font-size: 12px;
+	color: #202426;
+}
+
+.page-organize .add-og-cnt {
+	font-size: 22px;
+	color: #fff;
+	background: #7E94DA;
+	padding: 15px 30px;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-left: 20px;
+}
+
+.page-organize .general-slide {
+	margin-top: 40px;
+	width: 500px;
+	height: 359px;
+}
+
+.page-organize .general-slide li {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.page-organize .general-slide li img {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+.page-organize .general-slide ul {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.page-organize .general-slide ul .desc {
+	position: absolute;
+	width: 96%;
+	bottom: 0;
+	left: 0;
+	font-size: 20px;
+	height: 53px;
+	line-height: 53px;
+	padding-left: 20px;
+	margin-top: 10px;
+	/* padding: 9px 10px 7px 10px; */
+	/* background: url(../img/shawBg.png) repeat; */
+	color: #fff;
+	z-index: 19;
+}
+
+.page-organize .general-right {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-left: 622px;
+}
+
+.page-organize .general-right .g-tit {
+	color: #d50908;
+	font-size: 40px;
+	line-height: 1;
+	margin-bottom: 40px;
+	margin-top: 45px;
+}
+
+.page-organize .general-right p {
+	font-size: 20px;
+	line-height: 30px;
+	text-indent: 40px;
+}
+
+.page-organize .g-export {
+	right: 135px;
+}
+
+/**新增办公室组的弹窗样式start**/
+/**编辑办公室小房子的弹窗样式start**/
+.page-organize .oap-cnt,
+.page-organize .edit-p-cnt{
+	position: absolute;
+	top: 40%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 600px;
+	background: #ECEEF4;
+	text-align: center;
+	box-sizing: border-box;
+	box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+.page-organize .oap-cnt .oap-header,
+.page-organize .edit-p-cnt .edit-header{
+	text-align: right;
+	padding:15px;
+	border-bottom: 1px solid #ddd;
+}
+.page-organize .oap-cnt .oap-header .oap-cancel-add,
+.page-organize .edit-p-cnt .edit-header .notice_cancel{
+	background: #ECEEF4;
+	color: #333;
+	border:none;
+	cursor: pointer;
+}
+.page-organize .oap-cnt .oap-body,
+.page-organize .edit-p-cnt .edit-body{
+	padding:15px;
+	margin-right:20px;
+}
+.page-organize .oap-cnt .oap-body label,
+.page-organize .edit-p-cnt .edit-body label{
+	display: inline-block;
+	width:100px;
+	text-align: left;
+	font-size:16px;
+}
+.page-organize  input[type='text']{
+	height: 30px;
+	line-height: 30px;
+	padding: 0 28px 0 10px;
+	border: 1px solid #ddd;
+	width:275px;
+	color:#333;
+	font-size:14px;
+}
+.page-organize  input[type='text']:focus{
+	border: 1px solid #006eff;
+	outline: 0;
+}
+.page-organize .oap-cnt .oap-body div,
+.page-organize .edit-p-cnt .edit-body div
+{
+	padding: 10px 0;
+	line-height:30px;
+}
+.page-organize .oap-cnt .oap-footer,
+.page-organize .edit-p-cnt .edit-footer
+{
+	padding:15px;
+	border-top: 1px solid #ddd;
+}
+.page-organize .oap-buttons {
+	text-align: center;
+}
+
+.page-organize .oap-btn,
+.page-organize .pe-btn{
+	line-height: 30px;
+	background: #5E87EB;
+	color: #fff;
+	text-align: center;
+	padding: 6px 12px;
+	cursor: pointer;
+}
+
+.page-organize .oap-footer .oap-cancel-add ,
+.page-organize .edit-footer .pe-btn.notice_cancel{
+	background: #fff;
+	border: 1px solid #5E87EB;
+	color: #5E87EB;
+}
+
+/**新增办公室组的弹窗样式end**/
+.page-organize .pop-content {
+	top: 15%;
+	position: absolute;
+	width: 400px;
+	background: #ECEEF4;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	padding: 20px;
+	font-size: 18px;
+	border-radius: 8px;
+}
+
+.page-organize .pop-content .pop_li select {
+	width: 400px;
+	/*height: 40px;*/
+}
+
+.page-organize .pop-content .pop_li p {
+	margin: 20px 0;
+}
+
+.page-organize .pop-content input {
+	width: 100%;
+	height: 40px;
+}
+
+.page-organize .pop-content .accessory span {
+	display: block;
+	float: left;
+}
+
+.page-organize .pop-content .accessory i {
+	background: url(../img/upload.png) 0 0 no-repeat;
+	width: 94px;
+	height: 36px;
+	background-size: 100% 100%;
+	float: left;
+}
+
+.page-organize .pop-content .button {
+	/* width: 100%; */
+	overflow: hidden;
+	padding-top: 25px;
+	width: 209px;
+	margin: 0 auto;
+}
+
+.page-organize .pop-content .button .yes {
+	float: left;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	background: #5E87EB;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+
+.page-organize .pop-content .button .notice_cancel {
+	float: left;
+	border: #268bc9 1px solid;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	color: #268bc9;
+	text-align: center;
+	margin-right: 30px;
+	cursor: pointer;
+}
+
+
+.page-organize .add-photo-wrap {
+	position: relative;
+	width: 130px;
+	height: 40px;
+	margin-left: 96px;
+	margin-top: 30px;
+}
+
+.page-organize .asseory {
+	float: left;
+	margin-top: 30px;
+}
+
+.page-organize .add-photo-wrap .add-photo {
+	width: 130px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	color: #fff;
+	border-radius: 3px;
+	text-align: center;
+	border: 1px solid #ddd;
+	cursor: pointer;
+	background: #f63;
+}
+
+.page-organize .add-photo i {
+	background: url(../img/hui.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 12px;
+	height: 12px;
+}
+
+
+.page-organize .add-photo-wrap>input {
+	position: absolute;
+	width: 94px;
+	height: 50px;
+	top: 1px;
+	left: 79px;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	border-radius: 8px;
+	z-index: 99
+}
+
+.page-organize .accessory {
+	position: relative;
+	overflow: hidden;
+}
+
+.page-organize .ld-operation i {
+	background: url(../img/assery.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 30px;
+	height: 30px;
+	display: block;
+	position: absolute;
+	top: 11px;
+	left: 9px;
+
+}
+
+/**添加人员列表的弹窗样式**/
+.page-organize .pop_title input {
+	height: 30px;
+}
+
+.page-organize .general-p-cnt {
+	top: 10%;
+	position: absolute;
+	width: 400px;
+	height: 230px;
+	background: #ECEEF4;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	padding: 20px;
+	font-size: 18px;
+}
+
+.page-organize .general-p-cnt .pop_li {
+	margin-bottom: 10px;
+}
+
+.page-organize .general-p-cnt input {
+	height: 30PX;
+}
+
+.page-organize .button {
+	overflow: hidden;
+	padding-top: 25px;
+	width: 209px;
+	margin: 0 auto;
+}
+
+.page-organize .general-p-cnt .button .yes {
+	float: left;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	background: #5E87EB;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+
+.page-organize .general-p-cnt .button .notice_cancel {
+	float: left;
+	border: #268bc9 1px solid;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	color: #268bc9;
+	text-align: center;
+	margin-right: 30px;
+	cursor: pointer;
+}
+
+/**编辑办公室小房子的弹窗样式start**/
+/*.page-organize .edit-p-cnt {*/
+	/*position: absolute;*/
+	/*margin: auto;*/
+	/*top: 40%;*/
+	/*left: 0;*/
+	/*right: 0;*/
+	/*width: 250px;*/
+	/*background: #ECEEF4;*/
+	/*padding: 20px;*/
+	/*border-radius: 8px;*/
+/*}*/
+
+/*.page-organize .edit-p-cnt div {*/
+	/*padding: 10px 0;*/
+/*}*/
+
+/*.page-organize .edit-p-cnt .pe-buttons {*/
+	/*text-align: center;*/
+/*}*/
+
+/*.page-organize .pe-btn {*/
+	/*line-height: 30px;*/
+	/*background: #5E87EB;*/
+	/*color: #fff;*/
+	/*text-align: center;*/
+	/*padding: 4px 10px;*/
+	/*cursor: pointer;*/
+/*}*/
+
+/*.page-organize .pe-btn.notice_cancel {*/
+	/*background: #fff;*/
+	/*border: 1px solid #5E87EB;*/
+	/*color: #5E87EB;*/
+/*}*/
+
+/**编辑办公室小房子的弹窗样式end**/
+
+
+/**弹窗样式**/
+.pop,
+.edit-pop,
+.office-add-popup,
+.general-pop {
+	z-index: 1;
+}

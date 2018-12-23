@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>句容新时代文明实践中心</title>
+    <style>
+        body{
+            min-width: 1200px;
+        }
+        .clearfix:after {
+            content: " ";
+            display: block;
+            clear: both;
+            height: 0;
+        }
+        .clearfix {
+            zoom: 1;
+        }
+
+        input::-ms-clear{display:none;}
+        .disabled {
+            pointer-events: none;
+        }
+    
+
+        input,
+        textarea {
+            font-family: 'Microsoft YaHei';
+        }
+
+        input:-webkit-autofill { box-shadow: 0 0 0px 1000px #f8faf9 inset !important;}
+
+        .page-login .login-header-wrap-new{
+            width: 100%;
+            height: 1080px;
+            /* background:url(../../src/img/bg.png) no-repeat center center; */
+            background: url(https://file.40017.cn/dtgtmc/images/bg.png) no-repeat center center;
+            background-size: 100% 100%;
+        }
+
+        .page-login .login-content{
+            float: right;
+            margin-right: 203px;
+            margin-top: 273px;
+            background: url(../../src/img/bg1.png) 0 0 no-repeat;
+            background-size: 100% 100%;
+            width: 459px;
+            height: 527px;
+        }
+        .page-login .datanglogin-content{
+            width: 346px;
+            text-align:center;
+            padding:55px 50px;
+            margin: 0 auto;
+        }
+
+        .page-login #dtloginPassword{
+            font-size: 16px;
+            border-width:0;
+        }
+
+
+        .page-login #dtloginUsername{
+            font-size: 16px;
+            border-width:0;
+        }
+
+        .page-login .login-title{
+            font-size: 24px;
+            padding-bottom: 65px;
+        }
+
+        .page-login .user-info .info-wrap{
+            margin-bottom: 65px;
+            border-bottom:1px #cccecd solid;
+            padding-bottom: 10px;
+        }
+
+        .page-login .info-wrap label{
+            display: block;
+            float: left;
+        }
+
+        .page-login .login-btn{
+            margin-top: 35px;
+            width: 346px;
+            height: 36px;
+            text-align: center;
+            background: #99aff0;
+            border-radius: 18px;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .page-login .user-info input{
+            background-color: #f8faf9;
+        }
+
+        .page-login .remeber{
+            float: left;
+        }
+
+        .page-login .forget{
+            float: right;
+            color: #99aff0;
+        }
+    </style>
+  </head>
+  <body style="overflow-y: scroll;">
+    <div class="page-login">
+        <div class="login-wrap-new" id="login-wrap">
+            <div class="login-header-wrap-new">
+                <div class="login-content">
+                    <div class="datanglogin-content">
+                        <p class="login-title">用户登录</p>
+                        <div class="user-info">
+                            <div class="info-wrap id-wrap">
+                                <label><img src="//file.40017.cn/dtgtmc/images/people.png" alt=""></label>
+                                <span></span>
+                                <input type="text" placeholder="请输入用户名" id="dtloginUsername" class="new-login-text">
+                            </div>
+                            <div class="info-wrap name-wrap">
+                                <label><img src="https://file.40017.cn/dtgtmc/images/password.png" alt=""></label>
+                                <span></span>
+                                <input type="password" placeholder="请输入密码" id="dtloginPassword" class="new-login-text">
+                            </div>
+                        </div>
+                        <div>
+                            <!-- <span class="remeber">记住密码</span> -->
+                            <!-- <span class="forget">忘记密码?</span> -->
+                        </div>
+                        <button id="dtloginBtn" class="login-btn" type="button">登录</button>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>  
+</body>
+<script type="text/javascript" src="http://js.40017.cn/cn/public/jquery/jquery.min.js?v=201706151625"></script>
+<script type="text/javascript" src="http://js.40017.cn/cn/min/??/cn/sl/common/2016/jquery.cookie.js"></script>
+<!-- <script type="text/javascript" src="../../libs/js/cookie/cookie.js"></script> -->
+<script type="text/javascript">
+
+     if (window.history && window.history.pushState) {
+　　$(window).on('popstate', function () {
+　　window.history.pushState('forward', null, '#');
+　　window.history.forward(1);
+　　});
+　　}
+　　window.history.pushState('forward', null, '#'); //在IE中必须得有这两行
+　　window.history.forward(1);
+
+    $('#dtloginBtn').on('click',function(){
+        var name= $('#dtloginUsername').val();
+        var password=$('#dtloginPassword').val();
+        if(name==''){
+            alert('请输入用户名')
+            return;
+        }
+
+        if(password==''){
+            alert('请输入密码')
+            return;
+        }
+        
+
+        $.ajax({
+            type: "Post",
+            url: "http://47.254.44.188:8088/userLogin?userId="+name+"&userPwd="+password,
+            success: function (response) {
+                if(response.success){
+                    // 1-文明中心；2-分中心；4-镇；6-村；8-镇（室）；9-办公室；10-办公室（组）
+                    $.cookie('token', response.content.token, { expires: 30, path: '/' });
+                    $.cookie('userType', response.content.userType, { expires: 30, path: '/' });
+                    //登录成功，跳转至首页
+                    window.location.href="index.html";
+                }else{
+                    //登录失败
+                    alert(response.message)
+                }
+            }
+        });
+
+       
+       
+    
+    });
+
+  
+</script> 
+</html> 
+        
+       
+

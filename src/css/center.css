@@ -1,0 +1,913 @@
+.page-center {
+	background: #edf0fa;
+	height: 100%;
+}
+
+.page-center .top-nav {
+	background: #dde5fd;
+	padding-left: 50px;
+}
+
+.page-center .parentnav {
+	background: url(../img/single.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 288px;
+	height: 52px;
+}
+
+.page-center .parentnav span {
+	padding: 0 35px;
+	font-size: 16px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+
+.page-center .main-title {
+	font-size: 20px;
+	color: #fff;
+	padding-left: 20px;
+	line-height: 50px;
+	height: 50px;
+	background: #7ea3f7;
+	/* text-align: center; */
+}
+
+.page-center .main-detail {
+	height: 65px;
+	margin-bottom: 10px;
+	background: #fff;
+}
+
+.page-center .c-menu-wrap,
+.page-center .cgroup-top {
+	height: 65px;
+	border-bottom: 5px solid #cfd1fa;
+}
+
+.page-center .c-menu,
+.page-center .cgroup-menu {
+	width: 105px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: #9abeef;
+	border-radius: 3px;
+	display: block;
+	float: left;
+	margin-top: 18px;
+	color: #fff;
+	margin-left: 18px;
+	cursor: pointer;
+}
+
+.page-center .c-menu.active,
+.page-center .cgroup-menu.active {
+	background: #f7f9ff;
+	color: #4b90ff;
+	border: 1px solid #4b90ff;
+}
+
+.page-center .c-btn,
+.page-center .cgroup-btn {
+	width: 105px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	background: #7e95da;
+	border-radius: 3px;
+	color: #fff;
+	margin-top: 15px;
+	margin-right: 20px;
+	cursor: pointer;
+	float: left;
+}
+
+.page-center .cm-menus {
+	float: left;
+}
+
+.page-center .cm-actions {
+	float: right;
+}
+
+.page-center .main-content {
+	padding: 48px 200px 54px 45px;
+}
+
+.page-center .c-add {
+	position: absolute;
+	width: 105px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: #7e95da;
+	border-radius: 3px;
+	right: 0;
+	margin-top: 15px;
+	color: #fff;
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+.page-center .main-bottom {
+	background: url(../img/bg4.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	height: 715px;
+}
+
+/********中心组织架构样式********/
+.page-center .c-cnt {
+	height: 100%;
+}
+
+.page-center .c-org {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+.page-center .c-o-cnt {
+	width: 260px;
+	height: 520px;
+	margin-top: 64px;
+	display: inline-block;
+}
+
+.page-center .c-o-cnt .c-org-detail {
+	font-size: 20px;
+	color: #fff;
+	text-align: center;
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background: url(../img/box.png) no-repeat;
+	background-size: 100% 100%;
+	box-sizing: border-box;
+}
+
+.page-center .c-org-detail div {
+	padding: 0 20px 0 10px;
+}
+
+/**领导机构中的表格样式**/
+.page-center .c-data {
+	height: 520px;
+	overflow-y: scroll;
+}
+.page-center .c-data-operation {
+	height: 70px;
+	text-align: right;
+}
+
+.page-center .c-do-wrap {
+	margin-top: 30px;
+	display: inline-block;
+}
+
+.page-center .c-do-wrap div {
+	float: left;
+}
+
+.page-center .c-do-wrap span {
+	font-size: 14px;
+	color: #202426;
+}
+
+.page-center table {
+	width: 100%;
+	overflow: hidden;
+	border-collapse: collapse;
+}
+
+.page-center thead {
+	background: #f0f5ff;
+}
+
+.page-center table,
+.page-center table th,
+.page-center table td {
+	text-align: center;
+	line-height: 54px;
+	height: 54px;
+	color: #596f8c;
+	font-size: 18px;
+	border: 3px #eaecfc solid;
+}
+
+.page-center .cd-select,
+.page-center .cpd-select {
+	width: 84px;
+}
+
+.page-center .cd-no {
+	width: 136px;
+}
+
+.page-center .cd-name {
+	width: 180px;
+}
+
+.page-center .cd-sex {
+	width: 136px;
+}
+
+.page-center .cd-section {
+	width: 177px;
+}
+
+.page-center .cd-range {
+	width: 185px;
+}
+
+.page-center .cd-tel {
+	width: 216px;
+}
+
+.page-center .cd-job {
+	width: 249px;
+}
+
+.page-center .cd-operation {
+	width: 260px;
+}
+
+/******办公室组数据*******/
+.page-center .c-group .c-group-item,
+.page-center .cp-group .cpg-item {
+	position: relative;
+	width: 300px;
+	height: 264px;
+	float: left;
+	margin: 50px 29px;
+}
+
+.page-center .c-group .item,
+.page-center .cp-group .item {
+	width: 100%;
+	height: 100%;
+	background: url(../img/fbg.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+
+.page-center .c-group .item a,
+.page-center .cp-group .item a {
+	position: absolute;
+	top: 174px;
+	left: 0;
+	width: 100%;
+	height: 100px;
+}
+
+.page-center .c-group .item span,
+.page-center .cp-group .item span {
+	position: absolute;
+	bottom: 25px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 20px;
+	color: #2f5bac;
+}
+
+.page-center .c-group .item-operate,
+.page-center .cp-group .item-operate {
+	position: absolute;
+	bottom: -20px;
+	left: 0;
+	width: 100%;
+	color: #2f5bac;
+	font-size: 16px;
+}
+
+.page-center .c-group .item-edit,
+.page-center .cp-group .item-edit {
+	float: left;
+	margin-left: 50px;
+	cursor: pointer;
+}
+
+.page-center .c-group .item-dele,
+.page-center .cp-group .item-dele {
+	float: right;
+	margin-right: 50px;
+	cursor: pointer;
+}
+
+/**新增办公室组的弹窗样式start**/
+.page-center .center-add-popup,
+.page-center .civiPra-add-popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100%;
+}
+
+.page-center .cap-cnt,
+.page-center .cpap-cnt {
+	position: absolute;
+	top: 35%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 600px;
+	padding: 20px;
+	background: #ECEEF4;
+	box-sizing: border-box;
+	border-radius: 8px;
+}
+
+.page-center .cap-cnt div,
+.page-center .cpap-cnt div {
+	padding: 10px 0;
+}
+
+.page-center .cap-buttons,
+.page-center .cpap-buttons {
+	text-align: center;
+}
+
+.page-center .cap-btn,
+.page-center .cpap-btn {
+	line-height: 30px;
+	background: #5E87EB;
+	color: #fff;
+	text-align: center;
+	padding: 4px 10px;
+	cursor: pointer;
+}
+
+.page-center .cap-cancel-add {
+	background: #fff;
+	border: 1px solid #5E87EB;
+	color: #5E87EB;
+}
+
+/**新增办公室组的弹窗样式end**/
+
+/**********文明实践点组****************/
+.page-center .practice {
+	height: 100%;
+}
+
+.page-center .cgroup-cnt {
+	position: relative;
+	height: 100%;
+}
+
+.page-center .cgeneral-cnt {
+	padding: 46px 42px 0;
+}
+
+.page-center .cgeneral-wrap {
+	position: relative;
+	background: #e4e7f0;
+	padding: 0 94px;
+	height: 444px;
+	overflow: hidden;
+}
+
+.page-center .cgeneral-wrap .cnt,
+.page-center .cgeneral-wrap .no-cnt {
+	width: 100%;
+	height: 100%;
+}
+
+.page-center .cgeneral-wrap .no-cnt {
+	text-align: center;
+	font-size: 12px;
+	color: #202426;
+}
+
+
+.page-center .cgroup-subpage .cgeneral-wrap .no-cnt {
+	background: url(../img/lose.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 100%;
+	height: 195px;
+	position: absolute;
+	top: 101px;
+}
+
+.page-center .add-cg-cnt {
+	font-size: 22px;
+	color: #fff;
+	background: #2f5bac;
+	padding: 15px 30px;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-left: 20px;
+}
+
+.page-center .cgeneral-slide {
+	margin-top: 40px;
+}
+
+.page-center .cgeneral-slide li {
+	position: relative;
+	width: 500px;
+	height: 359px;
+}
+
+.page-center .cgeneral-slide li img {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+.page-center .cgeneral-slide ul {
+	position: relative;
+}
+
+.page-center .cgeneral-slide ul .desc {
+	position: absolute;
+	width: 96%;
+	bottom: 0;
+	left: 0;
+	font-size: 20px;
+	height: 53px;
+	line-height: 53px;
+	padding-left: 20px;
+	margin-top: 10px;
+	/* padding: 9px 10px 7px 10px; */
+	/* background: url(../img/shawBg.png) repeat; */
+	color: #fff;
+	z-index: 19;
+}
+
+.page-center .cgeneral-right {
+	position: absolute;
+	top: 0;
+	right: 94px;
+	margin-left: 622px;
+}
+
+.page-center .cgeneral-right .g-tit {
+	color: #d50908;
+	font-size: 40px;
+	line-height: 1;
+	margin-bottom: 40px;
+	margin-top: 45px;
+}
+
+.page-center .cgeneral-right p {
+	font-size: 20px;
+	line-height: 30px;
+	text-indent: 40px;
+}
+
+.page-center .cg-export {
+	right: 135px;
+}
+
+
+/**************************许卉新增******************************/
+
+.page-center .c-data-operation .c-do-wrap {
+	padding-top: 0px;
+	padding-bottom: 30px;
+	overflow: hidden;
+}
+
+.page-center .c-do-wrap div {
+	float: left;
+	margin-right: 30px;
+	cursor: pointer;
+}
+
+.page-center .c-do-wrap span {
+	font-size: 14px;
+	color: #202426;
+	margin-left: 10px;
+}
+
+
+
+.page-center .main-bottom .search .add {
+	display: block;
+	width: 70px;
+	line-height: 32px;
+	float: left;
+	text-align: center;
+}
+
+.page-center .operate {
+	overflow: hidden;
+	padding-left: 45px;
+}
+
+/* .main-bottom .search  */
+.page-center .modify {
+	display: block;
+	width: 70px;
+	float: left;
+	line-height: 32px;
+	/* text-align: center; */
+}
+
+.page-center .cd-select p {
+	width: 20px;
+	height: 20px;
+	margin: 0 auto;
+	background: url(../img/uncheck.png) no-repeat center center;
+	cursor: pointer;
+}
+
+.page-center .cd-select p.checked {
+	width: 20px;
+	height: 20px;
+	margin: 0 auto;
+	background: url(../img/checked.png) no-repeat center center;
+	cursor: pointer;
+}
+
+.page-center .add i {
+	background: url(../img/add.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+}
+
+.page-center .add em {
+	display: block;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+}
+
+.page-center .edit i {
+	background: url(../img/edit.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+}
+
+.page-center .modify em {
+	display: block;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+}
+
+.page-center .delete i {
+	background: url(../img/delete.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+}
+
+
+/* 许卉 */
+
+.page-center .pop {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 10;
+}
+
+.page-center .pop-content {
+	top: 10%;
+	position: absolute;
+	width: 600px;
+	/*height: 400px;*/
+	background: #ECEEF4;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	padding: 20px;
+	font-size: 18px;
+	border-radius: 8px;
+}
+
+.page-center .pop-content .pop_li select {
+	width: 298px;
+	height: 30px;
+}
+
+.page-center .pop-content .pop_li p {
+	margin: 20px 0;
+}
+
+.page-center .pop-content input {
+	width: 400px;
+	height: 30px;
+}
+
+.page-center .pop-content .accessory span {
+	display: block;
+	float: left;
+}
+
+.page-center .accessory i {
+	background: url(../img/upload.png) 0 0 no-repeat;
+	width: 94px;
+	height: 36px;
+	background-size: 100% 100%;
+	float: left;
+}
+
+.page-center .button {
+	overflow: hidden;
+	/*padding-top: 25px;*/
+	width: 209px;
+	margin: 0 auto;
+}
+
+.page-center .button .yes {
+	float: left;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	background: #5E87EB;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+
+.page-center .button .notice_cancel {
+	float: left;
+	border: #268bc9 1px solid;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	color: #268bc9;
+	text-align: center;
+	margin-right: 30px;
+	cursor: pointer;
+}
+
+
+.page-center .add-photo-wrap {
+	position: relative;
+	/*width: 130px;*/
+	width: 290px;
+	height: 40px;
+	/*margin-left: 58px;*/
+	/*margin-top: 30px;*/
+	display: inline-block;
+	text-align: left;
+}
+
+.page-center .asseory {
+	/*float: left;*/
+	/*margin-top: 30px;*/
+}
+
+.page-center .add-photo-wrap .add-photo {
+	position: relative;
+	width: 130px;
+	height: 40px;
+	/*margin-left: 96px;*/
+	/*margin-top: 30px;*/
+	display: inline-block;
+}
+
+.page-center .add-photo i {
+	background: url(../img/hui.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 12px;
+	height: 12px;
+}
+
+
+.page-center .add-photo-wrap>input {
+	position: absolute;
+	width: 94px;
+	height: 50px;
+	top: 1px;
+	/*left: 79px;*/
+	left: -6px;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	border-radius: 8px;
+	z-index: 99
+}
+
+.page-center .accessory {
+	position: relative;
+	overflow: hidden;
+}
+
+.page-center .ld-operation i {
+	background: url(../img/assery.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 30px;
+	height: 30px;
+	display: block;
+	position: absolute;
+	top: 11px;
+	left: 9px;
+
+}
+
+.page-center .pop-generalsituation {
+	top: 10%;
+	position: absolute;
+	width: 400px;
+	/*height: 230px;*/
+	background: #ECEEF4;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	padding: 20px;
+	font-size: 18px;
+}
+
+.page-center .pop-generalsituation .pop_li {
+	margin-bottom: 10px;
+}
+
+.page-center .pop-generalsituation input {
+	height: 30PX;
+}
+
+/**编辑办公室小房子的弹窗样式start**/
+/*.page-center .pop-edit {*/
+	/*position: absolute;*/
+	/*margin: auto;*/
+	/*top: 40%;*/
+	/*left: 0;*/
+	/*right: 0;*/
+	/*width: 250px;*/
+	/*background: #ECEEF4;*/
+	/*padding: 20px;*/
+	/*border-radius: 8px;*/
+/*}*/
+
+/*.page-center .pop-edit div {*/
+	/*padding: 10px 0;*/
+/*}*/
+
+/*.page-center .pop-edit .cedit-buttons {*/
+	/*text-align: center;*/
+/*}*/
+
+.page-center .cedit-btn {
+	line-height: 30px;
+	background: #5E87EB;
+	color: #fff;
+	text-align: center;
+	padding: 4px 10px;
+	cursor: pointer;
+}
+
+.page-center .cedit-btn.notice_cancel {
+	background: #fff;
+	border: 1px solid #5E87EB;
+	color: #5E87EB;
+}
+
+/**编辑办公室小房子的弹窗样式end**/
+
+/**弹窗样式**/
+.center-add-popup,
+.center-edit-popup,
+.people-add-popup,
+.trackpop {
+	z-index: 1;
+}
+
+/**年度计划跟踪弹窗**/
+.track {
+	cursor: pointer;
+	margin-right: 20px;
+}
+
+.track-close {
+	width: 72px;
+	line-height: 1;
+	background: #5E87EB;
+	color: #fff;
+	text-align: center;
+	padding: 6px 12px;
+	cursor: pointer;
+	margin: 0 auto;
+}
+
+.trackpop .trackpop-cnt {
+	position: absolute;
+	top: 40%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 600px;
+	background: #ECEEF4;
+	text-align: center;
+	box-sizing: border-box;
+	box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+
+.trackpop .trackpop-cnt .track-header{
+	text-align: right;
+	padding:15px;
+	border-bottom: 1px solid #ddd;
+}
+.trackpop .trackpop-cnt .track-header .track-close{
+	background: #ECEEF4;
+	color: #333;
+}
+.trackpop .track-body{
+	padding:15px;
+	margin-right:20px;
+}
+.trackpop .track-body .track-cnt{
+	padding:15px;
+	font-size:20px;
+}
+.trackpop .track-footer{
+	padding:15px;
+	border-top: 1px solid #ddd;
+}
+/**通用弹框样式*/
+.mask-content{
+	position: absolute;
+	top: 40% !important;
+	left: 0 !important;
+	right: 0 !important;
+	margin: auto;
+	width: 600px !important;
+	background: #ECEEF4 !important;
+	text-align: center;
+	box-sizing: border-box;
+	box-shadow: 0 5px 15px rgba(0,0,0,.5);
+	padding:0 !important;
+}
+.modal-header{
+	text-align: right;
+	padding:15px;
+	border-bottom: 1px solid #ddd;
+}
+.modal-header .notice_cancel,
+.modal-header .cap-cancel-add,
+.modal-header .cpap-cancel-add,
+.modal-header .hap-cancel-add,
+.modal-header .sap-cancel-add
+{
+	background: #ECEEF4;
+	color: #333;
+	border:none;
+	cursor: pointer;
+	margin-right:20px;
+}
+.modal-body{
+	padding:15px;
+	margin-right:20px;
+}
+.modal-body.text-left{
+	text-align: left;
+	padding-left:30px;
+}
+.modal-body .item-wrap{
+	margin-bottom: 15px;
+}
+.modal-body .item-wrap label{
+	display: inline-block;
+	width:100px;
+	text-align: left;
+	font-size:16px;
+}
+.modal-body  input[type='text']{
+	height: 30px;
+	line-height: 30px;
+	padding: 0 28px 0 10px;
+	border: 1px solid #ddd;
+	width:275px;
+	color:#333;
+	font-size:14px;
+	padding:0 10px;
+}
+.modal-body input[type='text']:focus,
+.modal-body select:focus{
+	border: 1px solid #006eff;
+	outline: 0;
+}
+.modal-body select{
+	width: 298px !important;
+	padding: 0 10px;
+	color:#333;
+}
+.modal-footer{
+	padding:15px;
+	border-top: 1px solid #ddd;
+}
+.modal-btn{
+	line-height: 30px;
+	background: #5E87EB;
+	color: #fff;
+	text-align: center;
+	padding: 6px 12px;
+	cursor: pointer;
+}

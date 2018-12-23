@@ -1,0 +1,409 @@
+<!-- 活动管理 -->
+
+
+<div class="page-activitymanage">
+  <div class="top-nav">
+    <div class="parentnav">
+      <span style="color:#6584b5">活动管理</span>
+      <span style="color:#fff;">活动认领</span>
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="main-top">
+      <div class="main-title">活动管理</div>
+      <ul class="main-detail">
+        <li data-index="0" class="m-menu leader makeplans">计划制定</li> 
+        <li data-index="1" class="m-menu office selfchooseactivity">自选活动制定</li>
+        <li data-index="2" class="m-menu office activitycheckout">活动审核</li>
+        <li data-index="3" class="m-menu office">任务审核</li>
+      </ul>
+    </div>
+    <div class="main-bottom">
+        <ul class="main-activity">
+            <!--计划制定-->
+            <li class="l-data">
+                  <div class="l-data-operation">
+                    <div class="l-do-wrap">
+                      <div class="add"><i></i><span>新建</span></div>
+                      <div class="edit"><i></i><span>修改</span></div>
+                      <div class="delete"><i></i><span>删除</span></div>
+                    </div>
+                  </div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="ld-select"></th>
+                        <th class="ld-no">计划编号</th>
+                        <th class="ld-range">计划名称</th>
+                        <th class="ld-job">截止时间</th>
+                        <th class="ld-operation">操作</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                       <!-- <tr>
+                        <td class="ld-select" data-id="1"><p></p></td>
+                        <td class="ald-no">1</td>
+                        <td class="ald-name">张三</td>
+                        <td class="ald-sex">男</td>
+                        <td class="ald-section">综合部门</td>
+                        <td>黑胡椒和京津冀</td>
+                      </tr> -->
+                    </tbody>
+                  </table>
+
+                  <div class="page-wrap clearfix"> 
+                          <div id="page">
+                              <!-- <span class="disabled">首页</span>
+                              <span class="disabled">&lt;上一页</span>
+                              <span class="current">1</span>
+                              <span class="disabled noclick">下一页&gt;</span>
+                              <span class="disabled">尾页</span>
+                              <span class="pagecount">共1页</span>
+                              <span class="countYe">到第<input type="text" maxlength="1">页<a href="javascript:;" class="turndown">确定</a><span></span></span> -->
+                          </div>
+                  </div>
+            </li>
+            <li class="cgroup-detail-cnt selfchoose none">
+              <div class="self-data">
+                  <div class="self-data-operation">
+                    <div class="self-do-wrap">
+                      <!-- <div class="search"><input type="text" placeholder="请输入搜索内容" /></div> -->
+                      <div class="add"><i></i><span>新建</span></div>
+                      <div class="edit"><i></i><span>修改</span></div>
+                      <div class="delete"><i></i><span>删除</span></div>
+                    </div>
+                  </div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="fd-select"></th>
+                        <th class="fd-no">计划编号</th>
+                        <th class="fd-range">计划名称</th>
+                        <th class="fd-tel">计划类型</th>
+                        <th class="fd-tel">审核状态</th>
+                        <th class="fd-operation">计划完成时间</th>
+                        <th>操作</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- <tr>
+                        <td class="fd-select"></td>
+                        <td class="fd-no">1</td>
+                        <td class="fd-name">张三</td>
+                        <td class="fd-sex">男</td>
+                        <td class="fd-section">综合部门</td>
+                        <td>黑胡椒和京津冀</td>
+                        <td class="fd-operation">附件</td>
+                      </tr> -->
+                    </tbody>
+                  </table>
+          
+                  <div class="page-wrap clearfix"> 
+                          <div id="page">
+                              <span class="disabled">首页</span>
+                              <span class="disabled">&lt;上一页</span>
+                              <span class="current">1</span>
+                              <span class="disabled noclick">下一页&gt;</span>
+                              <span class="disabled">尾页</span>
+                              <span class="pagecount">共1页</span>
+                              <span class="countYe">到第<input type="text" maxlength="1">页<a href="javascript:;" class="turndown">确定</a><span></span></span>
+                          </div>
+                  </div>
+              </div>
+            </li>
+            <li class="cgroup-detail-cnt activiymana none">
+              <div class="al-data">
+                  <div class="al-data-operation">
+                    <div class="al-do-wrap">
+                      <!-- <div class="search"><input type="text" placeholder="请输入搜索内容" /></div> -->
+                      <!-- <div class="add"><i></i><span>新建</span></div>
+                      <div class="edit"><i></i><span>修改</span></div>
+                      <div class="delete"><i></i><span>删除</span></div> -->
+                    </div>
+                  </div>
+                  <table>
+                    <thead> 
+                      <tr>
+                        <th class="ald-no"></th>
+                        <th class="ald-no">活动编号</th>
+                        <th class="ald-range">实践所</th>
+                        <th class="ald-tel">实践站</th>
+                        <th class="ald-job">活动标题</th>
+                        <th class="ald-operation">计划完成时间</th>
+                        <th>操作</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- <tr>
+                        <td class="ald-select"></td>
+                        <td class="ald-no">1</td>
+                        <td class="ald-name">张三</td>
+                        <td class="ald-sex">男</td>
+                        <td class="ald-section">综合部门</td>
+                        <td>黑胡椒和京津冀</td>
+                        <td class="ald-operation">附件</td>
+                      </tr> -->
+                    </tbody>
+                  </table>
+          
+                  <div class="page-wrap clearfix"> 
+                          <div id="page">
+                              <!-- <span class="disabled">首页</span>
+                              <span class="disabled">&lt;上一页</span>
+                              <span class="current">1</span>
+                              <span class="disabled noclick">下一页&gt;</span>
+                              <span class="disabled">尾页</span>
+                              <span class="pagecount">共1页</span>
+                              <span class="countYe">到第<input type="text" maxlength="1">页<a href="javascript:;" class="turndown">确定</a><span></span></span> -->
+                          </div>
+                  </div>
+              </div>
+            </li>
+            <li class="cgroup-detail-cnt taskmana none">
+              <div class="a-data">
+                  <div class="a-data-operation">
+                    <!-- <div class="a-do-wrap">
+                      <div class="add"><i></i><span>新建</span></div>
+                      <div class="edit"><i></i><span>修改</span></div>
+                      <div class="delete"><i></i><span>删除</span></div>
+                    </div> -->
+                  </div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="ad-select"></th>
+                        <th class="ad-no">活动编号</th>
+                        <th class="ad-range">实践所</th>
+                        <th class="ad-tel">实践站</th>
+                        <th class="ad-tel">任务名称</th>
+                        <th class="ad-operation">完成时间</th>
+                        <th>操作</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                     
+                    </tbody>
+                  </table>
+          
+                  <div class="page-wrap clearfix"> 
+                          <div id="page">
+                              <span class="disabled">首页</span>
+                              <span class="disabled">&lt;上一页</span>
+                              <span class="current">1</span>
+                              <span class="disabled noclick">下一页&gt;</span>
+                              <span class="disabled">尾页</span>
+                              <span class="pagecount">共1页</span>
+                              <span class="countYe">到第<input type="text" maxlength="1">页<a href="javascript:;" class="turndown">确定</a><span></span></span>
+                          </div>
+                  </div>
+              </div>
+            </li>
+         </ul>
+    </div>
+    <!-- 计划制定的弹框 -->
+      <div class="ativity-pop none">
+          <!-- //新增的弹框 -->
+          <div class="pop-content mask-content none">
+              <div class="modal-header">
+                  <span class="notice_cancel">x</span>
+              </div>
+              <div class="modal-body">
+                  <div class="item-wrap pop_title pop_li">
+                      <label>计划名称：</label>
+                      <input type="text" id="planName">
+                  </div>
+                  <div class="item-wrap pop_li">
+                      <label>计划内容：</label>
+                      <input type="text" id="plancontent">
+                  </div>
+                  <div class="item-wrap pop_li">
+                      <label>积分：</label>
+                      <input type="text" id="plangrade">
+                  </div>
+                  <div class="item-wrap pop_name pop_li">
+                      <label>截止时间：</label>
+                      <input type="text" class="choose_Date" id="ativityexpretime" placeholder="请选择截止时间">
+                  </div>
+                  <div class="item-wrap">
+                      <label class="asseory">附件：</label>
+                      <div class="add-photo-wrap" id="planPhotoBtn">
+                          <div class="add-photo"><i></i>上传文件</div>
+                          <input id="inputFileID" type="file" multiple="">
+                      </div>
+                  </div>
+              </div>
+              <!--<div class="button">-->
+                  <!--<p class="notice_cancel">取消</p>-->
+                  <!--<p class="yes">确认</p>-->
+              <!--</div>-->
+              <div class="modal-footer">
+                  <div class="button">
+                      <p class="notice_cancel">取消</p>
+                      <p class="yes">确认</p>
+                  </div>
+              </div>
+          </div>
+          <!-- 查看的弹框 -->
+          <div class="pop-search none mask-content">
+              <div class="modal-header">
+                  <span class="notice_cancel">x</span>
+              </div>
+              <div class="modal-body text-left">
+                  <div class="item-wrap pop_title pop_li"><label>计划名称：</label><div class="plan-title plan-li"></div></div>
+                  <div class="item-wrap pop_title pop_li"><label>计划内容：</label><div class="plan-content plan-li"></div></div>
+                  <div class="item-wrap pop_title pop_li"><label>分中心：</label><div class="plan-center plan-li"></div></div>
+                  <div class="item-wrap pop_title pop_li"><label>积分：</label><div class="plan-interal plan-li"></div></div>
+                  <div class="item-wrap pop_title pop_li"><label class="extral">附件：</label><div class="plan-extral plan-li"><span></span><img src="" alt=""></div></div>
+              </div>
+              <div class="modal-footer">
+                  <div class="button">
+                      <p class="notice_cancel">取消</p>
+                      <p class="yes" data-id="1">确认</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+    <!-- 自选活动的弹框 -->
+    <div class="selfativity-pop none">
+        <div class="pop-content none">
+          <div class="pop_title pop_li">
+            <p>计划名称：</p>
+            <input type="text" id="selfplanName">
+          </div>
+          <div class="pop_li">
+              <p>计划内容：</p>
+              <input type="text" id="selfplancontent">
+          </div>
+          <div class="pop_li">
+              <p>分中心：</p>
+              <select name="理论分中心" id="selfcenter">
+                <option value="1">理论分中心</option>
+                <option value="2">实践分中心</option>
+              </select>
+          </div>
+          <div class="pop_name pop_li">
+            <p>截止时间：</p>
+            <input type="text"   id="selfexpretime" placeholder="请选择截止时间">
+        </div>
+          <div class="asseory">附件：</div>
+            <div class="add-photo-wrap" id="selfplanPhotoBtn">
+              <div class="add-photo"><i></i>上传文件</div>
+              <input id="inputFileID" type="file" multiple="">
+            </div>
+          <div class="button">
+            <p class="notice_cancel">取消</p>
+            <p class="yes">确认</p>
+          </div>
+        </div>
+         <!-- 查看的弹框 -->
+         <div class="pop-search none mask-content">
+             <div class="modal-header">
+                 <span class="notice_cancel">x</span>
+             </div>
+             <div class="modal-body">
+                 <div class="item-wrap pop_title pop_li"><label>计划名称：</label><div class="plan-title plan-li"></div></div>
+                 <div class="item-wrap pop_title pop_li"><label>计划内容：</label><div class="plan-content plan-li"></div></div>
+                 <div class="item-wrap pop_title pop_li"><label>分中心：</label><div class="plan-center plan-li"></div></div>
+                 <div class="item-wrap pop_title pop_li"><label>积分：</label><div class="plan-interal plan-li"></div></div>
+                 <div class="item-wrap pop_title pop_li"><label>附件：</label><div class="plan-extral plan-li"><img src="" alt=""></div></div>
+             </div>
+           <div class="modal-footer">
+               <div class="button">
+                   <p class="notice_cancel">取消</p>
+                   <p class="yes" data-id="1">确认</p>
+               </div>
+           </div>
+        </div>
+    </div>
+    <!-- 任务审核弹框 -->
+    <div class="taskcheck-pop none">
+        <div class="pop-content none mask-content">
+            <div class="modal-header">
+                <span class="notice_cancel">x</span>
+            </div>
+            <div class="modal-body text-left">
+                <div class="item-wrap pop_title pop_li"><label>计划名称：</label><div class="taskcheckName plan-li"></div></div>
+                <div class="item-wrap pop_title pop_li"><label>计划内容：</label><div class="taskcheckcontent plan-li"></div></div>
+                <div class="item-wrap pop_title pop_li"><label>积分：</label><div class="taskcheckinteral plan-li"></div></div>
+                <div class="item-wrap pop_title pop_li"><label>分中心：</label><div class="taskcheckcenter plan-li"></div></div>
+                <div class="item-wrap pop_title pop_li"><label>截止时间：</label><inpu class="taskcheckexpretime plan-li" placeholder="请选择截止时间"></div>
+                <div class="item-wrap pop_title pop_li"><label>任务图片：</label><div class="taskcompletesituation plan-li"><img src="" alt=""></div></div>
+                <div class="item-wrap pop_name pop_li"><label>领导审核：</label><select name="通过" id="tgender"><option value="2" class="gongnnegshi none">通过</option><option value="3" class="fenzhongxin none">通过</option><option value="4">不通过</option></select></div>
+                <div class="item-wrap pop_remark pop_li none"><label>备注：</label><input type="text" id="completesituation"></div>
+                <!--<div class="item-wrap">-->
+                    <!-- <label class="asseory">附件：</label> -->
+                    <!-- <div class="add-photo-wrap" id="planPhotoBtn">
+                      <div class="add-photo"><i></i>上传文件</div>
+                      <input id="inputFileID" type="file" multiple="">
+                    </div> -->
+                <!--</div>-->
+            </div>
+            <div class="modal-footer">
+                <div class="button">
+                    <p class="notice_cancel">取消</p>
+                    <p class="yes" data-id="1">确认</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- 活动审核弹框 -->
+     <div class="activitycheck-pop none">
+        <div class="pop-content none mask-content">
+            <div class="modal-header">
+                <span class="notice_cancel">x</span>
+            </div>
+            <div class="modal-body text-left">
+                <div class="item-wrap pop_title pop_li"><label>计划名称：</label><div class="activitycheckName plan-li"></div></div>
+                <div class="item-wrap pop_title pop_li"><label>计划内容：</label><div class="activitycheckcontent plan-li"></div></div>
+                <div class="item-wrap pop_title pop_li"><label>积分：</label><div class="activitycheckinteral plan-li"></div></div>
+                <div class="item-wrap pop_title pop_li"><label>分中心：</label><div class="activitycheckcenter plan-li"></div></div>
+                <div class="item-wrap pop_title pop_li"><label>截止时间：</label><inpu class="activitycheckexpretime plan-li" placeholder="请选择截止时间"></div>
+                <div class="item-wrap pop_title pop_li"><label>任务图片：</label><div class="activitycompletesituation plan-li"><img src="" alt=""></div></div>
+                <div class="item-wrap pop_name pop_li"><label>领导审核：</label><select name="通过" id="agender"><option value="2" id="" class="gongnnegactivity none">通过</option><option value="3" id="" class="centeractivity none">通过</option><option value="4">不通过</option></select></div>
+                <div class="item-wrap pop_remark pop_li none"><label>备注：</label><input type="text" id="completesituation"></div>
+                <!-- <div class="asseory">附件：</div> -->
+                <!-- <div class="add-photo-wrap" id="planPhotoBtn">
+                  <div class="add-photo"><i></i>上传文件</div>
+                  <input id="inputFileID" type="file" multiple="">
+                </div> -->
+            </div>
+            <div class="modal-footer">
+                <div class="button">
+                    <p class="notice_cancel">取消</p>
+                    <p class="yes" data-id="1">确认</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 提示弹窗 -->
+      <div class="alert none">
+          <div class="alert-cnt">
+              <div class="alert-header">
+                  <span class="alert-close">x</span>
+              </div>
+              <div class="alert-body">
+                  <div class="alert-text"></div>
+              </div>
+              <div class="alert-footer">
+                  <div class="alert-close">知道了</div>
+              </div>
+          </div>
+      </div>
+      <!-- 年度计划跟踪弹窗 -->
+      <div class="trackpop none">
+          <div class="trackpop-cnt">
+              <div class="track-header">
+                  <span class="track-close">x</span>
+              </div>
+              <div class="track-body">
+                  <div class="track-cnt"></div>
+              </div>
+              <div class="track-footer">
+                  <div class="track-close">知道了</div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

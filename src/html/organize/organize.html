@@ -1,0 +1,151 @@
+<div class="page-organize">
+	<div class="top-nav">
+		<div class="parentnav">
+			<span style="color:#6584b5">组织架构</span>
+			<span style="color:#fff;" class="sub-nav">领导机构</span>
+		</div>
+	</div>
+	<div class="main-content">
+		<div class="main-top">
+			<div class="main-title">组织架构</div>
+			<div class="main-detail">
+				<div class="org-menu">
+					<span id="organize_leader" class="org-btn org-leader">领导机构</span>
+					<span id="organize_office" class="org-btn org-office">办公室</span>
+				</div>
+				<!-- 办公室组的菜单 -->
+				<div class="org-group-menu none">
+					<span id="general" class="office-group-btn group-general">概况</span>
+					<span id="staff" class="office-group-btn group-staff">人员</span>
+				</div>
+			</div>
+		</div>
+		<div class="main-bottom"></div>
+	</div>
+	<div class="main-popup">
+		<!-- 添加人员弹框 -->
+		<div class="pop mask none">
+			<div class="pop-content mask-content">
+				<div class="modal-header">
+					<span class="notice_cancel">x</span>
+				</div>
+				<div class="modal-body">
+					<div class="item-wrap pop_title pop_li">
+						<label>姓名：</label><input id="orgName" type="text">
+					</div>
+					<div class="item-wrap pop_name pop_li">
+						<label>性别：</label>
+						<select name="男" id="orgGender">
+							<option value="1">男</option>
+							<option value="2">女</option>
+							<!-- <option value="3">实践所</option> -->
+						</select>
+					</div>
+					<div class="item-wrap pop_content pop_li">
+						<label>职务：</label>
+						<select name="主任" id="orgPosition">
+							<option value="1">主任</option>
+							<option value="2">副主任</option>
+						</select>
+					</div>
+					<!--<div class="item-wrap">-->
+						<!-- <div class="asseory">附件：</div>
+				  <div class="add-photo-wrap" id="addPhotoBtn">
+					  <div class="add-photo"><i></i>上传文件</div>
+					  <input id="inputFileID" type="file" multiple="">
+				  </div> -->
+					<!--</div>-->
+				</div>
+				<div class="modal-footer">
+					<div class="button">
+						<p class="notice_cancel">取消</p>
+						<p class="yes">确认</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 编辑弹框 -->
+		<div class="edit-pop mask none">
+			<div class="edit-p-cnt">
+				<div class="edit-header">
+					<span class="notice_cancel">x</span>
+				</div>
+				<div class="edit-body">
+					<div>
+						<label for="officeGroupEdit">名称：</label>
+						<input type="text" id="officeGroupEdit">
+					</div>
+				</div>
+				<div class="edit-footer">
+					<div class="pe-buttons">
+						<span class="pe-btn yes" style="margin-right: 10px;">确定</span>
+						<span class="pe-btn notice_cancel" style="margin-left: 10px;">取消</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--添加弹框 -->
+		<div class="office-add-popup mask none">
+			<div class="oap-cnt">
+				<div class="oap-header">
+					<span class="oap-cancel-add">x</span>
+				</div>
+				<div class="oap-body">
+					<div class="item-wrap">
+						<label for="officegroup">名称:</label>
+						<input type="text" id="officegroup" />
+					</div>
+				</div>
+				<div class="oap-footer">
+					<div class="oap-buttons">
+						<span class="oap-btn oap-sure-add" style="margin-right: 10px;">确定</span>
+						<span class="oap-btn oap-cancel-add" style="margin-left: 10px;">取消</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 提示弹窗 -->
+		<div class="alert mask none">
+			<div class="alert-cnt">
+				<div class="alert-header">
+					<span class="alert-close">x</span>
+				</div>
+				<div class="alert-body">
+					<div class="alert-text"></div>
+				</div>
+				<div class="alert-footer">
+					<div class="alert-close">知道了</div>
+				</div>
+			</div>
+		</div>
+		<!-- 概况弹窗 -->
+		<div class="general-pop  none">
+			<div class="general-p-cnt mask-content">
+				<div class="modal-header">
+					<span class="notice_cancel">x</span>
+				</div>
+				<div class="modal-body">
+					<div class="item-wrap pop_title pop_li">
+						<sapn>标题：</span><input type="text"></sapn>
+					</div>
+					<div class="item-wrap pop_content pop_li">
+						<sapn>内容：</span><input type="text"></sapn>
+					</div>
+					<div class="item-wrap">
+						<div class="asseory">附件：</div>
+						<div class="add-photo-wrap" id="addPhotoBtn">
+							<div class="add-photo"><i></i>上传图片</div>
+							<input id="inputFileID" type="file" multiple="">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="button">
+						<p class="notice_cancel">取消</p>
+						<p class="yes">确认</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

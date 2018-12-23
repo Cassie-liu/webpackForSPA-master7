@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>句容新时代文明实践中心</title>
+    <!-- <script type="text/javascript" src="https://file.40017.cn/dtgtmc/js/laydate.js"></script> -->
+    <!-- <script type="text/javascript" src="/libs/js/laydate/laydate.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="//js.40017.cn/cn/min/??/cn/public/jquery/calendar/0.0.3/calendar.css?v=20160216">
+
+  </head>
+  <body style="overflow-y: scroll;">
+    <div class="wrapper">
+      <section class="banner">
+        <div class="b-img-wrap"><img src="./img/login-out.png" alt="" /></div>
+      </section>
+      <section class="content">
+        <div class="sidebar">
+          <div class="member-info">
+            <div class="m-photo"><img src="" /></div>
+            <div class="m-name tr">admin</div>
+            <div class="m-login-title tr">最近登录</div>
+            <div class="m-login-date tr">2018-10-11</div>
+          </div>
+          <ul>
+            <li class="nav-li">
+              <a href="#organize">
+                <div class="nav">
+                  <div class="nav-icon organize-icon"></div>
+                  <div class="nav-name">组织架构</div>
+                </div>
+              </a>
+            </li>
+            <li class="nav-li">
+              <a href="#center">
+                <div class="nav">
+                  <div class="nav-icon center-icon"></div>
+                  <div class="nav-name">分中心建设</div>
+                </div>
+              </a>
+            </li>
+            <li class="nav-li">
+              <a href="#heart">
+                <div class="nav">
+                  <div class="nav-icon heart-icon"></div>
+                  <div class="nav-name">文明实践</div>
+                  <div class="nav-name">志愿服务队体系</div>
+                </div>
+              </a>
+            </li>
+            <li class="nav-li">
+              <a href="#stop">
+                <div class="nav">
+                  <div class="nav-icon stop-icon"></div>
+                  <div class="nav-name">所站建设</div>
+                </div>
+              </a>
+            </li>
+            <li class="nav-li">
+              <a href="#activity">
+                <div class="nav">
+                  <div class="nav-icon activity-icon"></div>
+                  <div class="nav-name">活动管理</div>
+                </div>
+              </a>
+            </li>
+            <li class="nav-li">
+              <a href="#specialActivity">
+                <div class="nav">
+                  <div class="nav-icon special-icon"></div>
+                  <div class="nav-name">特色活动</div>
+                </div>
+              </a>
+            </li>
+            <li class="nav-li">
+              <a href="#notice">
+                <div class="nav">
+                  <div class="nav-icon notice-icon"></div>
+                  <div class="nav-name">通知公告</div>
+                </div>
+              </a>
+            </li>
+            <li class="nav-li">
+              <a href="#system">
+                <div class="nav">
+                  <div class="nav-icon system-icon"></div>
+                  <div class="nav-name">系统设置</div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- main content Start -->
+        <main class="outline" id="container"></main>
+        <!-- main content End -->
+      </section>
+    </div>
+  </body>
+      
+<script type="text/javascript" src="//js.40017.cn/cn/public/jquery/jquery.min.js?v=?v=20181219001"></script>
+<script type="text/javascript" src="https://js.40017.cn/cn/min/??/cn/public/jquery/calendar/0.0.3/calendar.js?v=?v=20181219001"></script>
+<script>
+
+Date.prototype.Format = function (fmt) { 
+    var o = {
+        "M+": this.getMonth() + 1, //月份 
+        "d+": this.getDate(), //日 
+        "h+": this.getHours(), //小时 
+        "m+": this.getMinutes(), //分 
+        "s+": this.getSeconds(), //秒 
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+        "S": this.getMilliseconds() //毫秒 
+    };
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+}
+  
+
+Date.prototype.addDays = function (value) {
+    this.setDate(this.getDate() + value * 1)
+    return this
+}
+   var cal = new $.Calendar({
+      monthNum: 1,
+      isBigRange: true,
+      skin: "white",
+      showOtherMonth: true,
+      yearListNoPaging: true,
+      zIndex: "500",
+      buildContent: function (td, date, dateStr, data) {
+          var day = date.getDate(),
+              str = dateStr || day,
+              _class = [];
+          str = '<span class="d">' + str + "</span>";
+          // if ((date > new Date('2018-10-01')) && (date < new Date('2018-10-01').addDays(6)) || new Date(date).Format("yyyy-MM-dd") === '2018-10-01') {
+          //     _class.push("relax_date");
+          // }
+
+          // if ((date > new Date('2017-12-30')) && (date < new Date('2017-12-30').addDays(2)) || new Date(date).Format("yyyy-MM-dd") === '2017-12-30') {
+          //     _class.push("relax_date");
+          // }
+
+          // if ((date > new Date('2018-02-15')) && (date < new Date('2018-02-15').addDays(6)) || new Date(date).Format("yyyy-MM-dd") === '2018-02-15') {
+          //     _class.push("relax_date");
+          // }
+
+          // if ((date > new Date('2018-04-05')) && (date < new Date('2018-04-05').addDays(2)) || new Date(date).Format("yyyy-MM-dd") === '2018-04-05') {
+          //     _class.push("relax_date");
+          // }
+
+          // if ((date > new Date('2018-04-29')) && (date < new Date('2018-04-29').addDays(2)) || new Date(date).Format("yyyy-MM-dd") === '2018-04-29') {
+          //     _class.push("relax_date");
+          // }
+
+          // if ((date > new Date('2018-06-16')) && (date < new Date('2018-06-16').addDays(2)) || new Date(date).Format("yyyy-MM-dd") === '2018-06-16') {
+          //     _class.push("relax_date");
+          // }
+
+          // if ((date > new Date('2018-09-22')) && (date < new Date('2018-09-22').addDays(2)) || new Date(date).Format("yyyy-MM-dd") === '2018-09-22') {
+          //     _class.push("relax_date");
+          // }
+
+          // if (new Date(date).Format("yyyy-MM-dd") === '2018-02-24' ||
+          //     new Date(date).Format("yyyy-MM-dd") === '2018-02-11' ||
+          //     new Date(date).Format("yyyy-MM-dd") === '2018-04-08' ||
+          //     new Date(date).Format("yyyy-MM-dd") === '2018-04-28' ||
+          //     new Date(date).Format("yyyy-MM-dd") === '2018-09-29' ||
+          //     new Date(date).Format("yyyy-MM-dd") === '2018-09-30') {
+          //     _class.push("work_date");
+          // }
+          td.innerHTML = str;
+          $(td).addClass(_class.join(" "));
+      }
+  });
+
+</script>
+
+</html>

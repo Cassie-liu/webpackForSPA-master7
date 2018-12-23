@@ -1,0 +1,134 @@
+<!-- 菜单 -->
+<div class="c-menu-wrap">
+	<div class="cm-menus">
+		<span id="corg" class="c-menu cm-org active">组织机构</span>
+		<span id="cplan" class="c-menu cm-plan">年度计划</span>
+		<span id="cact" class="c-menu cm-activity">自选活动</span>
+		<span id="ccivi" class="c-menu cm-civi">文明实践点</span>
+		<span id="cshow" class="c-menu cm-show">活动展示</span>
+		<span id="cspe" class="c-menu cm-special">特色活动</span>
+	</div>
+	<div class="cm-actions">
+		<span class="c-btn cb-back none">返回</span>
+		<span class="c-btn cb-count none">统计汇总</span>
+		<span class="c-btn cb-export none">导出</span>
+		<span class="c-btn cb-switch">切换</span>
+		<span class="c-btn cb-add none">新增</span>
+	</div>
+</div>
+<!-- 中心组 -->
+<div class="cgroup-detail-cnt">
+	<!--中心组织架构-->
+	<div class="c-module c-org">
+		<div class="c-o-cnt">
+		</div>
+	</div>
+	<!--中心表-->
+	<div class="c-module c-data none">
+		<div class="c-data-operation">
+			<div class="c-do-wrap">
+				<div class="add"><i></i><span>新建</span></div>
+				<div class="edit"><i></i><span>修改</span></div>
+				<div class="delete"><i></i><span>删除</span></div>
+			</div>
+		</div>
+		<table>
+			<thead>
+				<tr>
+					<th class="cd-select"></th>
+					<th class="cd-no">序号</th>
+					<th class="cd-name">姓名</th>
+					<th class="cd-sex">性别</th>
+					<th class="cd-section">职务</th>
+					<th class="cd-range">备注</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		<div class="page-wrap clearfix">
+			<div id="page">
+				<span class="disabled">首页</span>
+				<span class="disabled">&lt;上一页</span>
+				<span class="current"></span>
+				<span class="disabled noclick">下一页&gt;</span>
+				<span class="disabled">尾页</span>
+				<span class="pagecount"></span>
+				<span class="countYe">到第<input type="text" maxlength="1">页<a href="javascript:;" class="turndown">确定</a><span></span></span>
+			</div>
+		</div>
+	</div>
+	<!--年度计划表-->
+	<div class="c-module c-plan-data none">
+		<!-- <div class="c-data-operation">
+			<div class="c-do-wrap">
+				<div><span></span><span>新建</span></div>
+				<div><span></span><span>修改</span></div>
+				<div><span></span><span>删除</span></div>
+			</div>
+		</div> -->
+		<table>
+			<thead>
+				<tr>
+					<th class="cpd-select"></th>
+					<th class="cpd-no">计划编号</th>
+					<th class="cpd-endline">截止时间</th>
+					<th class="cpd-name">计划名称</th>
+					<th class="cpd-section">计划内容</th>
+					<th class="cpd-status">任务状态</th>
+					<th class="cpd-percent">完成百分比</th>
+					<th class="cpd-action">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		<div class="page-wrap clearfix">
+			<div id="page">
+				<span class="disabled">首页</span>
+				<span class="disabled">&lt;上一页</span>
+				<span class="current"></span>
+				<span class="disabled noclick">下一页&gt;</span>
+				<span class="disabled">尾页</span>
+				<span class="pagecount"></span>
+				<span class="countYe">到第<input type="text" maxlength="1">页<a href="javascript:;" class="turndown">确定</a><span></span></span>
+			</div>
+		</div>
+	</div>
+	<!--自选活动表-->
+	<div class="c-module c-act-data none">
+	</div>
+	<!--文明实践点-->
+	<div class="c-module c-practice-data">
+		<div class="cp-group">
+		</div>
+	</div>
+</div>
+<div class="civiPra-add-popup none">
+	<div class="cpap-cnt mask-content">
+		<div class="modal-header">
+			<span class="cpap-cancel-add">x</span>
+		</div>
+		<div class="modal-body">
+			<div class="item-wrap pop-name">
+				<label for="cgName">名称:</label>
+				<input type="text" id="cgName" />
+			</div>
+			<div class="item-wrap pop-lon">
+				<label for="cgLon">经度:</label>
+				<input type="text" id="cgLon" />
+			</div>
+			<div class="item-wrap pop-lat">
+				<label for="cgLat">纬度:</label>
+				<input type="text" id="cgLat" />
+			</div>
+		</div>
+
+		<div class="modal-footer">
+			<div class="cpap-buttons">
+				<span class="cpap-btn cpap-sure-add" style="margin-right: 10px;">确定</span>
+				<span class="cpap-btn cpap-cancel-add" style="margin-left: 10px;">取消</span>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,637 @@
+.page-heart {
+	background: #edf0fa;
+	height: 100%;
+}
+
+.page-heart .top-nav {
+	background: #dde5fd;
+	padding-left: 50px;
+}
+
+.page-heart .parentnav {
+	background: url(../img/single.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 288px;
+	height: 52px;
+}
+
+.page-heart .parentnav span {
+	padding: 0 35px;
+	font-size: 16px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+
+.page-heart .main-content {
+	padding: 48px 200px 54px 45px;
+}
+
+.page-heart .main-top {
+	background: url(../img/bg3.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	height: 112px;
+	margin-bottom: 8px;
+}
+
+.page-heart .main-title {
+	font-size: 22px;
+	color: #fff;
+	padding-left: 20px;
+	line-height: 50px;
+	height: 50px;
+	/* text-align: center; */
+}
+
+.page-heart .main-detail {
+	font-size: 18px;
+	height: 60px;
+}
+
+.page-heart .h-menu,
+.page-heart .h-submenu {
+	width: 105px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: #9abeef;
+	border-radius: 3px;
+	display: block;
+	float: left;
+	margin-top: 15px;
+	color: #fff;
+	margin-left: 20px;
+	cursor: pointer;
+}
+
+.page-heart .h-submenu.active,
+.page-heart .h-menu.active {
+	background: #f7f9ff;
+	color: #4b90ff;
+	border: 1px solid #4b90ff;
+}
+
+.page-heart .hm-branch,
+.page-heart .hm-big {
+	background: #b3b4b6;
+}
+
+.page-heart .h-submenu-wrap {
+	height: 55px;
+	margin-bottom: 8px;
+	background: #f7f9ff;
+}
+
+.page-heart .h-btn {
+	width: 105px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: #7e95da;
+	border-radius: 3px;
+	float: right;
+	margin-top: 15px;
+	color: #fff;
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+.page-heart .main-bottom {
+	background: url(../img/bg4.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	height: 660px;
+}
+
+/********志愿者组织架构样式********/
+.page-heart .h-cnt {
+	height: 100%;
+}
+
+.page-heart .h-org {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+.page-heart .h-o-cnt {
+	width: 260px;
+	height: 520px;
+	margin-top: 64px;
+	display: inline-block;
+}
+
+.page-heart .h-o-cnt .h-org-detail {
+	font-size: 20px;
+	color: #fff;
+	text-align: center;
+	width: 100%;
+	height: 97px;
+	padding-top: 20px;
+	background: url(../img/box.png) no-repeat;
+	background-size: 100% 100%;
+	box-sizing: border-box;
+}
+
+.page-heart .h-o-cnt .h-org-detail div {
+	padding: 0 20px 0 10px;
+}
+
+.page-heart .none {
+	display: none;
+}
+
+/**志愿者机构中的表格样式**/
+.page-heart .h-data-operation {
+	height: 70px;
+	text-align: right;
+}
+
+.page-heart .h-do-wrap {
+	margin-top: 30px;
+	display: inline-block;
+}
+
+.page-heart .h-do-wrap span {
+	font-size: 14px;
+	color: #202426;
+}
+
+.page-heart table {
+	width: 100%;
+	overflow: hidden;
+	border-collapse: collapse;
+}
+
+.page-heart thead {
+	background: #f0f5ff;
+}
+
+.page-heart table,
+.page-heart table th,
+.page-heart table td {
+	text-align: center;
+	line-height: 54px;
+	height: 54px;
+	color: #596f8c;
+	font-size: 18px;
+	border: 3px #eaecfc solid;
+}
+
+.page-heart .hd-select {
+	width: 84px;
+}
+
+.page-heart .hd-no {
+	width: 136px;
+}
+
+.page-heart .hd-name {
+	width: 180px;
+}
+
+.page-heart .hd-sex {
+	width: 136px;
+}
+
+.page-heart .hd-section {
+	width: 177px;
+}
+
+.page-heart .hd-range {
+	width: 185px;
+}
+
+.page-heart .hd-tel {
+	width: 216px;
+}
+
+.page-heart .hd-job {
+	width: 249px;
+}
+
+.page-heart .hd-operation {
+	width: 260px;
+}
+
+/***********************服务队伍************************************/
+.page-heart .h-group .h-group-item {
+	position: relative;
+	width: 300px;
+	height: 264px;
+	float: left;
+	margin: 50px 29px;
+}
+
+.page-heart .h-group .item {
+	width: 100%;
+	height: 100%;
+	background: url(../img/fbg.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+
+.page-heart .h-group .item a {
+	position: absolute;
+	top: 174px;
+	left: 105px;
+	width: 100px;
+	height: 100px;
+}
+
+.page-heart .h-group .item span {
+	position: absolute;
+	bottom: 25px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 20px;
+	color: #2f5bac;
+}
+
+.page-heart .h-group .item-operate {
+	position: absolute;
+	bottom: -20px;
+	left: 0;
+	width: 100%;
+	color: #2f5bac;
+	font-size: 16px;
+}
+
+.page-heart .h-group .item-edit {
+	float: left;
+	margin-left: 50px;
+	cursor: pointer;
+}
+
+.page-heart .h-group .item-dele {
+	float: right;
+	margin-right: 50px;
+	cursor: pointer;
+}
+
+/***************组的详细信息************/
+.page-heart .h-ser-data {
+	position: relative;
+	height: 100%;
+	background: #f7f9ff;
+}
+
+.page-heart .hs-desc {
+	display: inline-block;
+	width: 480px;
+	height: 100%;
+	background: #f7f9ff;
+}
+
+.page-heart .hs-data {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	margin-left: 490px;
+}
+
+.page-heart .hsd-title {
+	font-size: 32px;
+	color: #d50908;
+	margin: 100px 26px 30px;
+}
+
+.page-heart .hsd-para {
+	font-size: 20px;
+	color: #6e768f;
+	line-height: 30px;
+	text-indent: 54px;
+	margin: 0 26px;
+}
+
+/***************添加弹窗***************/
+.page-heart .h-add-popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100%;
+}
+
+.page-heart .hap-cnt {
+	position: absolute;
+	top: 35%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 250px;
+	padding: 20px;
+	background: #ECEEF4;
+	border-radius: 8px;
+	box-sizing: border-box;
+}
+
+.page-heart .hap-cnt div {
+	padding: 10px 0;
+}
+
+.page-heart .hap-buttons {
+	text-align: center;
+}
+
+.page-heart .hap-btn {
+	line-height: 30px;
+	background: #5E87EB;
+	color: #fff;
+	text-align: center;
+	padding: 4px 10px;
+	cursor: pointer;
+}
+
+
+.page-heart .h-data-operation .h-do-wrap {
+	padding-top: 0px;
+	padding-bottom: 30px;
+	overflow: hidden;
+	margin-left: 60%;
+}
+
+.page-heart .h-do-wrap div {
+	float: left;
+	margin-right: 30px;
+	cursor: pointer;
+}
+
+.page-heart .h-do-wrap span {
+	font-size: 14px;
+	color: #202426;
+	margin-left: 10px;
+}
+
+
+
+.page-heart .main-bottom .search .add {
+	display: block;
+	width: 70px;
+	line-height: 32px;
+	float: left;
+	text-align: center;
+}
+
+.page-heart .operate {
+	overflow: hidden;
+	padding-left: 45px;
+}
+
+.page-heart .hd-select p {
+	width: 20px;
+	height: 20px;
+	margin: 0 auto;
+	background: url(../img/uncheck.png) no-repeat center center;
+	cursor: pointer;
+}
+
+.page-heart .hd-select p.checked {
+	width: 20px;
+	height: 20px;
+	margin: 0 auto;
+	background: url(../img/checked.png) no-repeat center center;
+	cursor: pointer;
+}
+
+.page-heart .add i {
+	background: url(../img/add.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+}
+
+.page-heart .add em {
+	display: block;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+}
+
+.page-heart .edit i {
+	background: url(../img/edit.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+}
+
+.page-heart .delete i {
+	background: url(../img/delete.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+}
+
+.page-heart .delete em {
+	display: block;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+}
+
+
+.page-heart .pop {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	z-index: 10;
+}
+
+.page-heart .pop-content {
+	top: 10%;
+	position: absolute;
+	width: 400px;
+	background: #ECEEF4;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	padding: 20px;
+	font-size: 18px;
+	border-radius: 8px;
+}
+
+.page-heart .pop-content .pop_li select {
+	width: 400px;
+	height: 30px;
+}
+
+.page-heart .pop-content .pop_li p {
+	margin: 20px 0;
+}
+
+.page-heart .pop-content input {
+	/*width: 100%;*/
+	height: 30px;
+}
+
+.page-heart .pop-edit {
+	top: 10%;
+	position: absolute;
+	width: 250px;
+	height: 100px;
+	background: #ECEEF4;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	padding: 20px;
+	font-size: 18px;
+	border-radius: 8px;
+}
+
+.page-heart .pop-edit .pop_li p {
+	margin: 20px 0;
+}
+
+
+.page-heart .pop-content .accessory span {
+	display: block;
+	float: left;
+}
+
+.page-heart .pop-content .accessory i {
+	background: url(../img/upload.png) 0 0 no-repeat;
+	width: 94px;
+	height: 36px;
+	background-size: 100% 100%;
+	float: left;
+}
+
+.page-heart .pop-content .button {
+	overflow: hidden;
+	padding-top: 25px;
+	width: 209px;
+	margin: 0 auto;
+}
+
+.page-heart .pop-content .button .yes {
+	float: left;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	background: #5E87EB;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+
+.page-heart .pop-content .button .notice_cancel {
+	float: left;
+	border: #268bc9 1px solid;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	color: #268bc9;
+	text-align: center;
+	margin-right: 30px;
+	cursor: pointer;
+}
+
+
+.page-heart .add-photo-wrap {
+	position: relative;
+	width: 130px;
+	height: 40px;
+	margin-left: 96px;
+	margin-top: 30px;
+}
+
+.page-heart .asseory {
+	float: left;
+	margin-top: 30px;
+}
+
+.page-heart .add-photo-wrap .add-photo {
+	width: 130px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	color: #fff;
+	border-radius: 3px;
+	text-align: center;
+	border: 1px solid #ddd;
+	cursor: pointer;
+	background: #f63;
+}
+
+.page-heart .add-photo i {
+	background: url(../img/hui.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 12px;
+	height: 12px;
+}
+
+
+.page-heart .add-photo-wrap>input {
+	position: absolute;
+	width: 94px;
+	height: 50px;
+	top: 1px;
+	left: 79px;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	border-radius: 8px;
+	z-index: 99
+}
+
+.page-heart .accessory {
+	position: relative;
+	overflow: hidden;
+}
+
+.page-heart .ld-operation i {
+	background: url(../img/assery.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	width: 30px;
+	height: 30px;
+	display: block;
+	position: absolute;
+	top: 11px;
+	left: 9px;
+
+}
+
+
+.page-heart .pop-edit .button {
+	width: 100%;
+	overflow: hidden;
+	margin-top: 20px;
+	padding: 0 22px;
+	font-size: 18px;
+}
+
+.page-heart .pop-edit .button .yes {
+	float: left;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	background: #5E87EB;
+	color: #fff;
+	text-align: center;
+}
+
+.page-heart .pop-edit .button .notice_cancel {
+	float: left;
+	border: #268bc9 1px solid;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	color: #268bc9;
+	text-align: center;
+	margin-right: 30px;
+}
+
+
+.page-heart .pop-edit input {
+	height: 30px;
+}

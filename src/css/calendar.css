@@ -1,0 +1,419 @@
+.calendar-panel {
+    background:#FFF;
+    box-shadow:-2px 2px 5px #b6b6b6, 2px 2px 5px #b6b6b6;
+    -ms-box-shadow:-2px 2px 5px #b6b6b6, 2px 2px 5px #b6b6b6;
+    font:12px/20px Arial, 'Microsoft YaHei', sans-serif, SimSun;
+    color:#666;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Shadow(color=#b6b6b6,direction=0,strength=3) progid:DXImageTransform.Microsoft.Shadow(color=#b6b6b6,direction=90,strength=3) progid:DXImageTransform.Microsoft.Shadow(color=#b6b6b6,direction=180,strength=3) progid:DXImageTransform.Microsoft.Shadow(color=#b6b6b6,direction=270,strength=3)";
+    *filter:progid:DXImageTransform.Microsoft.Shadow(color=#b6b6b6, direction=90, strength=3) progid:DXImageTransform.Microsoft.Shadow(color=#b6b6b6, direction=180, strength=3) progid:DXImageTransform.Microsoft.Shadow(color=#b6b6b6, direction=270, strength=3)
+}
+.calendar-panel:after {
+    content:".";
+    height:0;
+    overflow:hidden;
+    clear:both;
+    display:block
+}
+.calendar-panel .previous-month, .calendar-panel .next-month {
+    width:17px;
+    height:17px;
+    position:absolute;
+    top:8px;
+    cursor:pointer;
+    background:url(//js.40017.cn/cn/public/module/Calendar/0.1/calendar_arrow.png) scroll no-repeat 0 0 transparent;
+    overflow:hidden;
+    outline:0
+}
+.calendar-panel .previous-month {
+    left:10px
+}
+.calendar-panel .next-month {
+    right:10px;
+    background-position:-17px 0
+}
+.calendar-panel .previous-month:hover {
+    background-position:0 -17px
+}
+.calendar-panel .next-month:hover {
+    background-position:-17px -17px
+}
+.calendar-panel .previous-month-disabled, .calendar-panel .previous-month-disabled:hover {
+    cursor:default;
+    background-position:0 -34px
+}
+.calendar-panel .next-month-disabled, .calendar-panel .next-month-disabled:hover {
+    cursor:default;
+    background-position:-17px -34px
+}
+.calendar-panel .loading {
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    right:0;
+    background:url(//img1.40017.cn/cn/comm/images/cn/public/transparent_loading_v2.gif) scroll no-repeat center center transparent;
+    background-color:rgba(255, 255, 255, .65)
+}
+.calendar-panel .calendar-wrapper {
+    float:left
+}
+.calendar-panel .calendar-wrapper h6 {
+    margin:0;
+    padding:0;
+    height:34px;
+    background:#2fa1e7;
+    text-align:center;
+    color:#fff
+}
+.calendar-panel h6 span {
+    margin-top:8px;
+    display:inline-block;
+    font-size:16px;
+    line-height:18px;
+    height:18px
+}
+.calendar-panel h6 .year-wrapper, .calendar-panel h6 .month-wrapper {
+    height:18px;
+    float:left;
+    padding-right:10px;
+    background:#F8F8F8;
+    position:relative
+}
+.calendar-panel h6 .year-str, .calendar-panel h6 .month-str {
+    float:left;
+    font-style:normal;
+    font-weight:700;
+    margin-left:3px;
+    _padding-top:1px;
+    _height:17px
+}
+.calendar-panel h6 .year-str {
+    margin-right:3px
+}
+.calendar-panel h6 .year-wrapper i, .calendar-panel h6 .month-wrapper i {
+    position:absolute;
+    height:0;
+    line-height:0;
+    overflow:hidden;
+    border-color:#333 #F8F8F8;
+    border-style:solid;
+    border-width:4px 4px 0;
+    top:7px;
+    right:2px
+}
+.calendar-panel h6 .year-wrapper input, .calendar-panel h6 .month-wrapper input {
+    float:left;
+    border:0;
+    text-align:center;
+    height:18px;
+    line-height:18px;
+    padding:0;
+    background:#F8F8F8;
+    color:#333;
+    font-size:14px;
+    outline:0;
+    position:relative
+}
+.calendar-panel h6 .year-wrapper input {
+    width:42px
+}
+.calendar-panel h6 .month-wrapper input {
+    width:24px
+}
+.calendar-panel h6 .year-wrapper input:focus, .calendar-panel h6 .month-wrapper input:focus {
+    border:0
+}
+.calendar-panel .calendar-wrapper .calendar-container {
+    position:relative;
+    padding:15px 10px 10px
+}
+.calendar-panel .calendar-wrapper .behind-month {
+    position:absolute;
+    width:196px;
+    font-size:124px;
+    line-height:124px;
+    color:#EEE;
+    text-align:center;
+    padding-top:30px;
+    font-family:'Helvetica Neue', Helvetica, Arial, Sans-serif
+}
+.calendar-panel .calendar-wrapper table {
+    margin:0;
+    padding:0;
+    border-spacing:0;
+    border-collapse:collapse;
+    width:100%
+}
+.calendar-panel .calendar-wrapper .header {
+    height:14px
+}
+.calendar-panel .calendar-wrapper th {
+    width:29px;
+    padding:0;
+    border:1px solid #f0f0f0;
+    border-top:0;
+    vertical-align:middle;
+    text-align:center;
+    font-weight:400;
+    line-height:14px
+}
+.calendar-panel .calendar-wrapper tr {
+    height:29px
+}
+.calendar-panel .calendar-wrapper td {
+    padding:0;
+    border:1px solid #f0f0f0;
+    border-top:0;
+    text-align:center;
+    vertical-align:top;
+    cursor:pointer
+}
+.calendar-panel .calendar-wrapper td .d {
+    height:20px;
+    display:block;
+    margin:5px 1px 0
+}
+.calendar-panel .calendar-wrapper th.saturday, .calendar-panel .calendar-wrapper th.sunday {
+    color:#f60
+}
+.calendar-panel .calendar-wrapper td.saturday, .calendar-panel .calendar-wrapper td.sunday {
+}
+.calendar-panel .calendar-wrapper .festival {
+    color:#b54800
+}
+.calendar-panel .calendar-wrapper .today {
+    color:#ffa63c
+}
+.calendar-panel .calendar-wrapper .from-day, .calendar-panel .calendar-wrapper .to-day, .calendar-panel .calendar-wrapper .selected-day, .calendar-panel .calendar-wrapper .hover-from-day, .calendar-panel .calendar-wrapper .hover-to-day {
+    box-shadow:2px 3px 3px #bbb9b9;
+    -ms-box-shadow:2px 3px 3px #bbb9b9
+}
+.calendar-panel .calendar-wrapper .from-day .d, .calendar-panel .calendar-wrapper .to-day .d, .calendar-panel .calendar-wrapper .selected-day .d, .calendar-panel .calendar-wrapper .hover-from-day .d, .calendar-panel .calendar-wrapper .hover-to-day .d {
+    border-bottom:3px solid #f60;
+    color:#333
+}
+.calendar-panel .calendar-wrapper .hover-day .d, .calendar-panel .calendar-wrapper .range-day .d {
+    border-bottom:3px solid #ddd
+}
+.calendar-panel .calendar-wrapper .previous-month-day {
+    color:#005BB5
+}
+.calendar-panel .calendar-wrapper .next-month-day {
+    color:#005BB5
+}
+.calendar-panel .calendar-wrapper .invalid-day, .calendar-panel .calendar-wrapper .invalid-day .d {
+    color:#ccc;
+    cursor:default
+}
+.calendar-panel .month-panel, .calendar-panel .year-panel {
+    position:absolute;
+    display:none;
+    width:40px;
+    border:1px solid #ddd;
+    background:#fff
+}
+.calendar-panel .year-panel {
+    width:50px
+}
+.calendar-panel .year-all-list {
+    width:65px
+}
+.calendar-panel .year-all-list .year-list {
+    height:160px;
+    overflow-y:scroll;
+    overflow-x:none
+}
+.calendar-panel .month-panel a, .calendar-panel .year-panel a {
+    display:block;
+    margin:0;
+    padding:0 0 0 10px;
+    line-height:16px;
+    cursor:pointer;
+    background:#fff;
+    _width:30px;
+    color:#333;
+    text-decoration:none
+}
+.calendar-panel .year-panel a {
+    _width:40px
+}
+.calendar-panel .month-panel a:hover, .calendar-panel .year-panel a:hover {
+    text-decoration:none;
+    background:#f0f0f0
+}
+.calendar-panel .year-panel .invalid-year, .calendar-panel .month-panel .invalid-month {
+    color:#999;
+    cursor:default
+}
+.calendar-panel .year-panel .invalid-year:hover, .calendar-panel .month-panel .invalid-month:hover {
+    background:#fff
+}
+.calendar-panel .year-nav {
+    height:16px;
+    border-top:1px solid #ddd;
+    position:relative
+}
+.calendar-panel .year-nav .previous, .calendar-panel .year-nav .next {
+    position:absolute;
+    top:2px;
+    line-height:0;
+    cursor:pointer;
+    height:12px;
+    overflow:hidden
+}
+.calendar-panel .year-nav .previous {
+    left:6px
+}
+.calendar-panel .year-nav .next {
+    right:6px
+}
+.calendar-panel .year-nav .previous i, .calendar-panel .year-nav .next i {
+    border-style:solid;
+    border-color:#fff #ccc;
+    border-width:6px 6px 6px 0;
+    display:inline-block;
+    height:0;
+    line-height:0;
+    overflow:hidden
+}
+.calendar-panel .year-nav .next i {
+    border-width:6px 0 6px 6px
+}
+.calendar-panel .year-nav .previous:hover i, .calendar-panel .year-nav .next:hover i {
+    border-color:#fff #f60
+}
+.calendar-panel .year-nav .previous em, .calendar-panel .year-nav .next em {
+    border-style:solid;
+    border-color:#ccc #fff;
+    border-width:3px 3px 3px 0;
+    position:absolute;
+    height:0;
+    line-height:0;
+    overflow:hidden;
+    top:3px;
+    right:0;
+    width:0
+}
+.calendar-panel .year-nav .next em {
+    border-width:3px 0 3px 3px;
+    left:0
+}
+.calendar-panel .year-nav .previous:hover em, .calendar-panel .year-nav .next:hover em {
+    border-color:#f60 #fff
+}
+.calendar-panel .year-nav .invalid-nav {
+    visibility:hidden;
+    cursor:default
+}
+.calendar-panel.green .calendar-wrapper h6 {
+    background:#8ab923
+}
+.calendar-panel.green .previous-month, .calendar-panel.green .next-month {
+    background-image:url(//js.40017.cn/cn/public/module/Calendar/0.2/calendar_arrow_green.png?v=2)
+}
+.calendar-panel.white .calendar-wrapper h6 {
+    background:#fff
+}
+.calendar-panel.white .previous-month, .calendar-panel.white .next-month {
+    background:url(//js.40017.cn/cn/public/module/Calendar/0.3/calendar_arrow_white.png?v=2) 0 0 no-repeat;
+    height:30px;
+    width:30px;
+    top:10px
+}
+.calendar-panel.white .previous-month {
+    background-position:-8px 0
+}
+.calendar-panel.white .next-month {
+    background-position:-49px 0
+}
+.calendar-panel.white .next-month:hover {
+    background-position:-143px 0
+}
+.calendar-panel.white .previous-month:hover {
+    background-position:-100px 0
+}
+.calendar-panel.white .previous-month-disabled, .calendar-panel.white .previous-month-disabled:hover {
+    background-position:-100px -43px
+}
+.calendar-panel.white .next-month-disabled, .calendar-panel.white .next-month-disabled:hover {
+    background-position:-142px -43px
+}
+.calendar-panel.white .calendar-wrapper h6 {
+    height:45px
+}
+.calendar-panel.white h6 span {
+    color:#333;
+    font-size:14px;
+    margin-top:15px
+}
+.calendar-panel.white .calendar-wrapper td {
+    border:0
+}
+.calendar-panel.white .calendar-wrapper tr {
+    height:31px
+}
+.calendar-panel.white .calendar-wrapper .from-day, .calendar-panel.white .calendar-wrapper .to-day, .calendar-panel.white .calendar-wrapper .hover-from-day, .calendar-panel.white .calendar-wrapper .hover-to-day {
+    box-shadow:none;
+    border:0
+}
+.calendar-panel.white {
+    font-size:14px;
+    box-shadow:0 0 16px 2px rgba(0, 0, 0, .2)
+}
+.calendar-panel.white .calendar-wrapper .hover-from-day, .calendar-panel.white .calendar-wrapper .hover-to-day, .calendar-panel.white .calendar-wrapper .hover-from-day {
+    background:#eee;
+    color:#333
+}
+.calendar-panel.white .calendar-wrapper .from-day, .calendar-panel.white .calendar-wrapper .to-day {
+    background:#50b400;
+    color:#fff
+}
+.calendar-panel.white .calendar-wrapper .hover-day {
+    background:#a4e98d;
+    color:#333
+}
+.calendar-panel.white .calendar-wrapper .hover-day .d, .calendar-panel .calendar-wrapper .range-day .d, .calendar-panel.white .calendar-wrapper th {
+    border:0
+}
+.calendar-panel.white .calendar-wrapper .from-day .d, .calendar-panel.white .calendar-wrapper .to-day .d, .calendar-panel.white .calendar-wrapper .selected-day .d, .calendar-panel.white .calendar-wrapper .hover-from-day .d, .calendar-panel.white .calendar-wrapper .hover-to-day .d {
+    border:0;
+    color:#fff
+}
+.calendar-panel.white .calendar-wrapper .hover-to-day .d, .calendar-panel.white .calendar-wrapper .hover-from-day .d {
+    color:#333
+}
+.calendar-panel.white .calendar-wrapper .from-day .d {
+    color:#fff
+}
+.calendar-panel.white .calendar-wrapper .festival, .calendar-panel.white .calendar-wrapper .festival .d {
+    color:#b54800
+}
+.calendar-panel.white .calendar-wrapper .today, .calendar-panel.white .calendar-wrapper .today .d {
+    color:#ffa63c
+}
+.calendar-panel.white:after {
+    position:absolute;
+    display:block;
+    height:0;
+    width:0;
+    font-size:0;
+    line-height:0;
+    border-color:transparent transparent #fff;
+    border-style:dashed dashed solid;
+    border-width:8px;
+    z-index:99999;
+    background:0;
+    top:-16px;
+    left:110px;
+    content:''
+}
+.calendar-panel.white-top:after {
+    border-color:#fff transparent transparent;
+    border-style:solid dashed dashed;
+    top:auto;
+    bottom:-16px
+}
+.calendar-panel.white-left:after {
+    left:auto;
+    right:45px
+}
