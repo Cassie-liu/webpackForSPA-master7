@@ -271,10 +271,14 @@ function initialize(params) {
         changeImage:function(flag) {
             var pictures = document.getElementById("pictures");
             if (flag) {
-                pictures.setAttribute("src", "/src/img/icon/activity-content.png");
+                // pictures.setAttribute("src", "/src/img/icon/activity-content.png");
+                $('#pictures1').css('display','block');
+                $('#pictures2').css('display','none');
                 $('.activity-contents').removeClass('none');
             } else {
-                pictures.setAttribute("src", "/src/img/icon/activity-picture.png");
+                // pictures.setAttribute("src", "/src/img/icon/activity-picture.png");
+                $('#pictures2').css('display','block');
+                $('#pictures1').css('display','none');
                 $('.activity-picture').removeClass('none');
             }
         }
