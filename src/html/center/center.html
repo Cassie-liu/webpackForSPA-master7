@@ -1,175 +1,129 @@
 <div class="center-box">
-	<div class="page-center">
-		<div class="top-nav">
-			<div class="parentnav">
-				<span style="color:#6584b5">分中心建设</span>
-				<span style="color:#fff;">分中心</span>
+		<div class="page-center">
+			<div class="top-nav">
+				<div class="parentnav">
+					<span style="color:#6584b5">分中心建设</span>
+					<span style="color:#fff;">分中心</span>
+				</div>
 			</div>
-		</div>
-		<div class="main-content">
-			<div class="main-top">
-				<div class="main-title">分中心建设</div>
-			</div>
-			<div class="main-bottom">
-				<!--中心内容-->
-				<div class="c-cnt">
-					<div style="position:relative"><span class="c-add">新增</span></div>
-					<div class="c-group">
+			<div class="main-content">
+				<div class="main-top">
+					<div class="main-title">分中心建设</div>
+				</div>
+				<div class="main-bottom">
+					<!--中心内容-->
+					<div class="c-cnt">
+						<div style="position:relative"><span class="c-add">新增</span></div>
+						<div class="c-group">
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="main-popup">
-			<!--添加分中心弹窗-->
-			<div class="center-add-popup mask none">
-				<div class="cap-cnt mask-content">
-					<div class="modal-header">
-						<span class="cap-cancel-add">X</span>
-					</div>
-					<div class="modal-body">
-						<div class="item-wrap">
+			<div class="main-popup">
+				<!--添加分中心弹窗-->
+				<div class="center-add-popup mask none">
+					<div class="cap-cnt">
+						<div>
 							<label for="ceName">名称:</label>
 							<input type="text" id="ceName" />
 						</div>
-						<div class="item-wrap">
+						<div>
 							<label for="ceLon">经度:</label>
 							<input type="text" id="ceLon" />
 						</div>
-						<div class="item-wrap">
+						<div>
 							<label for="ceLat">纬度:</label>
 							<input type="text" id="ceLat" />
 						</div>
-					</div>
-					<div class="modal-footer">
 						<div class="cap-buttons">
-							<span class="modal-btn cap-btn cap-sure-add" style="margin-right: 10px;">确定</span>
-							<span class="modal-btn cap-btn cap-cancel-add" style="margin-left: 10px;">取消</span>
+							<span class="cap-btn cap-sure-add" style="margin-right: 10px;">确定</span>
+							<span class="cap-btn cap-cancel-add" style="margin-left: 10px;">取消</span>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- 编辑 -->
-			<div class="center-edit-popup mask none">
-				<div class="pop-edit mask-content">
-					<div class="modal-header">
-						<span class="notice_cancel">X</span>
-					</div>
-					<div class="modal-body">
-						<div class="item-wrap">
+				<!-- 编辑 -->
+				<div class="center-edit-popup mask none">
+					<div class="pop-edit">
+						<div>
 							<label for="cGroupEdit">名称：</label>
 							<input type="text" id="cGroupEdit">
 						</div>
-					</div>
-					<div class="modal-footer">
 						<div class="cedit-buttons">
-							<span class="cedit-btn modal-btn yes" style="margin-right: 10px;">确定</span>
-							<span class="cedit-btn modal-btn notice_cancel" style="margin-left: 10px;">取消</span>
+							<span class="cedit-btn yes" style="margin-right: 10px;">确定</span>
+							<span class="cedit-btn notice_cancel" style="margin-left: 10px;">取消</span>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!--添加人员弹窗-->
-			<div class="people-add-popup mask none">
-				<div class="pop-content mask-content">
-					<div class="modal-header">
-						<span class="notice_cancel">x</span>
-					</div>
-					<div class="modal-body">
-						<div class="item-wrap pop_title pop_li">
-							<label>姓名：</label><input id="cName" type="text">
+				<!--添加人员弹窗-->
+				<div class="people-add-popup mask none">
+					<div class="pop-content">
+						<div class="pop_title pop_li">
+							<p>姓名：</p><input id="cName" type="text">
 						</div>
-						<div class=" item-wrap pop_name pop_li">
-							<label>性别：</label>
+						<div class="pop_name pop_li"><span>
+								<p>性别：</p>
+							</span>
 							<select name="男" id="cGender">
 								<option value="1">男</option>
 								<option value="2">女</option>
 								<!-- <option value="3">实践所</option> -->
 							</select>
 						</div>
-						<div class="item-wrap pop_content pop_li">
-							<label>职务：</label>
+						<div class="pop_content pop_li"><span>
+								<p>职务：</p>
+							</span>
 							<select name="主任" id="cPosition">
 								<option value="1">主任</option>
 								<option value="2">副主任</option>
 								<option value="3">工作人员</option>
 							</select>
 						</div>
-						<!-- <div class="item-wrap asseory">附件：</div>
-                          <div class="add-photo-wrap" id="addPhotoBtn">
-                              <div class="add-photo"><i></i>上传文件</div>
-                              <input id="inputFileID" type="file" multiple="">
-                          </div> -->
-					</div>
-					<div class="modal-footer">
+						<!-- <div class="asseory">附件：</div>
+						  <div class="add-photo-wrap" id="addPhotoBtn">
+							  <div class="add-photo"><i></i>上传文件</div>
+							  <input id="inputFileID" type="file" multiple="">
+						  </div> -->
 						<div class="button">
 							<p class="notice_cancel">取消</p>
 							<p class="yes">确认</p>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- 概况弹窗 -->
-			<div class="general-popup mask none">
-				<div class="pop-generalsituation mask-content">
-					<div class="modal-header">
-						<span class="notice_cancel">x</span>
-					</div>
-					<div class="modal-body">
-						<div class="item-wrap pop_title pop_li">
-							<label>标题：</label><input type="text"/>
+				<!-- 概况弹窗 -->
+				<div class="general-popup mask none">
+					<div class="pop-generalsituation">
+						<div class="pop_title pop_li">
+							<sapn>标题：</span><input type="text">
 						</div>
-						<div class="item-wrap pop_content pop_li">
-							<label>内容：</label><input type="text"/>
+						<div class="pop_content pop_li">
+							<sapn>内容：</span><input type="text">
 						</div>
-						<div class="item-wrap">
-							<label class="asseory">附件：</label>
-							<div class="add-photo-wrap" id="addPhotoBtn">
-								<div class="add-photo"><i></i>上传图片</div>
-								<input id="inputFileID" type="file" multiple="">
-							</div>
+						<div class="asseory">附件：</div>
+						<div class="add-photo-wrap" id="addPhotoBtn">
+							<div class="add-photo"><i></i>上传图片</div>
+							<input id="inputFileID" type="file" multiple="">
 						</div>
-						<!--<div class="asseory">附件：</div>-->
-						<!--<div class="add-photo-wrap" id="addPhotoBtn">-->
-							<!--<div class="add-photo"><i></i>上传图片</div>-->
-							<!--<input id="inputFileID" type="file" multiple="">-->
-						<!--</div>-->
-					</div>
-					<div class="modal-footer">
 						<div class="button">
 							<p class="notice_cancel">取消</p>
 							<p class="yes">确认</p>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- 提示弹窗 -->
-			<div class="alert mask none">
-				<div class="alert-cnt">
-					<div class="alert-header">
-						<span class="alert-close">x</span>
-					</div>
-					<div class="alert-body">
-						<div class="alert-text"></div>
-					</div>
-					<div class="alert-footer">
+				<!-- 提示弹窗 -->
+				<div class="alert mask none">
+					<div class="alert-cnt">
+						<span class="alert-text"></span>
 						<div class="alert-close">知道了</div>
 					</div>
 				</div>
-			</div>
-			<!-- 年度计划跟踪弹窗 -->
-			<div class="trackpop mask none">
-				<div class="trackpop-cnt">
-					<div class="track-header">
-						<span class="track-close">x</span>
-					</div>
-					<div class="track-body">
+				<!-- 年度计划跟踪弹窗 -->
+				<div class="trackpop mask none">
+					<div class="trackpop-cnt">
 						<div class="track-cnt"></div>
-					</div>
-					<div class="track-footer">
 						<div class="track-close">知道了</div>
 					</div>
 				</div>
+				
 			</div>
 		</div>
 	</div>
-</div>

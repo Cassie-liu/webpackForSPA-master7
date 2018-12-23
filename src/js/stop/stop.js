@@ -7,7 +7,7 @@ import {
 	hideAlert
 } from "../../util/util.js"
 
-function initialize(params) {
+function initialize(params,outerParam) {
 
 	if (__DEV__) {
 		console.log(params);
@@ -15,6 +15,16 @@ function initialize(params) {
 
 	let stop = {
 		init: function () {
+			// if(outerParam && outerParam.indexOf("isDirectShowPlan")>-1) {
+			// 	this.scanGroup(1,outerParam);
+			// } else {
+			// 	this.loadStopGroupData();
+			// 	this.addTown();
+			// 	this.clickEvents();
+			// 	hideAlert();
+			// }
+
+
 			this.loadStopGroupData();
 			this.addTown();
 			this.clickEvents();
@@ -157,7 +167,8 @@ function initialize(params) {
 							function (require) {
 								currentMod = require("../stop/group");
 								currentMod.init({
-									"id": townId
+									"id": townId,
+									"outerParam": outerParam
 								});
 							},
 							"group"
@@ -165,6 +176,33 @@ function initialize(params) {
 					}
 				});
 			})
+		},
+		scanGroup: function (townId, outerParam) {
+			let that = this;
+			// $(".stop-group-item .item").on("click", function (e) {
+				// let townId = e.currentTarget.dataset.id;
+
+				let htmlPath = "./html/stop/group.html";
+				let jsPath = "./stop/group";
+
+				$.get(htmlPath, [], function (html) {
+					let currentMod;
+					$(".main-bottom").html(html);
+					if (jsPath === "./stop/group") {
+						require.ensure(
+							[],
+							function (require) {
+								currentMod = require("../stop/group");
+								currentMod.init({
+									"id": townId,
+									"outerParam": outerParam
+								});
+							},
+							"group"
+						);
+					}
+				});
+			// })
 		},
 		clickEvents: function () {
 			var that = this;

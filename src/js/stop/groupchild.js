@@ -6,24 +6,39 @@ import {
 	hideAlert
 } from "../../util/util.js"
 
-function initialize(params) {
+function initialize(params,outerParam) {
 
 	if (__DEV__) {
 		console.log(params);
 	}
 	let source = params.source, //来源功能室还是村站
 		groupId = params.id; //对应的id
+	let townId = params.townId;
 	let groupchild = {
 		init: function () {
-			$(".scgroup-menu").removeClass("active");
-			$(".cfg-org").addClass("active");
 
-			addNoneFn(".scgroup-btn");
-			delNoneFn(".cfg-back, .cfg-switch");
 
-			addNoneFn(".sc-module");
-			delNoneFn(".sc-org");
-			this.querySubGroupOrg();
+			if(params.pageSource == "groupdetail") {
+				$(".scgroup-menu").removeClass("active");
+				$(".cfg-prac").addClass("active");
+
+				addNoneFn(".scgroup-btn");
+				delNoneFn(".cfg-back, .cfg-add");
+
+				addNoneFn(".sc-module");
+				delNoneFn(".sc-prac");
+				this.querySubGroupPractice();
+			} else {
+				$(".scgroup-menu").removeClass("active");
+				$(".cfg-org").addClass("active");
+
+				addNoneFn(".scgroup-btn");
+				delNoneFn(".cfg-back, .cfg-switch");
+
+				addNoneFn(".sc-module");
+				delNoneFn(".sc-org");
+				this.querySubGroupOrg();
+			}
 			this.switchMenu();
 			this.switchOrgToTable();
 			this.clickEvents();
@@ -62,7 +77,9 @@ function initialize(params) {
 
 					that.queryPlan();
 				} else {
-					showAlert("功能暂未开启")
+					// delNoneFn(".cfg-back, .cfg-export, .cfg-count");
+					delNoneFn(".sc-act");
+					that.querySelfPlan();
 				}
 			})
 		},
@@ -381,7 +398,6 @@ function initialize(params) {
 						<td class="scpd-no"></td>
 						<td class="scpd-endline">${item.countryName}</td>
 						<td class="scpd-status">${item.status}</td>
-						<td class="scpd-status">${item.status}</td>
 						<td class="scpd-action"><span class="track" data-id="${item.resultId}">查看</span></td>
 					</tr>`;
 
@@ -409,6 +425,59 @@ function initialize(params) {
 				$eleForm.submit();
 			});
 		},
+
+		/*****************************自选活动start************************************/
+		querySelfPlan: function () {
+			let that = this;
+			let url = 'querySelfPlanListForPlatform?pageNum=1&pageSize=10';
+			apiPost(url, "", function (data) {
+
+				if (!data || !data.success || !data.content || !data.content.list) {
+					showAlert("接口报错，请稍后重试~");
+					return;
+				}
+
+				let planArr = data.content.list;
+
+				if (planArr.length == 0) {
+					showAlert("暂无数据，可以去新增~");
+				}
+				let planHtml = "";
+				for (let i = 0; i < planArr.length; i++) {
+					let item = planArr[i];
+
+					let checkStatus = "";
+					if (item.checkStatus == 1) {
+						checkStatus = "未审核";
+					}
+					if (item.checkStatus == 2) {
+						checkStatus = "已审核";
+					}
+					if (item.checkStatus == 3) {
+						checkStatus = "已审核";
+					}
+					if (item.checkStatus == 4) {
+						checkStatus = "审核不通过";
+					}
+
+					planHtml += `<tr>
+						<th class="cpd-select" data-id="${item.resultId}"><p></p></th>
+						<td class="cpd-no">${i}</td>
+						<td class="cpd-endline">${item.townName}</td>
+						<td class="cpd-name">${item.countryName}</td>
+						<td class="cpd-name">${item.planName}</td>
+						<td class="cpd-status">${checkStatus}</td>
+						<td class="cpd-action"><span data-id="${item.resultId}" class="casee">查看</span></td>
+					</tr>`;
+
+					$(".sc-act tbody").html(planHtml);
+
+					that.trackPlanStatus();
+				}
+			})
+		},
+
+
 
 		/**************************实践点********************************************/
 		//查询实践点
@@ -537,6 +606,9 @@ function initialize(params) {
 								currentMod = require("../stop/groupdetail");
 								currentMod.init({
 									"id": pracId,
+									"source": source,
+									"townId": townId,
+									"groupId": groupId
 								});
 							},
 							"groupdetail"
@@ -574,6 +646,26 @@ function initialize(params) {
 			//点击跟踪的查看按钮
 			$(".sc-track").on("click",".track",function(event){
 				$('.scpgroup-search-popup').removeClass('none');
+				var id=$(this).data('id');
+				//调取接口
+				apiPost("queryPlanForTownRoom?resultId="+id, "", function (data) {
+					if (!data.success || !data.content || data.contents.length == 0) {
+					  alert('暂无数据');
+					  showAlert("暂无数据")
+					  return;
+					}
+
+				
+						$('.taskcheck-pop').removeClass('none');
+						$('.taskcheck-pop .pop-content').removeClass('none');
+						$('.pop_title').html(data.content.planName);
+						$('.pop_accontent').html(data.content.planContent);
+						$('.pop_time').html(data.content.completeTime);
+						$(".pop_pic img").attr("src", data.content.planAccessory);
+						$('.scpgroup-search-popup .pop-search .yes').attr('data-id',id);
+					  
+
+				})
 			});
 
 			//功能室跟踪按钮取消
@@ -610,8 +702,34 @@ function initialize(params) {
 
 		//返回到上一层
 		backToPre: function () {
+			console.log('townId',townId)
 			$(".cfg-back").off().on("click", function () {
-				alert('待处理')
+				let backSource = "";
+				if (source == "country") {
+					backSource = "country"
+				} else {
+					backSource = "func"
+				}
+				let htmlPath = "./html/stop/group.html";
+				let jsPath = "./stop/group";
+
+				$.get(htmlPath, [], function (html) {
+					let currentMod;
+					$(".main-bottom").html(html);
+					if (jsPath === "./stop/group") {
+						require.ensure(
+							[],
+							function (require) {
+								currentMod = require("../stop/group");
+								currentMod.init({
+									backSource: backSource,
+									id: townId
+								});
+							},
+							"group"
+						);
+					}
+				});
 			})
 		},
 

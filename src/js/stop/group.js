@@ -7,25 +7,54 @@ import {
 	hideAlert
 } from "../../util/util.js"
 
-function initialize(params) {
+function initialize(params,outerParam) {
 	if (__DEV__) {
 		console.log(params);
 	}
 
 	let townId = params.id;
+	// console.log('townId',townId)
+	let backSource = params.backSource; //功能室和村站的返回源
 	let sgroup = {
 		init: function () {
+			
+			if (backSource == "country") {
+				//初始化村站
+				addNoneFn(".sd-module");
+				delNoneFn(".sgd-country");
 
-			addNoneFn(".sd-module");
-			delNoneFn(".sgd-org");
+				addNoneFn(".sgd-btn");
+				delNoneFn(".sgdb-back, .sgdb-cAdd");
 
-			addNoneFn(".sgd-btn");
-			delNoneFn(".sgdb-back, .sgdb-switch");
+				$(".sgd-meu").removeClass("actiive");
+				$(".sgdm-country").addClass("active");
 
-			$(".sgd-meu").removeClass("actiive");
-			$(".sgdm-org").addClass("active");
+				this.queryCountryGroup();
+			} else if (backSource == "func") {
+				//初始化功能室
+				addNoneFn(".sd-module");
+				delNoneFn(".sgd-func");
 
-			this.queryTownOrg();
+				addNoneFn(".sgd-btn");
+				delNoneFn(".sgdb-back, .sgdb-fAdd");
+
+				$(".sgd-meu").removeClass("actiive");
+				$(".sgdm-func").addClass("active");
+
+				this.queryFuncGroup();
+			} else {
+				//初始化组织架构
+				addNoneFn(".sd-module");
+				delNoneFn(".sgd-org");
+
+				addNoneFn(".sgd-btn");
+				delNoneFn(".sgdb-back, .sgdb-switch");
+
+				$(".sgd-meu").removeClass("actiive");
+				$(".sgdm-org").addClass("active");
+
+				this.queryTownOrg();
+			}
 			this.switchMenu();
 			this.switchTownOrgToData();
 			this.backToPre();
@@ -119,7 +148,7 @@ function initialize(params) {
 		queryTownOrg: function () {
 			let param = {
 				// townId
-				"townId": 1
+				"townId": townId
 			};
 			apiPost("queryUserOrganization", param, function (data) {
 				if (!data.success) {
@@ -150,7 +179,7 @@ function initialize(params) {
 			let that = this;
 			let param = {
 				// townId
-				"townId": 1,
+				"townId": townId,
 				"pageSize": 10,
 				"pageNum": 1,
 			};
@@ -244,14 +273,7 @@ function initialize(params) {
 			})
 		},
 
-		//返回总镇点
-		backToTown: function () {},
-		//新建镇点的组织数据
-		addTownOrgData: function () {},
-		//修改镇点的组织数据
-		modifyTownOrgData: function () {},
-		//删除镇点的组织数据
-		deleteTownOrgData: function () {},
+	
 		/****************************************功能室分割线************************************************/
 		//查询功能室的组数据
 		queryFuncGroup: function () {
@@ -394,6 +416,7 @@ function initialize(params) {
 							function (require) {
 								currentMod = require("../stop/groupchild");
 								currentMod.init({
+									townId:townId,
 									id: funcGroupId,
 									source: "func"
 								});
@@ -549,6 +572,7 @@ function initialize(params) {
 							function (require) {
 								currentMod = require("../stop/groupchild");
 								currentMod.init({
+									townId:townId,
 									id: countryGroupId,
 									source: "country"
 								});
@@ -558,6 +582,31 @@ function initialize(params) {
 					}
 				});
 			})
+		},
+
+		CountryGroup: function (townId, countryGroupId) {
+
+				let htmlPath = "./html/stop/groupchild.html";
+				let jsPath = "./stop/groupchild";
+				$.get(htmlPath, [], function (html) {
+					let currentMod;
+					$(".main-bottom").html(html);
+					if (jsPath === "./stop/groupchild") {
+						require.ensure(
+							[],
+							function (require) {
+								currentMod = require("../stop/groupchild");
+								currentMod.init({
+									townId: townId,
+									id: countryGroupId,
+									outerParam: params.outerParam
+								});
+							},
+							"groupchild"
+						);
+					}
+				});
+			
 		},
 
 		clickEvents: function () {
@@ -592,7 +641,7 @@ function initialize(params) {
 				position: parseInt(position),
 				jrId: '',
 				// townId
-				townId: 1
+				townId: townId
 			};
 			// if (!peopleValidate(param)) return;
 			apiPost("addUser", param, function (data) {

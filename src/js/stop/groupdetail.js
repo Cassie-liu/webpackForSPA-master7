@@ -14,6 +14,10 @@ function initialize(params) {
 		console.log(params);
 	}
 
+	let source = params.source, //来源功能室还是村站
+		groupId = params.groupId; //对应的组id
+	let townId = params.townId;
+	console.log('townId',townId)
 	let pracId = params.id;
 	let groupdetail = {
 		model:{
@@ -107,10 +111,14 @@ function initialize(params) {
 		},
 		//切换菜单
 		switchGeneralOrAct: function () {
+			var that=this;
 			$(".sp-group-menu").off().on("click", function () {
 				if ($(this).hasClass("sp-group-act")) {
-					showAlert("暂未开放")
-					return;
+					$('.sp-group-cnt .sp-general-act').removeClass('none');
+					$('.sp-group-cnt .sp-general-cnt').addClass('none');
+					that.loadactivity();
+					// showAlert("暂未开放")
+					// return;
 				}
 				if ($(this).hasClass("active")) {
 					return;
@@ -119,6 +127,41 @@ function initialize(params) {
 				$(this).addClass("active");
 			})
 		},
+
+		//活动
+		loadactivity:function(){
+			
+			apiPost("queryFeatureForFront?pageNum=1&pageSize=10&practiceId="+pracId, "", function (data) {
+				if (!data.success) {
+					showAlert("新建实践点失败")
+					return;
+				}else{
+					if(data.content.list.length>0){
+						var pichtml='';
+						for(var i=0;i<data.content.list.length;i++){
+							var item=data.content.list[i];
+							pichtml+=`<li>
+									<dl>
+										<dt>
+											<img src="${item.pic[0]}">
+										</dt>
+										<dd>
+											<p>
+												<span>${item.planName}</span>
+											</p>
+										</dd>
+									</dl>
+								</li>`;
+						}
+
+						$('.activity-content ul').html(pichtml);
+					}
+				}
+
+			})
+		},
+
+
 		//点击返回
 		backToPracticeGroup: function () {
 			$(".sp-group-back").off().on("click", function (e) {
@@ -135,7 +178,10 @@ function initialize(params) {
 							function (require) {
 								currentMod = require("../stop/groupchild");
 								currentMod.init({
-
+									source: source, //来源功能室还是村站
+									id: groupId, //对应的组id
+									townId: townId,
+									pageSource: "groupdetail"
 								});
 							},
 							"groupchild"
