@@ -76,10 +76,17 @@ function initialize(params,outerParam) {
 					delNoneFn(".sc-plan");
 
 					that.queryPlan();
-				} else {
-					// delNoneFn(".cfg-back, .cfg-export, .cfg-count");
+				} else if (menuId == "cfgshow") {
+					//huoodng
+					delNoneFn(".sc-show");
+					that.loadactivity();
+				}else if(menuId=="cfgact"){
 					delNoneFn(".sc-act");
 					that.querySelfPlan();
+				}else {
+					// delNoneFn(".cfg-back, .cfg-export, .cfg-count");
+					// delNoneFn(".sc-act");
+					// that.querySelfPlan();
 				}
 			})
 		},
@@ -264,6 +271,39 @@ function initialize(params,outerParam) {
 				})
 			})
 		
+		},
+
+		//活动
+		loadactivity:function(){
+			// sp-general-act
+			apiPost("queryFeatureForFront?pageNum=1&pageSize=10&practiceId="+townId, "", function (data) {
+				if (!data.success) {
+					showAlert("新建实践点失败")
+					return;
+				}else{
+					if(data.content.list.length>0){
+						var pichtml='';
+						for(var i=0;i<data.content.list.length;i++){
+							var item=data.content.list[i];
+							pichtml+=`<li>
+									<dl>
+										<dt>
+											<img src="${item.pic[0]}">
+										</dt>
+										<dd>
+											<p>
+												<span>${item.planName}</span>
+											</p>
+										</dd>
+									</dl>
+								</li>`;
+						}
+
+						$('.sc-show .activity-content ul').html(pichtml);
+					}
+				}
+
+			})
 		},
 
 		

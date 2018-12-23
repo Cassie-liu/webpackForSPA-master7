@@ -130,7 +130,7 @@ function initialize(params) {
 
 		//活动
 		loadactivity:function(){
-			
+			// sp-general-act
 			apiPost("queryFeatureForFront?pageNum=1&pageSize=10&practiceId="+pracId, "", function (data) {
 				if (!data.success) {
 					showAlert("新建实践点失败")
