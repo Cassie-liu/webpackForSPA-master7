@@ -9,9 +9,9 @@ import {
 
 function initialize(params) {
 
-	// if (__DEV__) {
-	// 	console.log(params);
-	// }
+	if (__DEV__) {
+		console.log(params);
+	}
 
 	let centerId = params.id;
 	let cgroup = {
@@ -30,6 +30,18 @@ function initialize(params) {
 			this.pageFunc();
 			this.clickEvents();
 			hideAlert();
+
+			var href=location.href;
+			if(href.indexOf('isBigScreen')>-1){
+				addNoneFn(".sidebar");
+				addNoneFn(".banner");
+				addNoneFn(".top-nav");
+				addNoneFn(".main-content .main-top");
+				addNoneFn(".c-menu-wrap");
+				
+			}
+
+
 		},
 		//初始化页面
 		initPageCenter: function () {
@@ -77,6 +89,8 @@ function initialize(params) {
 						addNoneFn(".c-btn");
 						delNoneFn(".cb-switch, .cb-back");
 
+						addNoneFn(".c-track");
+
 						that.loadCenterOrg();
 						break;
 					case "ccivi":
@@ -85,6 +99,8 @@ function initialize(params) {
 
 						addNoneFn(".c-btn");
 						delNoneFn(".cb-back, .cb-add");
+
+						addNoneFn(".c-track");
 
 						that.addCiviPracticeData();
 						that.loadCiviPracData();
@@ -100,17 +116,20 @@ function initialize(params) {
 						that.queryPlan();
 						break;
 					case "cact":
-						alert("敬请期待");
+						// alert("敬请期待");
 						addNoneFn(".c-module");
-						// delNoneFn(".c-act-data");
-
 						addNoneFn(".c-btn");
+						delNoneFn(".c-act-data");
+
+						addNoneFn(".c-track");
+						that.querySelfPlan();
 						// delNoneFn(".cb-back, .cb-export");
 						break;
 					default:
 						alert("敬请期待");
 						addNoneFn(".c-module");
 						addNoneFn(".c-btn");
+						addNoneFn(".c-track");
 				}
 			})
 		},
@@ -401,31 +420,6 @@ function initialize(params) {
 			let that = this;
 			let url = 'queryPlansForCenter?pageNum=1&pageSize=10';
 			apiPost(url, "", function (data) {
-				data = {
-					success: true,
-					content: {
-						content: [{
-							"id": 13,
-							"createUserId": 1,
-							"createTime": "2018-12-14 20:42:32",
-							"updateUserId": 1,
-							"updateTime": "2018-12-14 20:54:44",
-							"status": null,
-							"expireTime": "2018-12-12 00:00:00",
-							"name": "自选活动标题",
-							"type": null,
-							"content": "内容",
-							"planStatus": null,
-							"complete": null,
-							"checkStatus": 3,
-							"selectType": 2,
-							"accessory": "附件",
-							"centerId": 8,
-							"integral": null,
-							"countryId": 1
-						}]
-					}
-				};
 
 				if (!data || !data.success || !data.content || !data.content.content) {
 					showAlert("接口报错，请稍后重试~");
@@ -460,9 +454,7 @@ function initialize(params) {
 						<td class="cpd-no">${i}</td>
 						<td class="cpd-endline">${item.expireTime}</td>
 						<td class="cpd-name">${item.name}</td>
-						<td class="cpd-section">${item.content}</td>
 						<td class="cpd-status">${checkStatus}</td>
-						<td class="cpd-percent">${item.planStatus}</td>
 						<td class="cpd-action"><span data-id="${item.id}" class="track">跟踪</span><span>附件</span></td>
 					</tr>`;
 
@@ -476,18 +468,20 @@ function initialize(params) {
 		trackPlanStatus: function () {
 			$(".c-plan-data .track").off().on("click", function (e) {
 				let planId = e.currentTarget.dataset.id
+				$('.c-plan-data').addClass('none');
+				$('.c-track').removeClass('none');
 				let url = `afterResult?planId=${planId}&pageNum=1&pageSize=10`;
 				apiPost(url, "", function (data) {
-					data = {
-						success: true,
-						content: {
-							afterResultDTOS: [{
-								countryName: "宝华村",
-								status: "已完成",
-								resultId: 5
-							}]
-						}
-					};
+					// data = {
+					// 	success: true,
+					// 	content: {
+					// 		afterResultDTOS: [{
+					// 			countryName: "宝华村",
+					// 			status: "已完成",
+					// 			resultId: 5
+					// 		}]
+					// 	}
+					// };
 					if (!data || !data.success || !data.content || !data.content.afterResultDTOS) {
 						showAlert("请求跟踪数据失败");
 						return;
@@ -498,19 +492,82 @@ function initialize(params) {
 						return;
 					}
 					let trackPlanHtml = "";
-					for (let i = 0; i < trackPlanArr.length; i++) {
-						let item = trackPlanArr[i];
-						trackPlanHtml += `<div><span>${item.countryName}</span><span>${item.status}</span></div>`;
-					}
-
-					$(".trackpop .track-cnt").html(trackPlanHtml);
-					delNoneFn('.trackpop');
-					$(".track-close").off().on("click", function () {
-						addNoneFn('.trackpop');
-					})
+						for (let i = 0; i < trackPlanArr.length; i++) {
+							let item = trackPlanArr[i];
+							// trackPlanHtml += `<div><span>${item.countryName}</span><span>${item.status}</span></div>`;
+							trackPlanHtml += `<tr>
+							<td class="scpd-no"></td>
+							<td class="scpd-endline">${item.countryName}</td>
+							<td class="scpd-status">${item.status}</td>
+							<td class="scpd-action"><span class="track" data-id="${item.resultId}">查看</span></td>
+						</tr>`;
+	
+	
+						}
+	
+						$(".c-track tbody").html(trackPlanHtml);
+						// delNoneFn('.trackpop');
+						$(".track-close").off().on("click", function () {
+							addNoneFn('.trackpop');
+						})
 				});
 			})
 		},
+
+
+
+		/*****************************自选活动start************************************/
+		querySelfPlan: function () {
+			let that = this;
+			let url = 'querySelfPlanListForPlatform?pageNum=1&pageSize=10';
+			apiPost(url, "", function (data) {
+
+				if (!data || !data.success || !data.content || !data.content.list) {
+					showAlert("接口报错，请稍后重试~");
+					return;
+				}
+
+				let planArr = data.content.list;
+
+				if (planArr.length == 0) {
+					showAlert("暂无数据，可以去新增~");
+				}
+				let planHtml = "";
+				for (let i = 0; i < planArr.length; i++) {
+					let item = planArr[i];
+
+					let checkStatus = "";
+					if (item.checkStatus == 1) {
+						checkStatus = "未审核";
+					}
+					if (item.checkStatus == 2) {
+						checkStatus = "已审核";
+					}
+					if (item.checkStatus == 3) {
+						checkStatus = "已审核";
+					}
+					if (item.checkStatus == 4) {
+						checkStatus = "审核不通过";
+					}
+
+					planHtml += `<tr>
+						<th class="cpd-select" data-id="${item.resultId}"><p></p></th>
+						<td class="cpd-no">${i}</td>
+						<td class="cpd-endline">${item.townName}</td>
+						<td class="cpd-name">${item.countryName}</td>
+						<td class="cpd-name">${item.planName}</td>
+						<td class="cpd-status">${checkStatus}</td>
+						<td class="cpd-action"><span data-id="${item.resultId}" class="casee">查看</span></td>
+					</tr>`;
+
+					$(".c-act-data tbody").html(planHtml);
+
+					that.trackPlanStatus();
+				}
+			})
+		},
+
+
 		/*****************************文明实践点的操作start************************************/
 		//加载文明实践点数据
 		loadCiviPracData: function () {
@@ -663,7 +720,7 @@ function initialize(params) {
 			});
 		},
 		/**
-		 * 分页(许卉新增)
+		 * 分页
 		 */
 		pageFunc: function () {
 

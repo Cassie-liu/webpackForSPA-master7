@@ -19,6 +19,20 @@ function initialize(params) {
 			this.loadCenterZuData();
 			this.centerAddBtn();
 			hideAlert();
+
+			var href=location.href;
+			if(href.indexOf('isBigScreen')>-1){
+				addNoneFn(".sidebar");
+				addNoneFn(".banner");
+				addNoneFn(".top-nav");
+				addNoneFn(".main-content .main-top");
+				addNoneFn(".c-menu-wrap");
+
+				$('#container').css('margin-left','0');
+				$('.page-center .main-content').css('padding','0');
+				
+				
+			}
 		},
 		//加载分中心组的数据
 		loadCenterZuData: function () {

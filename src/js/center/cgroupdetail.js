@@ -40,7 +40,7 @@ function initialize(params) {
 				}
 
 				if (data.content) {
-					//查询办公室的概况
+					//值为true查询实践点的概况
 					that.queryPracGeneral();
 				} else {
 					//显示兜底图todo
@@ -78,12 +78,12 @@ function initialize(params) {
 		//新建实践点概况内容
 		addPracContent: function () {
 			var _this = this;
-			var pic = 'http://47.254.44.188:8088/files/' + _this.model.content;
-			let that = this;
+			var pic =_this.model.content;
+			let content=$('.pop_content').val();
 			let param = {
 				"id": params.id,
 				"pic": pic,
-				"content": "法撒旦飞洒看来附件是可怜的飞机说法萨芬"
+				"content": content
 			};
 			apiPost("addPracticeContent", param, function (data) {
 				if (!data.success) {
@@ -99,8 +99,9 @@ function initialize(params) {
 		//切换菜单
 		switchGeneralOrAct: function () {
 			$(".cgroup-menu").off().on("click", function () {
+				//活动
 				if ($(this).hasClass("cg-act")) {
-					showAlert("暂未开放")
+					showAlert("无接口")
 					return;
 				}
 				if ($(this).hasClass("active")) {
@@ -164,18 +165,20 @@ function initialize(params) {
 			var that = this;
 			//弹出新增概况的弹框
 			$(".add-cg-cnt").on("click", function () {
-				delNoneFn(".pop, .pop-generalsituation");
+				delNoneFn(".main-popup .general-popup")
+				
 			});
-			//概况确认
+			//概况确认addPracticeContent
 			$('.pop-generalsituation .button .yes').on('click', function () {
-				addNoneFn(".pop .pop-generalsituation");
+				addNoneFn(".general-popup");
 				that.addPracContent();
 			});
 			//取消
-			$('.pop-generalsituation .button .notice_cancel').on('click', function () {
-				debugger;
-				addNoneFn(".pop .pop-generalsituation");
+			$('.general-popup .button .notice_cancel').on('click', function () {
+				addNoneFn(".pop .general-popup");
 			});
+			
+
 			//上传文件
 			$('#addPhotoBtn').change(function (e) {
 				var files = e.target.files || e.dataTransfer.files;
