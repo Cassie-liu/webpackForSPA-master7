@@ -2,8 +2,7 @@ import {
 	apiPost,
 	delNoneFn,
 	addNoneFn,
-	showAlert,
-	hideAlert
+	showAlert
 } from "../../util/util.js"
 
 function initialize(params) {
@@ -26,7 +25,6 @@ function initialize(params) {
 
 			this.notOpenInstruction();
 			this.clickEvents();
-			hideAlert();
 		},
 		//初始化页面
 		initPage: function () {
