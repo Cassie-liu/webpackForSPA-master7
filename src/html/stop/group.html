@@ -1,159 +1,147 @@
 <!-- 菜单 -->
 <div class="sgd-menu-wrap">
-	<div style="float:left">
-		<span id="sorg" class="sgd-meu sgdm-org">组织机构</span>
-		<span id="sfunc" class="sgd-meu sgdm-func">功能室建设</span>
-		<span id="scountry" class="sgd-meu sgdm-country">村站总览</span>
-	</div>
-	<div style="float:right;">
-		<span class="sgd-btn sgdb-back none">返回</span>
-		<span class="sgd-btn sgdb-switch none">切换</span>
-		<span class="sgd-btn sgdb-fAdd none">新增</span>
-		<span class="sgd-btn sgdb-cAdd none">新增</span>
-		<span class="sgd-btn sgdb-export none">导出</span>
-	</div>
-</div>
-<!-- 内容 -->
-<div class="sgd-cnt">
-	<!-- 组织机构 -->
-	<div class="sd-module sgd-org">
-		<div class="sgd-o-cnt">
+		<div style="float:left">
+			<span id="sorg" class="sgd-meu sgdm-org">组织机构</span>
+			<span id="sfunc" class="sgd-meu sgdm-func">功能室建设</span>
+			<span id="scountry" class="sgd-meu sgdm-country">村站总览</span>
+		</div>
+		<div style="float:right;">
+			<span class="sgd-btn sgdb-back none">返回</span>
+			<span class="sgd-btn sgdb-switch none">切换</span>
+			<span class="sgd-btn sgdb-fAdd none">新增</span>
+			<span class="sgd-btn sgdb-cAdd none">新增</span>
+			<span class="sgd-btn sgdb-export none">导出</span>
 		</div>
 	</div>
-	<!--中心表-->
-	<div class="sd-module sgd-data none">
-		<div class="sgd-data-operation">
-			<div class="sgd-do-wrap">
-				<div class="add"><i></i><span>新建</span></div>
-				<div class="edit"><i></i><span>修改</span></div>
-				<div class="delete"><i></i><span>删除</span></div>
+	<!-- 内容 -->
+	<div class="sgd-cnt">
+		<!-- 组织机构 -->
+		<div class="sd-module sgd-org">
+			<div class="sgd-o-cnt">
 			</div>
 		</div>
-		<table>
-			<thead>
-				<tr>
-					<th class="sd-select"></th>
-					<th class="sd-no">序号</th>
-					<th class="sd-name">姓名</th>
-					<th class="sd-sex">性别</th>
-					<th class="sd-section">职务</th>
-					<th class="sd-range">备注</th>
-				</tr>
-			</thead>
-			<tbody>
-			</tbody>
-		</table>
-	</div>
-	<!-- 功能室建设 -->
-	<div class="sd-module sgd-func">
-		<div class="sgdf-group"></div>
-	</div>
-	<!-- 村站总览 -->
-	<div class="sd-module sgd-country">
-		<div class="sgdc-group"></div>
-	</div>
-	<!--添加功能室的弹窗-->
-	<div class="sfunc-add-popup none">
-		<div class="sfap-cnt">
-			<div>
-				<label for="sfName">名称:</label>
-				<input type="text" id="sfName" />
-			</div>
-			<div>
-				<label for="sfLon">经度:</label>
-				<input type="text" id="sfLon" />
-			</div>
-			<div>
-				<label for="sfLat">纬度:</label>
-				<input type="text" id="sfLat" />
-			</div>
-			<div>
-				<label for="sfBelong">所属分中心id:</label>
-				<input type="text" id="sfBelong" />
-			</div>
-			<div class="sfap-buttons">
-				<span class="sfap-btn sfap-sure-add" style="margin-right: 10px;">确定</span>
-				<span class="sfap-btn sfap-cancel-add" style="margin-left: 10px;">取消</span>
-			</div>
-		</div>
-	</div>
-	<!--添加村站的弹窗-->
-	<div class="sc-add-popup none">
-		<div class="scap-cnt">
-			<div>
-				<label for="scName">名称:</label>
-				<input type="text" id="scName" />
-			</div>
-			<div>
-				<label for="scLon">经度:</label>
-				<input type="text" id="scLon" />
-			</div>
-			<div>
-				<label for="scLat">纬度:</label>
-				<input type="text" id="scLat" />
-			</div>
-			<div class="scap-buttons">
-				<span class="scap-btn scap-sure-add" style="margin-right: 10px;">确定</span>
-				<span class="scap-btn scap-cancel-add" style="margin-left: 10px;">取消</span>
-			</div>
-		</div>
-	</div>
-	<!-- 弹框 -->
-	<div class="pop none">
-		<div class="pop-content mask-content none">
-			<div class="modal-header">
-				<span class="notice_cancel">X</span>
-			</div>
-			<div class="modal-body">
-				<div class="item-wrap pop_title pop_li">
-					<label>姓名：</label><input type="text" id="name">
+		<!--中心表-->
+		<div class="sd-module sgd-data none">
+			<div class="sgd-data-operation">
+				<div class="sgd-do-wrap">
+					<div class="add"><i></i><span>新建</span></div>
+					<div class="edit"><i></i><span>修改</span></div>
+					<div class="delete"><i></i><span>删除</span></div>
 				</div>
-				<div class="item-wrap pop_name pop_li">
-					<label>性别：</label>
+			</div>
+			<table>
+				<thead>
+					<tr>
+						<th class="sd-select"></th>
+						<th class="sd-no">序号</th>
+						<th class="sd-name">姓名</th>
+						<th class="sd-sex">性别</th>
+						<th class="sd-section">职务</th>
+						<th class="sd-range">备注</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		<!-- 功能室建设 -->
+		<div class="sd-module sgd-func">
+			<div class="sgdf-group"></div>
+		</div>
+		<!-- 村站总览 -->
+		<div class="sd-module sgd-country">
+			<div class="sgdc-group"></div>
+		</div>
+		<!--添加功能室的弹窗-->
+		<div class="sfunc-add-popup none">
+			<div class="sfap-cnt">
+				<div>
+					<label for="sfName">名称:</label>
+					<input type="text" id="sfName" />
+				</div>
+				<div>
+					<label for="sfLon">经度:</label>
+					<input type="text" id="sfLon" />
+				</div>
+				<div>
+					<label for="sfLat">纬度:</label>
+					<input type="text" id="sfLat" />
+				</div>
+				<div>
+					<label for="sfBelong">所属分中心id:</label>
+					<input type="text" id="sfBelong" />
+				</div>
+				<div class="sfap-buttons">
+					<span class="sfap-btn sfap-sure-add" style="margin-right: 10px;">确定</span>
+					<span class="sfap-btn sfap-cancel-add" style="margin-left: 10px;">取消</span>
+				</div>
+			</div>
+		</div>
+		<!--添加村站的弹窗-->
+		<div class="sc-add-popup none">
+			<div class="scap-cnt">
+				<div>
+					<label for="scName">名称:</label>
+					<input type="text" id="scName" />
+				</div>
+				<div>
+					<label for="scLon">经度:</label>
+					<input type="text" id="scLon" />
+				</div>
+				<div>
+					<label for="scLat">纬度:</label>
+					<input type="text" id="scLat" />
+				</div>
+				<div class="scap-buttons">
+					<span class="scap-btn scap-sure-add" style="margin-right: 10px;">确定</span>
+					<span class="scap-btn scap-cancel-add" style="margin-left: 10px;">取消</span>
+				</div>
+			</div>
+		</div>
+		<!-- 弹框 -->
+		<div class="pop none">
+			<div class="pop-content none">
+				<div class="pop_title pop_li">
+					<p>姓名：</p><input type="text" id="name">
+				</div>
+				<div class="pop_name pop_li"><span>
+						<p>性别：</p>
+					</span>
 					<select name="男" id="gender">
 						<option value="1">男</option>
 						<option value="2">女</option>
 						<!-- <option value="3">实践所</option> -->
 					</select>
 				</div>
-				<div class="item-wrap pop_content pop_li">
-					<label>职务：</label>
+				<div class="pop_content pop_li"><span>
+						<p>职务：</p>
+					</span>
 					<select name="所长" id="orgrazation">
 						<option value="1">所长</option>
 						<option value="2">副所长</option>
 						<option value="2">副主任</option>
 					</select>
 				</div>
-				<!-- <div class="item-wrap asseory">附件：</div>
-					  <div class="add-photo-wrap" id="addPhotoBtn">
-						  <div class="add-photo"><i></i>上传文件</div>
-						  <input id="inputFileID" type="file" multiple="">
-					  </div> -->
-			</div>
-			<div class="modal-footer">
+				<!-- <div class="asseory">附件：</div>
+						  <div class="add-photo-wrap" id="addPhotoBtn">
+							  <div class="add-photo"><i></i>上传文件</div>
+							  <input id="inputFileID" type="file" multiple="">
+						  </div> -->
 				<div class="button">
 					<p class="notice_cancel">取消</p>
 					<p class="yes">确认</p>
 				</div>
 			</div>
-		</div>
-		<!-- 编辑 -->
-		<div class="pop-edit mask-content none">
-			<div class="modal-header">
-				<span class="notice_cancel">x</span>
-			</div>
-			<div class="modal-body">
+			<!-- 编辑 -->
+			<div class="pop-edit none">
 				<div class="pop_title pop_li">
 					<!-- <sapn>名称：</span><input type="text" id="b-name"> -->
 				</div>
-			</div>
-			<div class="modal-footer">
 				<div class="button">
 					<p class="notice_cancel">取消</p>
 					<p class="yes">确认</p>
 				</div>
 			</div>
+	
 		</div>
-
 	</div>
-</div>

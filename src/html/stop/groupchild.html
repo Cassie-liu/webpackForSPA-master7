@@ -1,93 +1,71 @@
 <div class="cf-wrap">
-	<div class="scgroup-top">
-		<div style="float: left">
-			<span id="cfgorg" class="scgroup-menu cfg-org">组织架构</span>
-			<span id="cfgplan" class="scgroup-menu cfg-plan">年度计划</span>
-			<span id="cfgact" class="scgroup-menu cfg-act">自选活动</span>
-			<span id="cfgprac" class="scgroup-menu cfg-prac">实践点</span>
-			<span id="cfgshow" class="scgroup-menu cfg-show">活动展示</span>
-			<span id="cfgspec" class="scgroup-menu cfg-spec">特色活动</span>
-		</div>
-		<div style="float: right">
-			<span class="scgroup-btn cfg-back none">返回</span>
-			<span class="scgroup-btn cfg-export none">导出</span>
-			<span class="scgroup-btn cfg-switch none">切换</span>
-			<span class="scgroup-btn cfg-add none">新增</span>
-			<span class="scgroup-btn cfg-count none">统计汇总</span>
-		</div>
-	</div>
-	<div class="scgroup-cnt">
-		<!--功能室或者村站组织架构-->
-		<div class="sc-module sc-org">
-			<div class="sc-o-cnt">
+		<div class="scgroup-top">
+			<div style="float: left">
+				<span id="cfgorg" class="scgroup-menu cfg-org">组织架构</span>
+				<span id="cfgplan" class="scgroup-menu cfg-plan">年度计划</span>
+				<span id="cfgact" class="scgroup-menu cfg-act">自选活动</span>
+				<span id="cfgprac" class="scgroup-menu cfg-prac">实践点</span>
+				<span id="cfgshow" class="scgroup-menu cfg-show">活动展示</span>
+				<!-- <span id="cfgspec" class="scgroup-menu cfg-spec">特色活动</span> -->
+			</div>
+			<div style="float: right">
+				<span class="scgroup-btn cfg-back none">返回</span>
+				<span class="scgroup-btn cfg-export none">导出</span>
+				<span class="scgroup-btn cfg-switch none">切换</span>
+				<span class="scgroup-btn cfg-add none">新增</span>
+				<!-- <span class="scgroup-btn cfg-count none">统计汇总</span> -->
 			</div>
 		</div>
-		<!--功能室或者村站表-->
-		<div class="sc-module sc-data none">
-			<div class="sc-data-operation">
-				<div class="sc-do-wrap">
-					<div class="add"><i></i><span>新建</span></div>
-					<div class="edit"><i></i><span>修改</span></div>
-					<div class="delete"><i></i><span>删除</span></div>
+		<div class="scgroup-cnt">
+			<!--功能室或者村站组织架构-->
+			<div class="sc-module sc-org">
+				<div class="sc-o-cnt">
 				</div>
 			</div>
-			<table>
-				<thead>
-					<tr>
-						<th class="scd-select"></th>
-						<th class="scd-no">序号</th>
-						<th class="scd-name">姓名</th>
-						<th class="scd-sex">性别</th>
-						<th class="scd-section">职务</th>
-						<th class="scd-range">备注</th>
-					</tr>
-				</thead>
-				<tbody>
-				</tbody>
-			</table>
-		</div>
-		
-		<!--功能室或者村站年度计划-->
-		<div class="sc-module sc-plan none">
-			<div class="sc-plan-operation">
-				<div class="scp-do-wrap">
-					<!-- <div class="add"><i></i><span>新建</span></div>
-					<div class="edit"><i></i><span>修改</span></div>
-					<div class="delete"><i></i><span>删除</span></div> -->
+			<!--功能室或者村站表-->
+			<div class="sc-module sc-data none">
+				<div class="sc-data-operation">
+					<div class="sc-do-wrap">
+						<div class="add"><i></i><span>新建</span></div>
+						<div class="edit"><i></i><span>修改</span></div>
+						<div class="delete"><i></i><span>删除</span></div>
+					</div>
 				</div>
+				<table>
+					<thead>
+						<tr>
+							<th class="scd-select"></th>
+							<th class="scd-no">序号</th>
+							<th class="scd-name">姓名</th>
+							<th class="scd-sex">性别</th>
+							<th class="scd-section">职务</th>
+							<th class="scd-range">备注</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
 			</div>
-			<table>
-				<thead>
-					<tr>
-						<th class="scpd-select"></th>
-						<th class="scpd-no">计划编号</th>
-						<th class="scpd-endline">截止时间</th>
-						<th class="scpd-name">计划名称</th>
-						<!-- <th class="scpd-section">计划内容</th> -->
-						<th class="scpd-status">任务状态</th>
-						<!-- <th class="scpd-percent">完成百分比</th> -->
-						<th class="scpd-action">操作</th>
-					</tr>
-				</thead>
-				<tbody>
-				</tbody>
-			</table>
-		</div>
-		<!-- 功能室年度计划的跟踪 -->
-		<div class="sc-module sc-track none">
-				<div class="sc-track-operation">
+			
+			<!--功能室或者村站年度计划-->
+			<div class="sc-module sc-plan none">
+				<div class="sc-plan-operation">
 					<div class="scp-do-wrap">
-					
+						<!-- <div class="add"><i></i><span>新建</span></div>
+						<div class="edit"><i></i><span>修改</span></div>
+						<div class="delete"><i></i><span>删除</span></div> -->
 					</div>
 				</div>
 				<table>
 					<thead>
 						<tr>
 							<th class="scpd-select"></th>
-							<th class="scpd-no">实践所</th>
-							<!-- <th class="scpd-endline">完成百分比</th> -->
-							<!-- <th class="scpd-name">实践站</th> -->
+							<th class="scpd-no">计划编号</th>
+							<th class="scpd-endline">截止时间</th>
+							<th class="scpd-name">计划名称</th>
+							<!-- <th class="scpd-section">计划内容</th> -->
 							<th class="scpd-status">任务状态</th>
+							<!-- <th class="scpd-percent">完成百分比</th> -->
 							<th class="scpd-action">操作</th>
 						</tr>
 					</thead>
@@ -95,114 +73,97 @@
 					</tbody>
 				</table>
 			</div>
-		<!--功能室或者村站自选活动-->
-		<div class="sc-module sc-act none">
-		</div>
-		<!--功能室或者村站实践点-->
-		<div class="sc-module sc-prac none">
-		</div>
-		<!--功能室或者村站活动展示-->
-		<div class="sc-module sc-show none">
-		</div>
-		<!--功能室或者村特色活动-->
-		<div class="sc-module sc-spec none">
-		</div>
-	</div>
-	<!--添加功能室的弹窗-->
-	<div class="scpgroup-add-popup none">
-		<div class="scpap-cnt">
-			<div>
-				<label for="scpName">名称:</label>
-				<input type="text" id="scpName" />
-			</div>
-			<div>
-				<label for="scpLon">经度:</label>
-				<input type="text" id="scpLon" />
-			</div>
-			<div>
-				<label for="scpLat">纬度:</label>
-				<input type="text" id="scpLat" />
-			</div>
-			<div class="scpap-buttons">
-				<span class="scpap-btn scpap-sure-add" style="margin-right: 10px;">确定</span>
-				<span class="scpap-btn scpap-cancel-add" style="margin-left: 10px;">取消</span>
-			</div>
-		</div>
-	</div>
-	<!-- 查看的弹框 -->
-	<div class="scpgroup-search-popup none">
-		<div class="pop-search">
-			<div class="pop_title pop_li"><p>活动标题：</p><div class="sc-title plan-li">safafsafafaffa</div></div>
-			<div class="pop_title pop_li"><p>活动时间：</p><div class="sc-content plan-li">fsffafafaf</div></div>
-			<div class="pop_title pop_li"><p>开展地点：</p><div class="sc-center plan-li">ffffafafa</div></div>
-			<div class="pop_title pop_li"><p>活动内容：</p><div class="sc-interal plan-li">fsfffsf</div></div>
-			<div class="pop_title pop_li"><p>活动图片：</p><div class="sc-extral plan-li"><img src="" alt=""></div></div>
-			<div class="pop_title pop_li"><p>活动视频：</p><div class="sc-extral plan-li"><img src="" alt=""></div></div>
-			<div class="button">
-				<p class="notice_cancel">取消</p>
-				<p class="yes" data-id="1">确认</p>
+			<!-- 功能室年度计划的跟踪 -->
+			<div class="sc-module sc-track none">
+					<div class="sc-track-operation">
+						<div class="scp-do-wrap">
+						
+						</div>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th class="scpd-select"></th>
+								<th class="scpd-no">实践所</th>
+								<!-- <th class="scpd-endline">完成百分比</th> -->
+								<!-- <th class="scpd-name">实践站</th> -->
+								<th class="scpd-status">任务状态</th>
+								<th class="scpd-action">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
 				</div>
-		</div>
-	</div>
-
-
-	<!-- 弹框 -->
-	<div class="pop none">
-		<div class="pop-content none">
-			<div class="pop_title pop_li">
-				<p>姓名：</p><input type="text">
+			<!--功能室或者村站自选活动-->
+			<div class="sc-module sc-act none">
+					<table>
+							<thead>
+								<tr>
+									<th class="scpd-select"></th>
+									<th class="scpd-select">编号</th>
+									<th class="scpd-no">实践所</th>
+									<!-- <th class="scpd-endline">完成百分比</th> -->
+									<th class="scpd-name">实践站</th>
+									<th class="scpd-name">活动标题</th>
+									<th class="scpd-status">任务状态</th>
+									<th class="scpd-action">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
 			</div>
-			<div class="pop_name pop_li"><span>
-					<p>性别：</p>
-				</span>
-				<select name="男" id="gender">
-					<option value="1">男</option>
-					<option value="2">女</option>
-					<!-- <option value="3">实践所</option> -->
-				</select>
+			<!--功能室或者村站实践点-->
+			<div class="sc-module sc-prac none">
 			</div>
-			<div class="pop_content pop_li"><span>
-					<p>职务：</p>
-				</span>
-				<select name="主任" id="orgrazation">
-					<option value="1" class="director">主任</option>
-					<option value="2" class="fudirector">副主任</option>
-					<option value="3" class="worker">工作人员</option>
-					<option value="1" class="superintendent">所长</option>
-					<option value="2" class="countryworker">工作人员</option>
-				</select>
+			<!--功能室或者村站活动展示-->
+			<div class="sc-module sc-show none">
 			</div>
-			<!-- <div class="asseory">附件：</div>
-					  <div class="add-photo-wrap" id="addPhotoBtn">
-						  <div class="add-photo"><i></i>上传文件</div>
-						  <input id="inputFileID" type="file" multiple="">
-					  </div> -->
-			<div class="button">
-				<p class="notice_cancel">取消</p>
-				<p class="yes">确认</p>
+			<!--功能室或者村特色活动-->
+			<div class="sc-module sc-spec none">
 			</div>
 		</div>
-		<!-- 编辑 -->
-		<div class="pop-edit mask-content none">
-			<div class="modal-header">
-				<span class="notice_cancel">x</span>
-			</div>
-			<div class="modal-body">
-				<div class="item-wrap pop_title pop_li">
-					<label>名称：</label><input type="text">
+		<!--添加功能室的弹窗-->
+		<div class="scpgroup-add-popup none">
+			<div class="scpap-cnt">
+				<div>
+					<label for="scpName">名称:</label>
+					<input type="text" id="scpName" />
+				</div>
+				<div>
+					<label for="scpLon">经度:</label>
+					<input type="text" id="scpLon" />
+				</div>
+				<div>
+					<label for="scpLat">纬度:</label>
+					<input type="text" id="scpLat" />
+				</div>
+				<div class="scpap-buttons">
+					<span class="scpap-btn scpap-sure-add" style="margin-right: 10px;">确定</span>
+					<span class="scpap-btn scpap-cancel-add" style="margin-left: 10px;">取消</span>
 				</div>
 			</div>
-			<div class="modal-footer">
+		</div>
+		<!-- 查看的弹框 -->
+		<div class="scpgroup-search-popup none">
+			<div class="pop-search">
+				<div class="pop_title pop_li"><p>活动标题：</p><div class="sc-title plan-li">safafsafafaffa</div></div>
+				<div class="pop_time pop_li"><p>活动时间：</p><div class="sc-content plan-li">fsffafafaf</div></div>
+				<div class="pop_location pop_li"><p>开展地点：</p><div class="sc-center plan-li">ffffafafa</div></div>
+				<div class="pop_accontent pop_li"><p>活动内容：</p><div class="sc-interal plan-li">fsfffsf</div></div>
+				<div class="pop_pic pop_li"><p>活动图片：</p><div class="sc-extral plan-li"><img src="" alt=""></div></div>
+				<div class="pop_vido pop_li"><p>活动视频：</p><div class="sc-extral plan-li"><img src="" alt=""></div></div>
 				<div class="button">
 					<p class="notice_cancel">取消</p>
-					<p class="yes">确认</p>
-				</div>
+					<p class="yes" data-id="1">确认</p>
+					</div>
 			</div>
 		</div>
-	</div>
-
-	<!-- 村新增人员 -->
-	<div class="village-pop none">
+	
+	
+		<!-- 弹框 -->
+		<div class="pop none">
 			<div class="pop-content none">
 				<div class="pop_title pop_li">
 					<p>姓名：</p><input type="text">
@@ -220,26 +181,74 @@
 						<p>职务：</p>
 					</span>
 					<select name="主任" id="orgrazation">
-						<option value="1">所长</option>
-						<option value="2">工作人员</option>
+						<option value="1" class="director">主任</option>
+						<option value="2" class="fudirector">副主任</option>
+						<option value="3" class="worker">工作人员</option>
+						<option value="1" class="superintendent">所长</option>
+						<option value="2" class="countryworker">工作人员</option>
 					</select>
 				</div>
-			
+				<!-- <div class="asseory">附件：</div>
+						  <div class="add-photo-wrap" id="addPhotoBtn">
+							  <div class="add-photo"><i></i>上传文件</div>
+							  <input id="inputFileID" type="file" multiple="">
+						  </div> -->
 				<div class="button">
 					<p class="notice_cancel">取消</p>
 					<p class="yes">确认</p>
 				</div>
 			</div>
-			<!-- 编辑 重复了-->
-			<!--<div class="pop-edit none">-->
-				<!--<div class="pop_title pop_li">-->
-					<!--<sapn>名称：</span><input type="text">-->
-				<!--</div>-->
-				<!--<div class="button">-->
-					<!--<p class="notice_cancel">取消</p>-->
-					<!--<p class="yes">确认</p>-->
-				<!--</div>-->
-			<!--</div>-->
+			<!-- 编辑 -->
+			<div class="pop-edit none">
+				<div class="pop_title pop_li">
+					<sapn>名称：</span><input type="text">
+				</div>
+				<div class="button">
+					<p class="notice_cancel">取消</p>
+					<p class="yes">确认</p>
+				</div>
+			</div>
 		</div>
-
-</div>
+	
+		<!-- 村新增人员 -->
+		<div class="village-pop none">
+				<div class="pop-content none">
+					<div class="pop_title pop_li">
+						<p>姓名：</p><input type="text">
+					</div>
+					<div class="pop_name pop_li"><span>
+							<p>性别：</p>
+						</span>
+						<select name="男" id="gender">
+							<option value="1">男</option>
+							<option value="2">女</option>
+							<!-- <option value="3">实践所</option> -->
+						</select>
+					</div>
+					<div class="pop_content pop_li"><span>
+							<p>职务：</p>
+						</span>
+						<select name="主任" id="orgrazation">
+							<option value="1">所长</option>
+							<option value="2">工作人员</option>
+						</select>
+					</div>
+				
+					<div class="button">
+						<p class="notice_cancel">取消</p>
+						<p class="yes">确认</p>
+					</div>
+				</div>
+				<!-- 编辑 -->
+				<div class="pop-edit none">
+					<div class="pop_title pop_li">
+						<sapn>名称：</span><input type="text">
+					</div>
+					<div class="button">
+						<p class="notice_cancel">取消</p>
+						<p class="yes">确认</p>
+					</div>
+				</div>
+			</div>
+	
+	</div>
