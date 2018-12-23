@@ -1,7 +1,11 @@
 import {
 	apiPost,
-	validate
-} from "../../util/util.js"
+	peopleValidate,
+	addNoneFn,
+	delNoneFn,
+	showAlert,
+	hideAlert
+} from "../../util/util.js";
 
 function initialize(params) {
   if (__DEV__) {
@@ -18,7 +22,7 @@ function initialize(params) {
      var _this=this;
 
      _this.switchLeadModule();
-     _this.initnotice();
+     _this.initnotice(1);
      _this.pageFunc();
       setTimeout(function(){
         _this.clickEvent();
@@ -33,10 +37,10 @@ function initialize(params) {
     /**
      * 初始化通知公告列表
      */
-    initnotice:function(){
+    initnotice:function(target){
       var _this=this;
 
-      apiPost("queryInformation?pageNum=1&pageSize=10", "", function (response) {
+      apiPost("queryInformation?pageNum="+target+"&pageSize=8", "", function (response) {
             if(response.success){
                 var listHtml='';
                 var contentList=response.content.content;
@@ -115,7 +119,7 @@ function initialize(params) {
             }else{
                 alert('接口请求失败')
             }
-            _this.initnotice();
+            _this.initnotice(1);
             $('.pop').addClass('none');
             $('.pop .pop-content').addClass('none');
 			})
@@ -135,6 +139,45 @@ function initialize(params) {
       //   }
       // });
     },
+
+    //修改表格数据
+		updateTableData: function () {
+			let that = this;
+			$(".l-data .edit").off().on("click", function () {
+        alert('无接口');
+        return;
+        // addNoneFn(".l-organize, .l-data");
+			  delNoneFn(".edit-pop");
+				let leaderTableData = $(".l-data tbody").children(); 
+				let len = leaderTableData.length;
+				if (len == 0) {
+					showAlert("暂无数据");
+					return;
+				}
+
+				//遍历数据中已选择的数据
+				let ishasSelectData = false;
+				let selectedData = "";
+				for (let i = 0; i < len; i++) {
+					let item = leaderTableData[i];
+					if ($(item).find(".ld-select p").hasClass("checked")) {
+						ishasSelectData = true;
+						selectedData = item;
+					};
+				}
+				if (!ishasSelectData) {
+					showAlert("请选择要操作的数据");
+					return;
+				}
+				//将选择修改的名字带入编辑弹窗中
+				let selectName = $(selectedData).find(".ld-name").text();
+				$('#orgName').val(selectName);
+				//打开编辑弹窗
+				delNoneFn(".pop");
+				//保存编辑人的id
+				that.editId = $(selectedData).find(".ld-select").attr("data-id");
+			})
+		},
 
     /**
      * 分页
@@ -157,7 +200,7 @@ function initialize(params) {
               turndown: 'true',// 是否显示跳转框，显示为true，不现实为false,一定记得加上引号...
               totalBtn: 'false', // 是否显示总条数
               backFn: function (p) {
-                  _this.getTripList(p, _this.model.type, "");//获取行程列表信息
+                  _this.initnotice(p);//获取行程列表信息
                   $('body,html').animate({ scrollTop: 0 }, 200);
               }
           });
@@ -265,7 +308,8 @@ function initialize(params) {
 
        
 
-        _this.deleteTableData()
+        _this.deleteTableData();
+        _this.updateTableData();
         
     },
 
