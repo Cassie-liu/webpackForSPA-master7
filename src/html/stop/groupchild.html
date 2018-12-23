@@ -215,39 +215,53 @@
 			</div>
 		</div>
 		<!--添加功能室的弹窗-->
-		<div class="scpgroup-add-popup none">
-			<div class="scpap-cnt">
-				<div>
+		<div class="scpgroup-add-popup mask  none">
+			<div class="scpap-cnt mask-content">
+			<div class="modal-header">
+				<span class="scpap-cancel-add">x</span>
+			</div>
+			<div class="modal-body">
+				<div class="item-wrap">
 					<label for="scpName">名称:</label>
 					<input type="text" id="scpName" />
 				</div>
-				<div>
+				<div class="item-wrap">
 					<label for="scpLon">经度:</label>
 					<input type="text" id="scpLon" />
 				</div>
-				<div>
+				<div class="item-wrap">
 					<label for="scpLat">纬度:</label>
 					<input type="text" id="scpLat" />
 				</div>
+			</div>
+			<div class="modal-footer">
 				<div class="scpap-buttons">
 					<span class="scpap-btn scpap-sure-add" style="margin-right: 10px;">确定</span>
 					<span class="scpap-btn scpap-cancel-add" style="margin-left: 10px;">取消</span>
 				</div>
 			</div>
+			</div>
 		</div>
 		<!-- 查看的弹框 -->
-		<div class="scpgroup-search-popup none">
-			<div class="pop-search">
-				<div class="pop_title pop_li"><p>活动标题：</p><div class="sc-title plan-li">safafsafafaffa</div></div>
-				<div class="pop_time pop_li"><p>活动时间：</p><div class="sc-content plan-li">fsffafafaf</div></div>
-				<div class="pop_location pop_li"><p>开展地点：</p><div class="sc-center plan-li">ffffafafa</div></div>
-				<div class="pop_accontent pop_li"><p>活动内容：</p><div class="sc-interal plan-li">fsfffsf</div></div>
-				<div class="pop_pic pop_li"><p>活动图片：</p><div class="sc-extral plan-li"><img src="" alt=""></div></div>
-				<div class="pop_vido pop_li"><p>活动视频：</p><div class="sc-extral plan-li"><img src="" alt=""></div></div>
-				<div class="button">
-					<p class="notice_cancel">取消</p>
-					<p class="yes" data-id="1">确认</p>
+		<div class="scpgroup-search-popup  none">
+			<div class="pop-search mask-content">
+				<div class="modal-header">
+					<span class="notice_cancel">x</span>
+				</div>
+				<div class="modal-body">
+					<div class="item-wrap pop_title pop_li"><label>活动标题：</label><div class="sc-title plan-li">safafsafafaffa</div></div>
+					<div class="item-wrap pop_time pop_li"><label>活动时间：</label><div class="sc-content plan-li">fsffafafaf</div></div>
+					<div class="item-wrap pop_location pop_li"><label>开展地点：</label><div class="sc-center plan-li">ffffafafa</div></div>
+					<div class="item-wrap pop_accontent pop_li"><label>活动内容：</label><div class="sc-interal plan-li">fsfffsf</div></div>
+					<div class="item-wrap pop_pic pop_li"><label>活动图片：</label><div class="sc-extral plan-li"><img src="" alt=""></div></div>
+					<div class="item-wrap pop_vido pop_li"><label>活动视频：</label><div class="sc-extral plan-li"><img src="" alt=""></div></div>
+				</div>
+				<div class="modal-footer">
+					<div class="button">
+						<p class="notice_cancel">取消</p>
+						<p class="yes" data-id="1">确认</p>
 					</div>
+				</div>
 			</div>
 		</div>
 	
@@ -289,14 +303,22 @@
 				</div>
 			</div>
 			<!-- 编辑 -->
-			<div class="pop-edit none">
-				<div class="pop_title pop_li">
-					<sapn>名称：</span><input type="text">
+			<div class="pop-edit mask-content none">
+				<div class="modal-header">
+					<span class="notice_cancel">x</span>
 				</div>
-				<div class="button">
-					<p class="notice_cancel">取消</p>
-					<p class="yes">确认</p>
+				<div class="modal-header">
+					<div class="pop_title pop_li">
+						<span>名称：</span><input type="text">
+					</div>
 				</div>
+				<div class="modal-footer">
+					<div class="button">
+						<p class="notice_cancel">取消</p>
+						<p class="yes">确认</p>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	
@@ -329,16 +351,16 @@
 						<p class="yes">确认</p>
 					</div>
 				</div>
-				<!-- 编辑 -->
-				<div class="pop-edit none">
-					<div class="pop_title pop_li">
-						<sapn>名称：</span><input type="text">
-					</div>
-					<div class="button">
-						<p class="notice_cancel">取消</p>
-						<p class="yes">确认</p>
-					</div>
-				</div>
+				<!-- 编辑 与上面的编辑重复了 -->
+				<!--<div class="pop-edit none">-->
+					<!--<div class="pop_title pop_li">-->
+						<!--<sapn>名称：</span><input type="text">-->
+					<!--</div>-->
+					<!--<div class="button">-->
+						<!--<p class="notice_cancel">取消</p>-->
+						<!--<p class="yes">确认</p>-->
+					<!--</div>-->
+				<!--</div>-->
 			</div>
 	
 	</div>

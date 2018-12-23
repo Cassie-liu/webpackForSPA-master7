@@ -88,6 +88,7 @@
 	/* display: inline-block; */
 	overflow: hidden;
 	margin-left: 79%;
+	width:100%;
 }
 
 .page-notice .l-do-wrap div {
@@ -102,9 +103,10 @@
 }
 
 .page-notice .l-data table {
-	width: 99.8%;
+	width: 95%;
 	overflow: hidden;
 	border-collapse: collapse;
+	margin-left:20px;
 }
 
 .page-notice thead {
@@ -478,7 +480,7 @@
 }
 
 .page-notice .pop-content input {
-	width: 100%;
+	/*width: 100%;*/
 	height: 30px;
 }
 
@@ -527,15 +529,17 @@
 
 .page-notice .add-photo-wrap {
 	position: relative;
-	width: 130px;
+	/*width: 130px;*/
+	width: 298px;
 	height: 40px;
-	margin-left: 96px;
-	margin-top: 14px;
+	/*margin-left: 96px;*/
+	/*margin-top: 14px;*/
+	display: inline-block;
 }
 
 .page-notice .asseory {
-	float: left;
-	margin-top: 20px;
+	/*float: left;*/
+	/*margin-top: 20px;*/
 }
 
 .page-notice .add-photo-wrap .add-photo {
@@ -563,7 +567,7 @@
 	position: absolute;
     width: 130px;
     height: 50px;
-    top: 1px;
+    top: 3px;
     left: 0px;
     filter: alpha(opacity=0);
     opacity: 0;
@@ -584,6 +588,7 @@
 	display: block;
 	position: absolute;
 	top: 11px;
-	left: 31px;
+	/*left: 31px;*/
+	left: 14px;
 
 }

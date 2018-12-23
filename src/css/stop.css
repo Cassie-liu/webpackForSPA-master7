@@ -97,6 +97,7 @@
 	background: url(../img/bg4.png) 0 0 no-repeat;
 	background-size: 100% 100%;
 	height: 715px;
+	padding-left:30px;
 }
 
 .page-stop .activitydetail-img {
@@ -207,7 +208,7 @@
 	left: 0;
 	right: 0;
 	margin: auto;
-	width: 250px;
+	width: 600px;
 	padding: 20px;
 	background: #ECEEF4;
 	border-radius: 8px;
@@ -220,7 +221,13 @@
 .page-stop .scpap-cnt div {
 	padding: 10px 0;
 }
-
+.page-stop .sap-cnt div label,
+ .page-stop .sfap-cnt div label,
+ .page-stop .scap-cnt div label,
+.page-stop .scpap-cnt div label {
+	display: inline-block;
+	width:100px;
+}
 .page-stop .sap-buttons,
 .page-stop .sfap-buttons,
 .page-stop .scap-buttons,
@@ -381,7 +388,8 @@
 
 
 .page-stop table {
-	width: 100%;
+	/*width: 100%;*/
+	width: 95%;
 	overflow: hidden;
 	border-collapse: collapse;
 }
@@ -398,7 +406,7 @@
 	height: 54px;
 	color: #596f8c;
 	font-size: 18px;
-	border: 3px #eaecfc solid;
+	border: 2px #eaecfc solid;
 }
 
 .page-stop .scd-select,
@@ -536,7 +544,7 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background: rgba(0, 0, 0, 0.7);
+	background: rgba(0, 0, 0, 0.5);
 	z-index: 10;
 }
 

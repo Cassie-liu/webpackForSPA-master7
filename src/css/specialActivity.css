@@ -1056,8 +1056,12 @@ p{
 }
 .input-wrap .item-wrap label {
   display: inline-block;
-  width:120px;
+  width:25%;
   color:#333;
+}
+.input-wrap .item-wrap select {
+  width: 60% !important;
+  height:30px;
 }
 .input-wrap .btn-wrap{
   display: inline-block;
@@ -1131,7 +1135,7 @@ p{
     /* 特色活动详情模态框样式*/
 .special-activity.mask-content{
   min-width:800px !important;
-  top: 20% !important;
+  top: 5% !important;
   background: #fff !important;
 }
 .special-activity.mask-content .left{
@@ -1148,7 +1152,8 @@ p{
   height:200px;
 }
 .special-activity.mask-content .modal-body{
-  /*min-height:600px;*/
+  height:500px;
+  overflow: auto;
   font-size: 14px;
 }
 .special-activity.mask-content  .header{
@@ -1235,8 +1240,6 @@ p{
 .activity-picture{
   text-align: left;
   padding: 20px 0;
-  height: 300px;
-  overflow: auto;
 }
 .activity-picture ul {
   height: 230px;

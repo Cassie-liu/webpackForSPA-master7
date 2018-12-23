@@ -45,19 +45,28 @@
       </div>
       <!-- 弹框 -->
       <div class="pop none">
-        <div class="pop-content">
-          <div class="pop_title pop_li"><p>标题：</p><input type="text"></div>
-          <div class="pop_name pop_li"><span><p>组织名称：</p></span><input type="text"></div>
-          <div class="pop_content pop_li"><span><p>内容：</p></span><input type="text"></div>
-          <div class="asseory">附件：</div>
-          <div class="add-photo-wrap" id="addPhotoBtn">
-              <div class="add-photo"><i></i>上传文件</div>
-              <input id="inputFileID" type="file" multiple="">
-          </div>
-          <div class="button">
-            <p class="notice_cancel">取消</p>
-            <p class="yes">确认</p>
-          </div>
+        <div class="pop-content mask-content">
+            <div class="modal-header">
+                <span class="notice_cancel">x</span>
+            </div>
+            <div class="modal-body">
+                <div class="item-wrap pop_title pop_li"><label>标题：</label><input type="text"></div>
+                <div class="item-wrap pop_name pop_li"><label>组织名称：</label><input type="text"></div>
+                <div class="item-wrap pop_content pop_li"><label>内容：</label><input type="text"></div>
+                <div class="item-wrap">
+                    <label class="asseory">附件：</label>
+                    <div class="add-photo-wrap" id="addPhotoBtn">
+                        <div class="add-photo"><i></i>上传文件</div>
+                        <input id="inputFileID" type="file" multiple="">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="button">
+                    <p class="notice_cancel">取消</p>
+                    <p class="yes">确认</p>
+                </div>
+            </div>
         </div>
       </div>
       <!-- 编辑弹框 -->

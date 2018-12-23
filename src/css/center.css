@@ -175,9 +175,11 @@
 }
 
 .page-center table {
-	width: 100%;
+	width: 95%;
 	overflow: hidden;
 	border-collapse: collapse;
+	margin-left:20px;
+	margin-top:10px;
 }
 
 .page-center thead {
@@ -834,7 +836,7 @@
 /**通用弹框样式*/
 .mask-content{
 	position: absolute;
-	top: 40% !important;
+	top: 15% !important;
 	left: 0 !important;
 	right: 0 !important;
 	margin: auto;
@@ -847,14 +849,15 @@
 }
 .modal-header{
 	text-align: right;
-	padding:15px;
+	padding:15px !important;
 	border-bottom: 1px solid #ddd;
 }
 .modal-header .notice_cancel,
 .modal-header .cap-cancel-add,
 .modal-header .cpap-cancel-add,
 .modal-header .hap-cancel-add,
-.modal-header .sap-cancel-add
+.modal-header .sap-cancel-add,
+.modal-header .scap-cancel-add
 {
 	background: #ECEEF4;
 	color: #333;
@@ -880,15 +883,15 @@
 	font-size:16px;
 }
 .modal-body  input[type='text']{
-	height: 30px;
-	line-height: 30px;
-	padding: 0 28px 0 10px;
-	border: 1px solid #ddd;
-	width:275px;
-	color:#333;
-	font-size:14px;
-	padding:0 10px;
-}
+	 height: 30px;
+	 line-height: 30px;
+	 padding: 0 28px 0 10px;
+	 border: 1px solid #ddd;
+	 width:275px;
+	 color:#333;
+	 font-size:14px;
+	 padding:0 10px;
+ }
 .modal-body input[type='text']:focus,
 .modal-body select:focus{
 	border: 1px solid #006eff;
@@ -898,6 +901,7 @@
 	width: 298px !important;
 	padding: 0 10px;
 	color:#333;
+	height:30px;
 }
 .modal-footer{
 	padding:15px;
