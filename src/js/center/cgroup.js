@@ -116,7 +116,6 @@ function initialize(params) {
 						that.queryPlan();
 						break;
 					case "cact":
-						// alert("敬请期待");
 						addNoneFn(".c-module");
 						addNoneFn(".c-btn");
 						delNoneFn(".c-act-data");
@@ -126,13 +125,51 @@ function initialize(params) {
 						// delNoneFn(".cb-back, .cb-export");
 						break;
 					default:
-						alert("敬请期待");
 						addNoneFn(".c-module");
 						addNoneFn(".c-btn");
 						addNoneFn(".c-track");
+						delNoneFn(".c-show");
+						that.loadactivity();
+
 				}
 			})
 		},
+
+			//活动
+			loadactivity:function(){
+				// sp-general-act
+				apiPost("queryFeatureForFront?pageNum=1&pageSize=10&practiceId="+centerId, "", function (data) {
+					if (!data.success) {
+						showAlert("新建实践点失败")
+						return;
+					}else{
+						if(data.content.list.length>0){
+							var pichtml='';
+							for(var i=0;i<data.content.list.length;i++){
+								var item=data.content.list[i];
+								pichtml+=`<li>
+										<dl>
+											<dt>
+												<img src="${item.pic[0]}">
+											</dt>
+											<dd>
+												<p>
+													<span>${item.planName}</span>
+												</p>
+											</dd>
+										</dl>
+									</li>`;
+							}
+	
+							$('.c-show .activity-content ul').html(pichtml);
+						}else{
+							showAlert("没有活动数据哦")
+						}
+					}
+	
+				})
+			},
+
 		//返回到分中心主页
 		backToCenter: function () {
 			$(".cb-back").off().on("click", function (e) {

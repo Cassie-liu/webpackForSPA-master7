@@ -98,11 +98,14 @@ function initialize(params) {
 		},
 		//切换菜单
 		switchGeneralOrAct: function () {
+			var that=this;
 			$(".cgroup-menu").off().on("click", function () {
 				//活动
 				if ($(this).hasClass("cg-act")) {
-					showAlert("无接口")
-					return;
+					addNoneFn('.cgeneral-wrap');
+					delNoneFn('.cgroup-activityshow');
+					that.loadactivity();
+					// return;
 				}
 				if ($(this).hasClass("active")) {
 					return;
@@ -111,6 +114,42 @@ function initialize(params) {
 				$(this).addClass("active");
 			})
 		},
+
+		//活动
+		loadactivity:function(){
+			// sp-general-act
+			apiPost("queryFeatureForFront?pageNum=1&pageSize=10&practiceId="+params.id, "", function (data) {
+				if (!data.success) {
+					showAlert("接口请求失败")
+					return;
+				}else{
+					if(data.content.list.length>0){
+						var pichtml='';
+						for(var i=0;i<data.content.list.length;i++){
+							var item=data.content.list[i];
+							pichtml+=`<li>
+									<dl>
+										<dt>
+											<img src="${item.pic[0]}">
+										</dt>
+										<dd>
+											<p>
+												<span>${item.planName}</span>
+											</p>
+										</dd>
+									</dl>
+								</li>`;
+						}
+
+						$('.c-show .activity-content ul').html(pichtml);
+					}else{
+						showAlert("没有活动数据哦")
+					}
+				}
+
+			})
+		},
+
 		//点击返回
 		backToPracGroup: function () {
 			$(".cg-back").off().on("click", function (e) {

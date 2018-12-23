@@ -300,6 +300,8 @@ function initialize(params,outerParam) {
 						}
 
 						$('.sc-show .activity-content ul').html(pichtml);
+					}else{
+						showAlert("没有活动数据哦")
 					}
 				}
 

@@ -155,6 +155,8 @@ function initialize(params) {
 						}
 
 						$('.activity-content ul').html(pichtml);
+					}else{
+						showAlert("没有活动数据哦")
 					}
 				}
 
