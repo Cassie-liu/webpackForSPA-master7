@@ -201,7 +201,7 @@
          </ul>
     </div>
     <!-- 计划制定的弹框 -->
-      <div class="ativity-pop none">
+      <div class="ativity-pop mask none">
           <!-- //新增的弹框 -->
           <div class="pop-content mask-content none">
               <div class="modal-header">
@@ -264,36 +264,45 @@
           </div>
       </div>
     <!-- 自选活动的弹框 -->
-    <div class="selfativity-pop none">
-        <div class="pop-content none">
-          <div class="pop_title pop_li">
-            <p>计划名称：</p>
-            <input type="text" id="selfplanName">
-          </div>
-          <div class="pop_li">
-              <p>计划内容：</p>
-              <input type="text" id="selfplancontent">
-          </div>
-          <div class="pop_li">
-              <p>分中心：</p>
-              <select name="理论分中心" id="selfcenter">
-                <option value="1">理论分中心</option>
-                <option value="2">实践分中心</option>
-              </select>
-          </div>
-          <div class="pop_name pop_li">
-            <p>截止时间：</p>
-            <input type="text"   id="selfexpretime" placeholder="请选择截止时间">
-        </div>
-          <div class="asseory">附件：</div>
-            <div class="add-photo-wrap" id="selfplanPhotoBtn">
-              <div class="add-photo"><i></i>上传文件</div>
-              <input id="inputFileID" type="file" multiple="">
+    <div class="selfativity-pop mask none">
+        <div class="pop-content mask-content none">
+            <div class="modal-header">
+                <span class="notice_cancel">x</span>
             </div>
-          <div class="button">
-            <p class="notice_cancel">取消</p>
-            <p class="yes">确认</p>
-          </div>
+            <div class="modal-body">
+                <div class="item-wrap pop_title pop_li">
+                    <label>计划名称：</label>
+                    <input type="text" id="selfplanName">
+                </div>
+                <div class="item-wrap pop_li">
+                    <label>计划内容：</label>
+                    <input type="text" id="selfplancontent">
+                </div>
+                <div class="item-wrap pop_li">
+                    <label>分中心：</label>
+                    <select name="理论分中心" id="selfcenter">
+                        <option value="1">理论分中心</option>
+                        <option value="2">实践分中心</option>
+                    </select>
+                </div>
+                <div class="item-wrap pop_name pop_li">
+                    <label>截止时间：</label>
+                    <input type="text"   id="selfexpretime" placeholder="请选择截止时间">
+                </div>
+                <div class="item-wrap">
+                    <label class="asseory">附件：</label>
+                    <div class="add-photo-wrap" id="selfplanPhotoBtn">
+                        <div class="add-photo"><i></i>上传文件</div>
+                        <input id="inputFileID" type="file" multiple="">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="button">
+                    <p class="notice_cancel">取消</p>
+                    <p class="yes">确认</p>
+                </div>
+            </div>
         </div>
          <!-- 查看的弹框 -->
          <div class="pop-search none mask-content">
@@ -316,7 +325,7 @@
         </div>
     </div>
     <!-- 任务审核弹框 -->
-    <div class="taskcheck-pop none">
+    <div class="taskcheck-pop mask none">
         <div class="pop-content none mask-content">
             <div class="modal-header">
                 <span class="notice_cancel">x</span>
