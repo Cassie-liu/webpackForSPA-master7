@@ -13,10 +13,34 @@ function initialize(params,outerParam) {
 	}
 
 	let townId = params.id;
-	// console.log('townId',townId)
+	console.log('townId',townId)
 	let backSource = params.backSource; //功能室和村站的返回源
 	let sgroup = {
+		model:{
+			popContentActionFrom:'add',
+			editId:'',
+		},
 		init: function () {
+			
+			let href=location.href;
+			var id=this.getQueryString('id');
+			console.log('id1',id)
+
+			if(href.indexOf('isBigScreen')>-1){
+				addNoneFn(".sidebar");
+				addNoneFn(".banner");
+				addNoneFn(".top-nav");
+				addNoneFn(".main-content .main-top");
+
+				$('#container').css('margin-left','0');
+				$('.page-center .main-content').css('padding','0');
+
+				if(params.outerParam && params.outerParam.indexOf("isDirectShowPlan")>-1) {
+					this.CountryGroup(id, 2);
+					return;
+				}
+			}
+			
 			
 			if (backSource == "country") {
 				//初始化村站
@@ -61,6 +85,9 @@ function initialize(params,outerParam) {
 			this.clickEvents();
 			hideAlert();
 		},
+		getQueryString:function (name) {
+			return decodeURIComponent((new RegExp('[?|&]'+name+'='+'([^&;]+?)(&|#|;|$)').exec(location.href)||[, ''])[1].replace(/\+/g, '%20')) || null
+		  },
 		switchMenu: function () {
 			let that = this;
 			$(".sgd-meu").off().on("click", function () {
@@ -431,7 +458,7 @@ function initialize(params,outerParam) {
 		//查询村的组数据
 		queryCountryGroup: function () {
 			let that = this;
-			apiPost("queryCountryByTownId?id=" + townId, "", function (data) {
+			apiPost("queryCountryByTownId?townId=" + townId, "", function (data) {
 				if (!data.success || !data.contents || data.contents.length == 0) {
 					showAlert("未查询到村站数据,快去添加吧");
 					$(".sgdc-group").html();
@@ -623,11 +650,84 @@ function initialize(params,outerParam) {
 				$('.pop').addClass('none');
 				$('.pop-edit').addClass('none');
 			});
-			$('.pop-content .button .yes').on('click', function () {
-				that.addpeople();
-			});
+			// $('.pop-content .button .yes').on('click', function () {
+			// 	that.addpeople();
+			// });
+
+			//编辑的确认按钮
+			$('.pop .pop-content .yes').off().on('click', function () {
+				addNoneFn(".pop");
+				if (that.popContentActionFrom == "add") {
+					that.addPeople();
+				} else if (that.popContentActionFrom == "edit") {
+					that.editPeople();
+				}
+			})
 			that.deleteTableData();
+			that.updateTableData();
+		
 		},
+
+		//所站组织架构列表编辑人
+		editPeople: function () {
+			let that = this;
+			let userName = $('#addname').val();
+			let gender = $('#sgender option:selected').val();
+			let position = $('#sorgrazation option:selected').val();
+			let param = {
+				id: this.model.editId,
+				userName: userName,
+				gender: gender,
+				position: position
+			}
+			apiPost("editorUser", param, function (data) {
+				if (data.success) {
+					that.queryTownData();
+				} else {
+					showAlert("编辑失败，请重试")
+				}
+			})
+		},
+
+		
+
+		//修改表格数据
+		updateTableData: function () {
+			let that = this;
+			$(".sgd-data .edit").off().on("click", function () {
+				that.popContentActionFrom = "edit";
+				let leaderTableData = $(".sgd-data tbody").children(); //领导的表格数据
+				let len = leaderTableData.length;
+				if (len == 0) {
+					showAlert("暂无数据");
+					return;
+				}
+
+				//遍历数据中已选择的数据
+				let ishasSelectData = false;
+				let selectedData = "";
+				for (let i = 0; i < len; i++) {
+					let item = leaderTableData[i];
+					if ($(item).find(".sd-select p").hasClass("checked")) {
+						ishasSelectData = true;
+						selectedData = item;
+					};
+				}
+				if (!ishasSelectData) {
+					showAlert("请选择要操作的数据");
+					return;
+				}
+				//将选择修改的名字带入编辑弹窗中
+				let selectName = $(selectedData).find(".sd-name").text();
+				$('#addname').val(selectName);
+				//打开编辑弹窗
+				delNoneFn(".pop");
+				delNoneFn('.pop-content');
+				//保存编辑人的id
+				that.model.editId = $(selectedData).find(".sd-select").attr("data-id");
+			})
+		},
+		
 
 		//添加人@todo
 		addpeople: function () {

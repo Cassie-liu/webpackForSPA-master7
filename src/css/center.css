@@ -23,6 +23,10 @@
 	text-align: center;
 }
 
+.page-center .seachsee{
+	cursor: pointer;
+}
+
 .page-center .main-title {
 	font-size: 20px;
 	color: #fff;
@@ -913,5 +917,86 @@
 	color: #fff;
 	text-align: center;
 	padding: 6px 12px;
+	cursor: pointer;
+}
+
+.main-popup .pop-search{
+	position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+}
+
+.main-popup .plan-extral img{
+	width: 200px;
+	height: 30px;
+}
+
+
+/* 查看 */
+.main-popup .pop-searchsee{
+    top: 10%;
+    position: absolute;
+    width: 650px;
+    /* height: 400px; */
+    background: #ECEEF4;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 8px;
+  }
+
+  .main-popup .pop_li{
+	margin: 20px 0;
+	height: 40px;
+  }
+
+  .main-popup .pop_li p{
+	float: left;
+    color: #333;
+  }
+
+  .main-popup .pop-search .plan-li {
+    float: left;
+    /* margin: 20px 0; */
+    color: #5e87eb;
+  }
+
+  .main-popup.pop-search .button {
+	/* width: 100%; */
+	overflow: hidden;
+	padding-top: 25px;
+	width: 209px;
+	margin: 0 auto;
+}
+
+.main-popup .pop-search .button .yes {
+	float: left;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	background: #5E87EB;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+
+.main-popup .pop-search .button .notice_cancel {
+	float: left;
+	border: #268bc9 1px solid;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	color: #268bc9;
+	text-align: center;
+	margin-right: 30px;
+	cursor: pointer;
+}
+
+.loadaccessory{
 	cursor: pointer;
 }

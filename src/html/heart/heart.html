@@ -108,20 +108,19 @@
 			</div>
 		</div>
 	<div class="pop none">
-		<div class="pop-content none mask-content">
+		<div class="pop-content mask-content">
 			<div class="modal-header">
 				<span class="notice_cancel">x</span>
 			</div>
 			<div class="modal-body">
 				<div class="item-wrap pop_title pop_li">
-					<label>姓名：</label><input type="text">
+					<label>姓名：</label><input type="text" id="orgName">
 				</div>
 				<div class="item-wrap pop_name pop_li">
 					<span><label>性别：</label></span>
 					<select name="男" id="gender">
 						<option value="1">男</option>
 						<option value="2">女</option>
-						<!-- <option value="3">实践所</option> -->
 					</select>
 				</div>
 				<div class="item-wrap pop_content pop_li">
@@ -159,6 +158,26 @@
 				<div class="button">
 					<p class="notice_cancel">取消</p>
 					<p class="yes">确认</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 编辑弹框 -->
+	<div class="edit-pop mask none">
+		<div class="edit-p-cnt">
+			<div class="edit-header">
+				<span class="notice_cancel">x</span>
+			</div>
+			<div class="edit-body">
+				<div>
+					<label for="officeGroupEdit">名称：</label>
+					<input type="text" id="officeGroupEdit">
+				</div>
+			</div>
+			<div class="edit-footer">
+				<div class="pe-buttons">
+					<span class="pe-btn yes" style="margin-right: 10px;">确定</span>
+					<span class="pe-btn notice_cancel" style="margin-left: 10px;">取消</span>
 				</div>
 			</div>
 		</div>

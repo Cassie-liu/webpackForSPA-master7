@@ -127,6 +127,7 @@ function initialize(params) {
 				$(this).addClass("active");
 			})
 		},
+		
 
 		//活动
 		loadactivity:function(){

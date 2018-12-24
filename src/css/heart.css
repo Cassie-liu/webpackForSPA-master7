@@ -636,3 +636,97 @@
 .page-heart .pop-edit input {
 	height: 30px;
 }
+
+/**弹窗样式**/
+.pop,
+.edit-pop,
+.office-add-popup,
+.general-pop {
+	z-index: 1;
+}
+
+
+
+.page-heart .oap-cnt,
+.page-heart .edit-p-cnt{
+	position: absolute;
+	top: 40%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 600px;
+	background: #ECEEF4;
+	text-align: center;
+	box-sizing: border-box;
+	box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+.page-heart .oap-cnt .oap-header,
+.page-heart .edit-p-cnt .edit-header{
+	text-align: right;
+	padding:15px;
+	border-bottom: 1px solid #ddd;
+}
+.page-heart .oap-cnt .oap-header .oap-cancel-add,
+.page-heart .edit-p-cnt .edit-header .notice_cancel{
+	background: #ECEEF4;
+	color: #333;
+	border:none;
+	cursor: pointer;
+}
+.page-heart .oap-cnt .oap-body,
+.page-heart .edit-p-cnt .edit-body{
+	padding:15px;
+	margin-right:20px;
+}
+.page-heart .oap-cnt .oap-body label,
+.page-heart .edit-p-cnt .edit-body label{
+	display: inline-block;
+	width:100px;
+	text-align: left;
+	font-size:16px;
+}
+.page-heart  input[type='text']{
+	height: 30px;
+	line-height: 30px;
+	padding: 0 28px 0 10px;
+	border: 1px solid #ddd;
+	width:275px;
+	color:#333;
+	font-size:14px;
+}
+.page-heart  input[type='text']:focus{
+	border: 1px solid #006eff;
+	outline: 0;
+}
+.page-heart .oap-cnt .oap-body div,
+.page-heart .edit-p-cnt .edit-body div
+{
+	padding: 10px 0;
+	line-height:30px;
+}
+.page-heart .oap-cnt .oap-footer,
+.page-heart .edit-p-cnt .edit-footer
+{
+	padding:15px;
+	border-top: 1px solid #ddd;
+}
+.page-heart .oap-buttons {
+	text-align: center;
+}
+
+.page-heart .oap-btn,
+.page-heart .pe-btn{
+	line-height: 30px;
+	background: #5E87EB;
+	color: #fff;
+	text-align: center;
+	padding: 6px 12px;
+	cursor: pointer;
+}
+
+.page-heart .oap-footer .oap-cancel-add ,
+.page-heart .edit-footer .pe-btn.notice_cancel{
+	background: #fff;
+	border: 1px solid #5E87EB;
+	color: #5E87EB;
+}

@@ -10,30 +10,40 @@ import {
 function initialize(params,outerParam) {
 
 	if (__DEV__) {
-		console.log(params);
+		console.log(params,outerParam);
 	}
 
 	let stop = {
 		init: function () {
-			// if(outerParam && outerParam.indexOf("isDirectShowPlan")>-1) {
-			// 	this.scanGroup(1,outerParam);
-			// } else {
-			// 	this.loadStopGroupData();
-			// 	this.addTown();
-			// 	this.clickEvents();
-			// 	hideAlert();
-			// }
+			let href=location.href;
+			var id=this.getQueryString('id');
+			
+			if(href.indexOf('isBigScreen')>-1){
+				if(outerParam && outerParam.indexOf("isDirectShowPlan")>-1) {
+					this.scanGroup(id,outerParam);
+				}
+			}else {
+				this.loadStopGroupData();
+				this.addTown();
+				this.clickEvents();
+				hideAlert();
+			}
 
 
-			this.loadStopGroupData();
-			this.addTown();
-			this.clickEvents();
-			hideAlert();
+
+			// this.loadStopGroupData();
+			// this.addTown();
+			// this.clickEvents();
+			// hideAlert();
 		},
+
+		getQueryString:function (name) {
+			return decodeURIComponent((new RegExp('[?|&]'+name+'='+'([^&;]+?)(&|#|;|$)').exec(location.href)||[, ''])[1].replace(/\+/g, '%20')) || null
+		  },
 		//加载所站组的数据
 		loadStopGroupData: function () {
 			let that = this;
-			apiPost("queryTown", "", function (data) {
+			apiPost("querySelfTown", "", function (data) {
 				if (!data.success || !data.contents || data.contents.length == 0) {
 					showAlert("暂无数据，可以去新增~")
 					return;
@@ -214,12 +224,14 @@ function initialize(params,outerParam) {
 				$('.pop').addClass('none');
 				$('.pop-content').addClass('none');
 			});
-			// $('.pop-edit .notice_cancel').on('click',function(){
-			// 	$('.pop').addClass('none');
-			// 	$('.pop-edit').addClass('none');
-			// });
+			
+			
 
 		},
+		
+
+		
+		
 
 	};
 	stop.init();

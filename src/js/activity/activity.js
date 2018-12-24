@@ -105,12 +105,12 @@ function initialize(params) {
 				//初始化自选活动
 				$('.selfchoose').removeClass('none');
 				$('.selfchooseactivity').addClass('active')
-				that.loadSelfActivity();
+				that.loadSelfActivity(1);
 			}
 		},
 
 		//加载自选活动
-		loadSelfActivity:function(){
+		loadSelfActivity:function(p){
 			let that=this;
 			//自选活动(只有村有)
 			if(that.model.userType==6){
@@ -283,7 +283,7 @@ function initialize(params) {
 		  $('.main-bottom ul li').eq(index).removeClass('none').siblings().addClass("none");
 		  if(!$('.selfchoose').hasClass('none')){
 			//显示自选活动
-			that.loadSelfActivity();
+			that.loadSelfActivity(1);
 		  }else if(!$('.activiymana').hasClass('none')){
 			//显示活动管理
 			that.loadfunctionroomActivityManage();
@@ -877,7 +877,7 @@ function initialize(params) {
 			apiPost("publishSelfPlan", params, function (data) {
 				if(data.success){
 					//重新加载页面
-					_this.loadSelfActivity();
+					_this.loadSelfActivity(1);
 				}else{
 					alert('发布计划失败')
 				}
@@ -929,14 +929,22 @@ function initialize(params) {
 
     bindEvent: function () {
 		var _this = this;
-		//日历弹框
-		// laydate.render({
-		// 	elem: '#ativityexpretime' //指定元素
-		// });
-		// laydate.render({
-		// 	elem: '#selfexpretime' //指定元素
-		// });
+		
 		$("#ativityexpretime").click(function () {
+			var $this = $(this);
+			var startDate = new Date(),
+			currentDate = new Date(),
+			endDate = new Date();
+			startDate.setFullYear(startDate.getFullYear() - 1);
+			cal.pick({
+				elem: $this,
+				startDate: startDate,
+				offset: { left: 2, top: 12 },
+				currentDate: currentDate,
+				unsyncValue: true
+			});
+		});
+		$("#selfexpretime").click(function () {
 			var $this = $(this);
 			var startDate = new Date(),
 			currentDate = new Date(),
@@ -973,7 +981,7 @@ function initialize(params) {
 			totalCount:_this.model.totalCount, // 总条数
 			totalBtn:'false', // 是否显示总条数
 			backFn:function(p){
-				_this.getEmployeeList(p);//获取行程列表信息
+				_this.loadSelfActivity(p);//获取行程列表信息
 				$('body,html').animate({scrollTop:0},200);
 			}
 		});

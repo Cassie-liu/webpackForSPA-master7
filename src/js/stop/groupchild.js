@@ -15,20 +15,28 @@ function initialize(params,outerParam) {
 		groupId = params.id; //对应的id
 	let townId = params.townId;
 	let groupchild = {
+		model:{
+			popContentActionFrom:'add',
+		},
 		init: function () {
-
-
-			if(params.pageSource == "groupdetail") {
-				$(".scgroup-menu").removeClass("active");
-				$(".cfg-prac").addClass("active");
-
-				addNoneFn(".scgroup-btn");
-				delNoneFn(".cfg-back, .cfg-add");
-
-				addNoneFn(".sc-module");
-				delNoneFn(".sc-prac");
-				this.querySubGroupPractice();
-			} else {
+			let href=location.href;
+			let id=this.getQueryString('id');
+			if(href.indexOf('isBigScreen')>-1){
+				if(params.outerParam && params.outerParam.indexOf("isDirectShowPlan")>-1) {
+					$(".scgroup-menu").removeClass("active");
+					$(".cfg-plan").addClass("active");
+	
+					addNoneFn(".scgroup-btn");
+					addNoneFn(".scgroup-top");
+					delNoneFn(".cfg-back, .cfg-export, .cfg-count");
+	
+					addNoneFn(".sc-module");
+					delNoneFn(".sc-plan");
+					this.queryPlan();
+					// delNoneFn(".sc-org");
+					// this.querySubGroupOrg();
+				} 
+			}else {
 				$(".scgroup-menu").removeClass("active");
 				$(".cfg-org").addClass("active");
 
@@ -37,14 +45,38 @@ function initialize(params,outerParam) {
 
 				addNoneFn(".sc-module");
 				delNoneFn(".sc-org");
-				this.querySubGroupOrg();
 			}
+
+			// if(params.pageSource == "groupdetail") {
+			// 	$(".scgroup-menu").removeClass("active");
+			// 	$(".cfg-prac").addClass("active");
+
+			// 	addNoneFn(".scgroup-btn");
+			// 	delNoneFn(".cfg-back, .cfg-add");
+
+			// 	addNoneFn(".sc-module");
+			// 	delNoneFn(".sc-prac");
+			// 	this.querySubGroupPractice();
+			// } else {
+			// 	$(".scgroup-menu").removeClass("active");
+			// 	$(".cfg-org").addClass("active");
+
+			// 	addNoneFn(".scgroup-btn");
+			// 	delNoneFn(".cfg-back, .cfg-switch");
+
+			// 	addNoneFn(".sc-module");
+			// 	delNoneFn(".sc-org");
+			// 	this.querySubGroupOrg();
+			// }
 			this.switchMenu();
 			this.switchOrgToTable();
 			this.clickEvents();
 			this.downLoadFile();
 			hideAlert();
 		},
+		getQueryString:function (name) {
+			return decodeURIComponent((new RegExp('[?|&]'+name+'='+'([^&;]+?)(&|#|;|$)').exec(location.href)||[, ''])[1].replace(/\+/g, '%20')) || null
+		  },
 		//菜单切换
 		switchMenu: function () {
 			let that = this;
@@ -681,9 +713,9 @@ function initialize(params,outerParam) {
 			});
 
 			//功能室确定
-			$('.pop-contenttown .button .yes').on('click', function () {
-				that.addpeople();
-			});
+			// $('.pop-contenttown .button .yes').on('click', function () {
+			// 	that.addpeople();
+			// });
 
 			//点击跟踪的查看按钮
 			$(".sc-track").on("click",".track",function(event){
@@ -734,17 +766,49 @@ function initialize(params,outerParam) {
 			// 	$('.village-pop .pop-content').removeClass('none');
 			});
 
+			//编辑的确认按钮
+			$('.pop-contenttown .yes').off().on('click', function () {
+				addNoneFn(".pop");
+				if (that.popContentActionFrom == "add") {
+					that.addPeople();
+				} else if (that.popContentActionFrom == "edit") {
+					that.editPeople();
+				}
+			})
+
 
 
 			
 		
 			that.deleteTableData();
 			that.backToPre();
+			that.updatetownTableData();
+		},
+
+		//所站组织架构列表编辑人
+		editPeople: function () {
+			let that = this;
+			let userName = $('#addtownname').val();
+			let gender = $('#towngender option:selected').val();
+			let position = $('#townorgrazation option:selected').val();
+			let param = {
+				id: this.model.editId,
+				userName: userName,
+				gender: gender,
+				position: position
+			}
+			console.log('param',param)
+			apiPost("editorUser", param, function (data) {
+				if (data.success) {
+					that.querySubGroupTable();
+				} else {
+					showAlert("编辑失败，请重试")
+				}
+			})
 		},
 
 		//返回到上一层
 		backToPre: function () {
-			console.log('townId',townId)
 			$(".cfg-back").off().on("click", function () {
 				let backSource = "";
 				if (source == "country") {
@@ -798,6 +862,41 @@ function initialize(params,outerParam) {
 				}
 
 
+			})
+		},
+		updatetownTableData: function () {
+			let that = this;
+			$(".sc-data .edit").off().on("click", function () {
+				that.popContentActionFrom = "edit";
+				let leaderTableData = $(".sc-data tbody").children(); //领导的表格数据
+				let len = leaderTableData.length;
+				if (len == 0) {
+					showAlert("暂无数据");
+					return;
+				}
+
+				//遍历数据中已选择的数据
+				let ishasSelectData = false;
+				let selectedData = "";
+				for (let i = 0; i < len; i++) {
+					let item = leaderTableData[i];
+					if ($(item).find(".scd-select p").hasClass("checked")) {
+						ishasSelectData = true;
+						selectedData = item;
+					};
+				}
+				if (!ishasSelectData) {
+					showAlert("请选择要操作的数据");
+					return;
+				}
+				//将选择修改的名字带入编辑弹窗中
+				let selectName = $(selectedData).find(".scd-name").text();
+				$('#addtownname').val(selectName);
+				//打开编辑弹窗
+				delNoneFn(".pop");
+				delNoneFn('.pop-contenttown');
+				//保存编辑人的id
+				that.model.editId = $(selectedData).find(".scd-select").attr("data-id");
 			})
 		},
 	};

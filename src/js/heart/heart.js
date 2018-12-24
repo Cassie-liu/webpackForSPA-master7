@@ -15,6 +15,8 @@ function initialize(params) {
 	let heart = {
 		model: {
 			officeid: '',
+			editId:'',
+			popContentActionFrom: "add", //打开内容弹窗的操作来源
 		},
 		init: function () {
 			//初始化页面
@@ -327,27 +329,7 @@ function initialize(params) {
 				that.model.officeid = e.currentTarget.dataset.id;
 			})
 		},
-		//编辑服务队伍
-		editOffice: function (officeId) {
-
-			var that = this;
-			var name = $('.pop-edit .pop_title input').val();
-			// apiPost("updateOfficeName?id=" + officeId + '&name=' + name, "", function (data) {
-			// 	if (data.success) {
-			// 		//编辑成功
-			// 		$('.pop').addClass('none');
-			// 		$('.pop-edit').addClass('none');
-			// 		that.loadOfficeZuData();
-
-			// 	} else {
-			// 		//
-			// 		alert('编辑失败')
-			// 		$('.pop').addClass('none');
-			// 		$('.pop-edit').addClass('none');
-			// 	}
-
-			// })
-		},
+		
 
 
 		//查看组的数据
@@ -392,12 +374,25 @@ function initialize(params) {
 				let htableHtml = "";
 				for (let i = 0; i < htableArr.length; i++) {
 					let item = htableArr[i];
+					let gender = '';
+					let position = '';
+					if (item.gender == 1) {
+						gender = '男';
+					} else {
+						gender = '女';
+					}
+
+					if (item.position == 1) {
+						position = '主任';
+					} else if (item.position == 2) {
+						position = '副主任';
+					}
 					htableHtml += `<tr>
 						<th class="hd-select" data-id="${item.id}"><p></p></th>
 						<td class="hd-no">${i}</td>
 						<td class="hd-name">${item.userName}</td>
-						<td class="hd-sex">${item.gender}</td>
-						<td class="hd-section">${item.position}</td>
+						<td class="hd-sex">${gender}</td>
+						<td class="hd-section">${position}</td>
 						<td class="hd-range">${item.notice}</td>
 					</tr>`;
 				}
@@ -487,11 +482,22 @@ function initialize(params) {
 				that.addpeople();
 			});
 
-			$('.pop-edit .yes').on('click', function () {
-				that.editOffice(that.model.officeid);
-			});
+			//确认添加
+			$('.pop .yes').off().on('click', function () {
+				addNoneFn(".pop");
+				if (that.popContentActionFrom == "add") {
+					that.addPeople();
+				} else if (that.popContentActionFrom == "edit") {
+					that.editPeople();
+				}
+			})
+
+			// $('.pop-edit .yes').on('click', function () {
+			// 	that.editOffice(that.model.officeid);
+			// });
 			that.deleteTableData();
 			that.deletesTableData();
+			that.updateTableData();
 		},
 		//添加人
 		addpeople: function () {
@@ -515,6 +521,64 @@ function initialize(params) {
 				that.loadHeartGroupDetail();
 			})
 		},
+
+		//编辑人
+		editPeople: function () {
+			let that = this;
+			let userName = $('#orgName').val();
+			let gender = $('#gender option:selected').val();
+			let position = $('#orgrazation option:selected').val();
+			let param = {
+				id: this.model.editId,
+				userName: userName,
+				gender: gender,
+				position: position
+			}
+			console.log('param',param)
+			apiPost("editorUser", param, function (data) {
+				if (data.success) {
+					that.loadHeartGroupDetail();
+				} else {
+					showAlert("编辑失败，请重试")
+				}
+			})
+		},
+
+		//修改表格数据
+		updateTableData: function () {
+			let that = this;
+			$(".hs-data .edit").off().on("click", function () {
+				that.popContentActionFrom = "edit";
+				let leaderTableData = $(".hs-data tbody").children(); //领导的表格数据
+				let len = leaderTableData.length;
+				if (len == 0) {
+					showAlert("暂无数据");
+					return;
+				}
+
+				//遍历数据中已选择的数据
+				let ishasSelectData = false;
+				let selectedData = "";
+				for (let i = 0; i < len; i++) {
+					let item = leaderTableData[i];
+					if ($(item).find(".hd-select p").hasClass("checked")) {
+						ishasSelectData = true;
+						selectedData = item;
+					};
+				}
+				if (!ishasSelectData) {
+					showAlert("请选择要操作的数据");
+					return;
+				}
+				//将选择修改的名字带入编辑弹窗中
+				let selectName = $(selectedData).find(".hd-name").text();
+				$('#orgName').val(selectName);
+				//打开编辑弹窗
+				delNoneFn(".pop");
+				//保存编辑人的id
+				that.model.editId = $(selectedData).find(".hd-select").attr("data-id");
+			})
+		}
 	}
 	heart.init();
 }

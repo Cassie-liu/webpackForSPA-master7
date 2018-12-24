@@ -30,6 +30,7 @@ function initialize(params) {
 			this.pageFunc();
 			this.clickEvents();
 			hideAlert();
+			this.searchInfo();
 
 			var href=location.href;
 			if(href.indexOf('isBigScreen')>-1){
@@ -135,40 +136,40 @@ function initialize(params) {
 			})
 		},
 
-			//活动
-			loadactivity:function(){
-				// sp-general-act
-				apiPost("queryFeatureForFront?pageNum=1&pageSize=10&practiceId="+centerId, "", function (data) {
-					if (!data.success) {
-						showAlert("新建实践点失败")
-						return;
-					}else{
-						if(data.content.list.length>0){
-							var pichtml='';
-							for(var i=0;i<data.content.list.length;i++){
-								var item=data.content.list[i];
-								pichtml+=`<li>
-										<dl>
-											<dt>
-												<img src="${item.pic[0]}">
-											</dt>
-											<dd>
-												<p>
-													<span>${item.planName}</span>
-												</p>
-											</dd>
-										</dl>
-									</li>`;
-							}
-	
-							$('.c-show .activity-content ul').html(pichtml);
-						}else{
-							showAlert("没有活动数据哦")
+		//活动
+		loadactivity:function(){
+			// sp-general-act
+			apiPost("queryFeatureForFront?pageNum=1&pageSize=10&practiceId="+centerId, "", function (data) {
+				if (!data.success) {
+					showAlert("新建实践点失败")
+					return;
+				}else{
+					if(data.content.list.length>0){
+						var pichtml='';
+						for(var i=0;i<data.content.list.length;i++){
+							var item=data.content.list[i];
+							pichtml+=`<li>
+									<dl>
+										<dt>
+											<img src="${item.pic[0]}">
+										</dt>
+										<dd>
+											<p>
+												<span>${item.planName}</span>
+											</p>
+										</dd>
+									</dl>
+								</li>`;
 						}
+
+						$('.c-show .activity-content ul').html(pichtml);
+					}else{
+						showAlert("没有活动数据哦")
 					}
-	
-				})
-			},
+				}
+
+			})
+		},
 
 		//返回到分中心主页
 		backToCenter: function () {
@@ -442,6 +443,12 @@ function initialize(params) {
 			$('.people-add-popup .notice_cancel').on('click', function () {
 				addNoneFn(".people-add-popup");
 			});
+			$('.pop-searchsee .notice_cancel').on('click', function () {
+				addNoneFn(".pop-search");
+			});
+			$('.pop-searchsee .yes').on('click', function () {
+				addNoneFn(".pop-search");
+			});
 			//确认添加
 			$('.people-add-popup .yes').off().on('click', function () {
 				addNoneFn(".people-add-popup");
@@ -451,6 +458,8 @@ function initialize(params) {
 					that.sureEditPeople();
 				}
 			});
+
+		
 		},
 		/*****************************年度计划start************************************/
 		queryPlan: function () {
@@ -509,16 +518,6 @@ function initialize(params) {
 				$('.c-track').removeClass('none');
 				let url = `afterResult?planId=${planId}&pageNum=1&pageSize=10`;
 				apiPost(url, "", function (data) {
-					// data = {
-					// 	success: true,
-					// 	content: {
-					// 		afterResultDTOS: [{
-					// 			countryName: "宝华村",
-					// 			status: "已完成",
-					// 			resultId: 5
-					// 		}]
-					// 	}
-					// };
 					if (!data || !data.success || !data.content || !data.content.afterResultDTOS) {
 						showAlert("请求跟踪数据失败");
 						return;
@@ -531,12 +530,11 @@ function initialize(params) {
 					let trackPlanHtml = "";
 						for (let i = 0; i < trackPlanArr.length; i++) {
 							let item = trackPlanArr[i];
-							// trackPlanHtml += `<div><span>${item.countryName}</span><span>${item.status}</span></div>`;
 							trackPlanHtml += `<tr>
 							<td class="scpd-no"></td>
 							<td class="scpd-endline">${item.countryName}</td>
 							<td class="scpd-status">${item.status}</td>
-							<td class="scpd-action"><span class="track" data-id="${item.resultId}">查看</span></td>
+							<td class="scpd-action"><span class="seachsee" data-id="${planId}">查看</span></td>
 						</tr>`;
 	
 	
@@ -603,6 +601,40 @@ function initialize(params) {
 				}
 			})
 		},
+
+		searchInfo:function(){
+		
+			$(".c-track").on("click",".scpd-action .seachsee",function(event){
+				var target = $(event.target);
+				var id=target.data('id');
+	
+				apiPost("querySinglePlan?planId="+id, "", function (data) {
+					if(data.success){
+						delNoneFn('.pop-search');
+						$('.pop-searchsee .plan-title').html(data.content.name);
+						$('.pop-searchsee .plan-content').html(data.content.content);
+						$('.pop-searchsee .plan-interal').html(data.content.integral);
+						$('.pop-searchsee .plan-center').html(data.content.centerName);
+						if(data.content.accessory==null){
+							$('.pop-searchsee .plan-extral span').html('无');
+							$('.pop-searchsee .plan-extral img').attr('src','');
+						}else{
+							$('.pop-searchsee .plan-extral span').html('');
+							$('.pop-searchsee .plan-extral img').attr('src',data.content.accessory)
+						}
+						
+					}else{
+						showAlert('网络异常，请稍后再试')
+					}
+				})
+			
+	
+			})
+			
+		},
+
+		//跟踪的查看按钮
+		
 
 
 		/*****************************文明实践点的操作start************************************/

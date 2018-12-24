@@ -8,12 +8,19 @@ var pageDatas = {
 	defaultRoute: "organize" // default Route
 };
 
+var outerParam = "";
+
 function initMenu() {
 	/// <summary>
 	/// init menu
 	/// </summary>
 
 	var modName = window.location.href.split("#")[1];
+	if(modName && modName.indexOf("?")>-1) {
+		//从外部传参
+		outerParam = modName.split("?")[1];
+		modName = modName.split("?")[0];
+	}
 
 	modName = modName || pageDatas.defaultRoute;
 
@@ -124,7 +131,7 @@ function loadJs(jsPath) {
 			[],
 			function (require) {
 				currentMod = require("./center/center");
-				currentMod.init(pageDatas.params);
+				currentMod.init(pageDatas.params, outerParam);
 			},
 			"center"
 		);
@@ -133,7 +140,7 @@ function loadJs(jsPath) {
 			[],
 			function (require) {
 				currentMod = require("./heart/heart");
-				currentMod.init(pageDatas.params);
+				currentMod.init(pageDatas.params, outerParam);
 			},
 			"heart"
 		);
@@ -142,7 +149,7 @@ function loadJs(jsPath) {
 			[],
 			function (require) {
 				currentMod = require("./stop/stop");
-				currentMod.init(pageDatas.params);
+				currentMod.init(pageDatas.params, outerParam);
 			},
 			"stop"
 		);
@@ -151,7 +158,7 @@ function loadJs(jsPath) {
 			[],
 			function (require) {
 				currentMod = require("./notice/notice");
-				currentMod.init(pageDatas.params);
+				currentMod.init(pageDatas.params, outerParam);
 			},
 			"notice"
 		);

@@ -6,11 +6,19 @@
 function apiPost(url, param, callBack) {
 	let requestUrl = "http://47.254.44.188:8088/";
 	let para = JSON.stringify(param);
-	console.log('$.cookie',$.cookie('token'))
+
+	let href=location.href;
+	let token=$.cookie('token');
+	if(href.indexOf('isBigScreen')>-1){
+		token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJBUFAiLCJ1c2VyX2lkIjoiMTA3IiwiaXNzIjoiU2VydmljZSIsImV4cCI6MTU3NjkyNDcwNywiaWF0IjoxNTQ1Mzg4NzA3fQ.ts9O85Xdw7tRQQzP-tSr6NEdKhJ5JrPgJHLV72FGM8k';
+	}else{
+		token=$.cookie('token');
+	}
+
 	$.ajax({
 		type: "POST",
 		headers: {
-			token: $.cookie('token')
+			token: token
 		},
 		url: requestUrl + url,
 		data: para,
@@ -94,6 +102,8 @@ function hideAlert() {
 		addNoneFn(".alert");
 	})
 }
+
+
 
 
 

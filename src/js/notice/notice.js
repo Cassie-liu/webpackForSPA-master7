@@ -17,11 +17,12 @@ function initialize(params) {
       totalpage:0,
       content:'',
       id:'',
+      editId:'',
+      popContentActionFrom:'add'
     },
     init: function() {
      var _this=this;
 
-     _this.switchLeadModule();
      _this.initnotice(1);
      _this.pageFunc();
       setTimeout(function(){
@@ -29,10 +30,7 @@ function initialize(params) {
       },3000)
       
     },
-    //切换组织架构和办公室
-    switchLeadModule: function() {
-     
-    },
+  
     
     /**
      * 初始化通知公告列表
@@ -123,32 +121,16 @@ function initialize(params) {
             $('.pop').addClass('none');
             $('.pop .pop-content').addClass('none');
 			})
-
-
-      // $.ajax({
-      //   type: "Post",
-      //   url: "http://47.254.44.188:8088/addInformation",
-      //   headers: {
-      //     token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJBUFAiLCJ1c2VyX2lkIjoiMSIsImlzcyI6IlNlcnZpY2UiLCJleHAiOjE1NzYxMzE4NDAsImlhdCI6MTU0NDU5NTg0MH0.goO7uO85rxsRa5coymsb_KKx94e-cGIEE4AFDT692mk"
-      //   },
-      //   data:JSON.stringify(params),
-      //   contentType: "application/json; charset=utf-8",
-      //   dataType: "json",
-      //   success: function (response) {
-            
-      //   }
-      // });
     },
+
+    
 
     //修改表格数据
 		updateTableData: function () {
-			let that = this;
-			$(".l-data .edit").off().on("click", function () {
-        alert('无接口');
-        return;
-        // addNoneFn(".l-organize, .l-data");
-			  delNoneFn(".edit-pop");
-				let leaderTableData = $(".l-data tbody").children(); 
+      let that = this;
+      $(".l-data").on("click",".edit",function(event){
+				that.model.popContentActionFrom = "edit";
+				let leaderTableData = $(".l-data tbody").children(); //领导的表格数据
 				let len = leaderTableData.length;
 				if (len == 0) {
 					showAlert("暂无数据");
@@ -171,12 +153,13 @@ function initialize(params) {
 				}
 				//将选择修改的名字带入编辑弹窗中
 				let selectName = $(selectedData).find(".ld-name").text();
-				$('#orgName').val(selectName);
+				$('#addtownname').val(selectName);
 				//打开编辑弹窗
-				delNoneFn(".pop");
+				delNoneFn(".edit-pop");
 				//保存编辑人的id
-				that.editId = $(selectedData).find(".ld-select").attr("data-id");
+				that.model.editId = $(selectedData).find(".ld-select").attr("data-id");
 			})
+			
 		},
 
     /**
@@ -299,12 +282,22 @@ function initialize(params) {
           _this.uploadFiles(files);
         });
 
-        $('.button .yes').on('click',function(){
+        $('.pop.button .yes').on('click',function(){
           var title=$('.pop_title input').val();
           var name=$('.pop_name input').val();
           var content=$('.pop_content input').val();
           _this.addNotice(title,name,content);
-        })
+        });
+
+        //确认添加
+			$('.edit-pop .yes').off().on('click', function () {
+				addNoneFn(".pop");
+				if (_this.model.popContentActionFrom == "add") {
+					_this.addPeople();
+				} else if (_this.model.popContentActionFrom == "edit") {
+					_this.editNotice();
+				}
+			});
 
        
 
@@ -312,6 +305,29 @@ function initialize(params) {
         _this.updateTableData();
         
     },
+
+    //编辑人
+		editNotice: function () {
+			let that = this;
+			let userName = $('#etitle').val();
+			let organizationType = $('#ename option:selected').val();
+			let content = $('#econtent option:selected').val();
+			let param = {
+				id: this.model.editId,
+				title: userName,
+				organizationType: organizationType,
+        content: content,
+        accessory:''
+			}
+			apiPost("updateInformation", param, function (data) {
+				if (data.success) {
+          addNoneFn('.edit-pop')
+					that.initnotice(1);
+				} else {
+					showAlert("编辑失败，请重试")
+				}
+			})
+		},
 
     /**
      * 上传文件@todo
