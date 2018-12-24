@@ -277,9 +277,10 @@
   }
 
   .scpgroup-search-popup .pop-search .plan-li {
-    float: left;
+    /*float: left;*/
     /* margin: 20px 0; */
     color: #5e87eb;
+	  display: inline-block;
   }
 
   .scpgroup-search-popup .pop-search .button {
