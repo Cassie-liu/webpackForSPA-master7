@@ -98,11 +98,9 @@ function initialize(params) {
 
       apiPost("addInformation", params, function (data) {
             if(data.success){
-                
-                showAlert('请求成功')
-
+                showAlert('新增成功')
             }else{
-              showAlert('接口请求失败')
+              showAlert('新增失败')
             }
             _this.initnotice(1);
             $('.pop').addClass('none');
@@ -194,7 +192,7 @@ function initialize(params) {
 				let leaderTableData = $(".l-data tbody").children(); //领导的表格数据
 				let len = leaderTableData.length;
 				if (len == 0) {
-					alert("没有数据可以删除");
+					showAlert("没有数据可以删除");
 					return;
 				}
 
@@ -209,7 +207,7 @@ function initialize(params) {
 					};
 				}
 				if (!ishasDeleteData) {
-					alert("请选择要删除的数据");
+					showAlert("请选择要删除的数据");
 					return;
 				}
 
@@ -220,10 +218,10 @@ function initialize(params) {
 
         apiPost("delInformation", params, function (data) {
               if(data.success){
-                alert('删除数据成功')
+                showAlert('删除数据成功')
                 $(selectedData).remove();
               }else{
-                alert('接口返回数据失败')
+                showAlert('接口返回数据失败')
               }
         })
 
@@ -255,7 +253,7 @@ function initialize(params) {
           _this.uploadFiles(files);
         });
 
-        $('.pop.button .yes').on('click',function(){
+        $('.pop .button .yes').on('click',function(){
           var title=$('.pop_title input').val();
           var name=$('.pop_name input').val();
           var content=$('.pop_content input').val();
@@ -279,19 +277,20 @@ function initialize(params) {
         
     },
 
-    //编辑人
+    //修改
 		editNotice: function () {
 			let that = this;
 			let userName = $('#etitle').val();
-			let organizationType = $('#ename option:selected').val();
-			let content = $('#econtent option:selected').val();
+			let organizationType = $('#ename').val();
+			let content = $('#econtent').val();
 			let param = {
 				id: this.model.editId,
 				title: userName,
-				organizationType: organizationType,
+				organizationType: 1,
         content: content,
         accessory:''
-			}
+      }
+      console.log('param',param)
 			apiPost("updateInformation", param, function (data) {
 				if (data.success) {
           addNoneFn('.edit-pop')
