@@ -16,6 +16,8 @@ function initialize(params) {
     var activity = {
 	  model:{
 		  content:'',
+		  totalpage:'',
+		  totalCount:'',
 		  plantotalpage:1,
 		  activitystatus:'通过',//活动审核的是否通过
 		  taskstatus:'通过',
@@ -36,13 +38,13 @@ function initialize(params) {
 		
 	
        
-        this.loadPlanData();
+        this.loadPlanData(1);
 		this.switchtab();
 		
 		this.clickEvents();
 		this.makePlanClicks();
 		this.bindEvent();
-		this.pageFunc();
+		this.pageFunc(1);
 		hideAlert();
 		
 		
@@ -54,20 +56,23 @@ function initialize(params) {
       },
 
       //加载计划制定的数据
-		loadPlanData: function () {
+		loadPlanData: function (target) {
       		let that = this;
 			
 			if(that.model.userType==2){
 				 $('.makeplans').addClass('active');
 			  //计划制定 分中心
-				apiPost("queryPlan?pageNum=1&pageSize=20", "", function (data) {
+				apiPost("queryPlan?pageNum="+target+"&pageSize=10", "", function (data) {
 					if (!data.success || !data.content || data.content.content.length == 0) {
+						$('#page').hide();
 						showAlert("暂无数据，可以去新增~")
 						$(".c-group").html();
 						return;
 					}
+					
 					let centerGroupArr = data.content.content;
-					that.model.plantotalpage=data.totalPages;
+					that.model.totalpage=data.content.totalPages;
+					that.model.totalCount=data.content.totalCount;
 					let tableHtml = "";
 					for (let i = 0; i < centerGroupArr.length; i++) {
 						let item = centerGroupArr[i];
@@ -80,7 +85,7 @@ function initialize(params) {
 						</tr>`;
 					}
 					$(".l-data tbody").html(tableHtml);
-
+					that.pageFunc(target);
 				})
 
 				//没有自选活动
@@ -94,7 +99,7 @@ function initialize(params) {
 				
 				$('.selfchooseactivity').addClass('none');
 
-				//展示审核模块
+				//展示活动审核模块
 				$('.activitycheckout').removeClass('none');
 				$('.activitycheckout').addClass('active')
 				$('.activiymana').removeClass('none');
@@ -114,12 +119,14 @@ function initialize(params) {
 			let that=this;
 			//自选活动(只有村有)
 			if(that.model.userType==6){
-				apiPost("querySelfPlanList?pageNum=1&pageSize=10", "", function (data) {
+				apiPost("querySelfPlanList?pageNum="+p+"&pageSize=10", "", function (data) {
 					if (!data.success || !data.content || data.content.list.length == 0) {
 						showAlert("暂无数据，可以去新增~")
 						$(".c-group").html();
 						return;
 					}
+					// that.model.totalpage=data.totalPages;
+					// that.model.totalCount=data.totalElements;
 					let centerGroupArr = data.content.list;
 					let tableHtml = "";
 					for (let i = 0; i < centerGroupArr.length; i++) {
@@ -136,6 +143,7 @@ function initialize(params) {
 					}
 					$(".self-data tbody").html(tableHtml);
 				})
+				// that.pageFunc();
 			}else{
 				$('.selfchooseactivity').addClass('none');
 
@@ -216,7 +224,8 @@ function initialize(params) {
 				//功能室 
 				apiPost("querySelfPlanCheckListForTownRoom?pageNum=1&pageSize=10", "", function (data) {
 					if (!data.success || !data.content || data.content.checkForTownRoomDTOS.length == 0) {
-						showAlert("暂无数据，可以去发布~")
+						showAlert("暂无数据");
+						$("#page").hide();
 						$(".c-group").html();
 						return;
 					}
@@ -246,6 +255,7 @@ function initialize(params) {
 				//分中心
 				apiPost("querySelfPlanCheckListForCenter?pageNum=1&pageSize=10", "", function (data) {
 					if (!data.success || !data.content || data.content.checkForTownRoomDTOS.length == 0) {
+						$("#page").hide();
 						showAlert("暂无数据，可以去发布~")
 						$(".c-group").html();
 						return;
@@ -281,15 +291,20 @@ function initialize(params) {
           $(this).addClass("active").siblings().removeClass("active");     
           var index=$(this).data('index');
 		  $('.main-bottom ul li').eq(index).removeClass('none').siblings().addClass("none");
+
 		  if(!$('.selfchoose').hasClass('none')){
 			//显示自选活动
 			that.loadSelfActivity(1);
 		  }else if(!$('.activiymana').hasClass('none')){
 			//显示活动管理
 			that.loadfunctionroomActivityManage();
+			
+			
 		  }else if(!$('.taskmana').hasClass('none')){
 			//显示任务审核
 			that.loadTaskManage();
+		  }else if(!$('.planorder').hasClass('none')){
+			that.loadPlanData(1);
 		  }
        });
 	},
@@ -848,7 +863,7 @@ function initialize(params) {
 			apiPost("publishPlan", params, function (data) {
 				if(data.success){
 					// alert('发布计划成功')
-					_this.loadPlanData();
+					_this.loadPlanData(1);
 				}else{
 					// alert('发布计划失败')
 				}
@@ -964,24 +979,24 @@ function initialize(params) {
 	 // 分页事件
 	 pageFunc:function(current){
 		var  _this = this;
-		if (!_this.model.plantotalpage) {
+		if (!_this.model.totalpage) {
 			$("#page").hide();
 			return;
 		}
 		$("#page").show();
 		$("#page").createPage({
 			pageCountBtn:"true", // 是否显示总页数
-			pageCount:_this.model.plantotalpage, // 总页数
+			pageCount:_this.model.totalpage, // 总页数
 			firstpageBtn:'true', // 是否显示页首页按钮
 			prevpageText:'上一页',
 			nextpageText:'下一页',
 			lastpageBtn:'true', // 是否显示尾页按钮
 			current:current,// 当前页
 			turndown:'true',// 是否显示跳转框，显示为true，不现实为false,一定记得加上引号...
-			totalCount:_this.model.totalCount, // 总条数
+			totalCount:_this.model.totalElements, // 总条数
 			totalBtn:'false', // 是否显示总条数
 			backFn:function(p){
-				_this.loadSelfActivity(p);//获取行程列表信息
+				_this.loadPlanData(p);
 				$('body,html').animate({scrollTop:0},200);
 			}
 		});
