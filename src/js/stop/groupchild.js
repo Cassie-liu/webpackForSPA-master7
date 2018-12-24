@@ -776,6 +776,16 @@ function initialize(params,outerParam) {
 				}
 			})
 
+			$(".sc-act").on("click",".casee",function(event){
+				showAlert('无接口')
+				// addNoneFn(".people-add-popup");
+				// if (that.model.popContentActionFrom == "add") {
+				// 	that.sureAddpeople();
+				// } else if (that.model.popContentActionFrom == "edit") {
+				// 	that.sureEditPeople();
+				// }
+			});
+
 
 
 			
