@@ -920,6 +920,7 @@ function initialize(params) {
 			 success: function (response) {
 			 if(response.success){
 			   _this.model.content=response.content;
+			   showAlert('上传成功')
 			 }else{
 				showAlert('接口返回数据失败')
 			 }

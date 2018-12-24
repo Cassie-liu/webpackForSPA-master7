@@ -15,6 +15,7 @@ function initialize(params) {
   var notice = {
     model:{
       totalpage:0,
+      totalCount:'',
       content:'',
       id:'',
       editId:'',
@@ -24,10 +25,10 @@ function initialize(params) {
      var _this=this;
 
      _this.initnotice(1);
-     _this.pageFunc();
-      setTimeout(function(){
+     _this.pageFunc(1);
+      // setTimeout(function(){
         _this.clickEvent();
-      },3000)
+      // },1000)
       
     },
   
@@ -38,14 +39,15 @@ function initialize(params) {
     initnotice:function(target){
       var _this=this;
 
-      apiPost("queryInformation?pageNum="+target+"&pageSize=8", "", function (response) {
+      apiPost("queryInformation?pageNum="+target+"&pageSize=10", "", function (response) {
             if(response.success){
                 var listHtml='';
                 var contentList=response.content.content;
                 var organizationName='';
                 _this.model.totalpage=response.content.totalPages;
+					      _this.model.totalCount=response.content.totalCount;
                 if(!contentList.length){
-                  alert('没有返回数据')
+                  showAlert('暂无数据')
                 }else{
                   for(var i=0;i<contentList.length;i++){
                     if(contentList[i].organizationType==1){
@@ -66,28 +68,14 @@ function initialize(params) {
                   }
 
                   $(".l-data tbody").html(listHtml);
-                  
+                  _this.pageFunc(target);
                 }
 
               
             }else{
-              alert('接口返回数据失败')
+              showAlert('接口返回数据失败')
             }
 			})
-    //   $.ajax({
-    //     type:"Post",
-    //     url:"http://47.254.44.188:8088/queryInformation",
-    //     headers: {
-    //       token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJBUFAiLCJ1c2VyX2lkIjoiMSIsImlzcyI6IlNlcnZpY2UiLCJleHAiOjE1NzYxMzE4NDAsImlhdCI6MTU0NDU5NTg0MH0.goO7uO85rxsRa5coymsb_KKx94e-cGIEE4AFDT692mk"
-    //     },
-    //     data:{
-    //       "pageNum":1,
-    //       "pageSize":10
-    //     },
-    //       success: function (response) {
-         
-    //   }
-    //  })
        _this.forLeaderAddSelect();
 
     },
@@ -99,8 +87,7 @@ function initialize(params) {
      */
     addNotice:function(title,name,content){
      var _this=this;
-     var accessory='http://47.254.44.188:8088/files/544614817781.png';
-      accessory='http://47.254.44.188:8088/files/'+_this.content;
+      var accessory=_this.content;
       var params={
           title:title,
           organizationType:1,
@@ -111,11 +98,11 @@ function initialize(params) {
 
       apiPost("addInformation", params, function (data) {
             if(data.success){
-                //
-                alert('请求成功')
+                
+                showAlert('请求成功')
 
             }else{
-                alert('接口请求失败')
+              showAlert('接口请求失败')
             }
             _this.initnotice(1);
             $('.pop').addClass('none');
@@ -165,30 +152,29 @@ function initialize(params) {
     /**
      * 分页
      */
-    pageFunc: function () {
-
-      var _this = this;
-      setTimeout(function(){
-          if (!_this.model.totalpage) {
-              $("#page").hide();
-              return;
-          }
-          $("#page").show();
-          $("#page").createPage({
-              pageCount: _this.model.totalpage, // 总页数
-              firstpageBtn: 'true', // 是否显示页首页按钮
-              current: 1,// 当前页
-              lastpageBtn: 'true', // 是否显示尾页按钮
-              pageCountBtn: 'true', // 是否显示总页数
-              turndown: 'true',// 是否显示跳转框，显示为true，不现实为false,一定记得加上引号...
-              totalBtn: 'false', // 是否显示总条数
-              backFn: function (p) {
-                  _this.initnotice(p);//获取行程列表信息
-                  $('body,html').animate({ scrollTop: 0 }, 200);
-              }
-          });
-      }, 2000);
-     
+    pageFunc:function(current){
+      var  _this = this;
+      if (!_this.model.totalpage) {
+        $("#page").hide();
+        return;
+      }
+      $("#page").show();
+      $("#page").createPage({
+        pageCountBtn:"true", // 是否显示总页数
+        pageCount:_this.model.totalpage, // 总页数
+        firstpageBtn:'true', // 是否显示页首页按钮
+        prevpageText:'上一页',
+        nextpageText:'下一页',
+        lastpageBtn:'true', // 是否显示尾页按钮
+        current:current,// 当前页
+        turndown:'true',// 是否显示跳转框，显示为true，不现实为false,一定记得加上引号...
+        totalCount:_this.model.totalCount, // 总条数
+        totalBtn:'false', // 是否显示总条数
+        backFn:function(p){
+          _this.initnotice(p);
+          $('body,html').animate({scrollTop:0},200);
+        }
+      });
     },
 
     //给表格数据添加选择方法
@@ -241,20 +227,7 @@ function initialize(params) {
               }
         })
 
-        
-      //   $.ajax({
-      //     type:"Post",
-      //     url:"http://47.254.44.188:8088/delInformation",
-      //     headers: {
-      //       token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJBUFAiLCJ1c2VyX2lkIjoiMSIsImlzcyI6IlNlcnZpY2UiLCJleHAiOjE1NzYxMzE4NDAsImlhdCI6MTU0NDU5NTg0MH0.goO7uO85rxsRa5coymsb_KKx94e-cGIEE4AFDT692mk"
-      //     },
-      //     data:{
-            
-      //     },
-      //     success: function (response) {
-           
-      //   }
-      // })
+   
 
 		
 			})
@@ -359,21 +332,7 @@ function initialize(params) {
     })
 
 
-      // $.ajax({
-      //   type: "Post",
-      //   url: "http://47.254.44.188:8088/upload",
-      //   data:{
-      //     file:files
-      //   },
-      //   success: function (response) {
-      //       if(response.success){
-      //           //
-                
-      //       }else{
-      //           //
-      //       }
-      //   }
-      // });
+      
     },
 
 

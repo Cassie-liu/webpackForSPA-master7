@@ -459,6 +459,16 @@ function initialize(params) {
 				}
 			});
 
+			$(".c-act-data").on("click",".casee",function(event){
+				showAlert('无接口')
+				// addNoneFn(".people-add-popup");
+				// if (that.model.popContentActionFrom == "add") {
+				// 	that.sureAddpeople();
+				// } else if (that.model.popContentActionFrom == "edit") {
+				// 	that.sureEditPeople();
+				// }
+			});
+
 		
 		},
 		/*****************************年度计划start************************************/
@@ -693,10 +703,23 @@ function initialize(params) {
 		//编辑文明实践点
 		editCiviPrac: function () {
 			$(".cpg-item .item-edit").off().on("click", function (e) {
-				showAlert("暂无接口")
-				// $('.pop').removeClass('none');
-				// $('.pop-edit').removeClass('none');
+				showAlert('无接口')
+				// $('.center-edit-popup').removeClass('none');
 				let pracId = e.currentTarget.dataset.id;
+				// apiPost("updatePractice?id=" + officeId + '&name=' + name, "", function (data) {
+				// 	if (data.success) {
+				// 		//编辑成功
+				// 		$('.pop').addClass('none');
+				// 		$('.pop-edit').addClass('none');
+				// 		that.loadCenterZuData();
+	
+				// 	} else {
+				// 		alert('编辑失败,请稍后再试')
+				// 		$('.pop').addClass('none');
+				// 		$('.pop-edit').addClass('none');
+				// 	}
+	
+				// })
 
 			})
 		},
