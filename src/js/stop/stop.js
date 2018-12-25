@@ -17,7 +17,7 @@ function initialize(params,outerParam) {
 		init: function () {
 			let href=location.href;
 			var id=this.getQueryString('id');
-			
+            this.initVue();
 			if(href.indexOf('isBigScreen')>-1){
 				if(outerParam && outerParam.indexOf("isDirectShowPlan")>-1) {
 					this.scanGroup(id,outerParam);
@@ -28,9 +28,6 @@ function initialize(params,outerParam) {
 				this.clickEvents();
 				hideAlert();
 			}
-
-
-
 			// this.loadStopGroupData();
 			// this.addTown();
 			// this.clickEvents();
@@ -44,6 +41,7 @@ function initialize(params,outerParam) {
 		loadStopGroupData: function () {
 			let that = this;
 			apiPost("querySelfTown", "", function (data) {
+				console.log(data, 'sss');
 				if (!data.success || !data.contents || data.contents.length == 0) {
 					showAlert("暂无数据，可以去新增~")
 					return;
@@ -224,14 +222,25 @@ function initialize(params,outerParam) {
 				$('.pop').addClass('none');
 				$('.pop-content').addClass('none');
 			});
-			
-			
+
+
 
 		},
-		
 
-		
-		
+		//Vue
+		initVue() {
+			console.log("asdas");
+			new Vue({
+				el: '#stop',
+				name: "ad",
+				data: {
+					mes: "123"
+				}
+			})
+		}
+
+
+
 
 	};
 	stop.init();

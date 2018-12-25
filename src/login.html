@@ -22,7 +22,7 @@
         .disabled {
             pointer-events: none;
         }
-    
+
 
         input,
         textarea {
@@ -131,11 +131,11 @@
                             <!-- <span class="forget">忘记密码?</span> -->
                         </div>
                         <button id="dtloginBtn" class="login-btn" type="button">登录</button>
-                    </div>    
+                    </div>
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
 </body>
 <script type="text/javascript" src="http://js.40017.cn/cn/public/jquery/jquery.min.js?v=201706151625"></script>
 <script type="text/javascript" src="http://js.40017.cn/cn/min/??/cn/sl/common/2016/jquery.cookie.js"></script>
@@ -163,16 +163,18 @@
             alert('请输入密码')
             return;
         }
-        
+
 
         $.ajax({
             type: "Post",
-            url: "http://47.254.44.188:8088/userLogin?userId="+name+"&userPwd="+password,
+            url: "http://localhost:8088/userLogin?userId="+name+"&userPwd="+password,
             success: function (response) {
                 if(response.success){
                     // 1-文明中心；2-分中心；4-镇；6-村；8-镇（室）；9-办公室；10-办公室（组）
                     $.cookie('token', response.content.token, { expires: 30, path: '/' });
                     $.cookie('userType', response.content.userType, { expires: 30, path: '/' });
+                    sessionStorage.setItem('userName', response.content.userName);
+                    sessionStorage.setItem('lastLogin', response.content.lastLogin);
                     //登录成功，跳转至首页
                     window.location.href="index.html";
                 }else{
@@ -182,14 +184,14 @@
             }
         });
 
-       
-       
-    
+
+
+
     });
 
-  
-</script> 
-</html> 
-        
-       
+
+</script>
+</html>
+
+
 

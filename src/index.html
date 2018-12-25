@@ -6,7 +6,7 @@
     <!-- <script type="text/javascript" src="https://file.40017.cn/dtgtmc/js/laydate.js"></script> -->
     <!-- <script type="text/javascript" src="/libs/js/laydate/laydate.js"></script> -->
     <link rel="stylesheet" type="text/css" href="//js.40017.cn/cn/min/??/cn/public/jquery/calendar/0.0.3/calendar.css?v=20160216">
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js"></script>
   </head>
   <body style="overflow-y: scroll;">
     <div class="wrapper">
@@ -95,27 +95,33 @@
       </section>
     </div>
   </body>
-      
+
 <script type="text/javascript" src="//js.40017.cn/cn/public/jquery/jquery.min.js?v=?v=20181219001"></script>
 <script type="text/javascript" src="https://js.40017.cn/cn/min/??/cn/public/jquery/calendar/0.0.3/calendar.js?v=?v=20181219001"></script>
 <script>
 
-Date.prototype.Format = function (fmt) { 
+$().ready(function () {
+    $('.m-name.tr').html(sessionStorage.getItem('userName'));
+    $('.m-login-date.tr').html(new Date(Number(sessionStorage.getItem('lastLogin'))).toLocaleDateString());
+})
+
+
+Date.prototype.Format = function (fmt) {
     var o = {
-        "M+": this.getMonth() + 1, //月份 
-        "d+": this.getDate(), //日 
-        "h+": this.getHours(), //小时 
-        "m+": this.getMinutes(), //分 
-        "s+": this.getSeconds(), //秒 
-        "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
-        "S": this.getMilliseconds() //毫秒 
+        "M+": this.getMonth() + 1, //月份
+        "d+": this.getDate(), //日
+        "h+": this.getHours(), //小时
+        "m+": this.getMinutes(), //分
+        "s+": this.getSeconds(), //秒
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+        "S": this.getMilliseconds() //毫秒
     };
     if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
     for (var k in o)
         if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 }
-  
+
 
 Date.prototype.addDays = function (value) {
     this.setDate(this.getDate() + value * 1)

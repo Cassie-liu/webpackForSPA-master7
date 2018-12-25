@@ -21,7 +21,7 @@ function initialize(params,outerParam) {
 			editId:'',
 		},
 		init: function () {
-			
+
 			let href=location.href;
 			var id=this.getQueryString('id');
 			console.log('id1',id)
@@ -40,8 +40,8 @@ function initialize(params,outerParam) {
 					return;
 				}
 			}
-			
-			
+
+
 			if (backSource == "country") {
 				//初始化村站
 				addNoneFn(".sd-module");
@@ -300,7 +300,7 @@ function initialize(params,outerParam) {
 			})
 		},
 
-	
+
 		/****************************************功能室分割线************************************************/
 		//查询功能室的组数据
 		queryFuncGroup: function () {
@@ -508,7 +508,8 @@ function initialize(params,outerParam) {
 				let param = {
 					"name": name,
 					"lon": lon,
-					"lat": lat
+					"lat": lat,
+					"townId": 15
 				}
 				if (!validate(param, false)) return;
 				addNoneFn(".sc-add-popup");
@@ -633,7 +634,7 @@ function initialize(params,outerParam) {
 						);
 					}
 				});
-			
+
 		},
 
 		clickEvents: function () {
@@ -665,7 +666,7 @@ function initialize(params,outerParam) {
 			})
 			that.deleteTableData();
 			that.updateTableData();
-		
+
 		},
 
 		//所站组织架构列表编辑人
@@ -689,7 +690,7 @@ function initialize(params,outerParam) {
 			})
 		},
 
-		
+
 
 		//修改表格数据
 		updateTableData: function () {
@@ -727,7 +728,7 @@ function initialize(params,outerParam) {
 				that.model.editId = $(selectedData).find(".sd-select").attr("data-id");
 			})
 		},
-		
+
 
 		//添加人@todo
 		addpeople: function () {
